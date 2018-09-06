@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/_VirtualSelf/_Scenes/SceneSwitcher/MasterScene.unity
+    guid: 7b7518bd74949b54db03082762e9cf6c
+  - enabled: 1
+    path: Assets/_VirtualSelf/_Scenes/SceneSwitcher/RedScene.unity
+    guid: 8d0ff570d1ca77340be4eed46b6eb714
+  - enabled: 1
+    path: Assets/_VirtualSelf/_Scenes/SceneSwitcher/GreenScene.unity
+    guid: 81e352759c4d8e64a9119c79c8aad89f
+  - enabled: 1
+    path: Assets/_VirtualSelf/_Scenes/SceneSwitcher/BlueScene.unity
+    guid: b671637a78f133141827ea48799fc9e7
   m_configObjects: {}

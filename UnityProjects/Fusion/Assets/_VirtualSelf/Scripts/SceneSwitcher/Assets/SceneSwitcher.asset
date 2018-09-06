@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f416a63fb8f5be4797f44fd71d92bd8, type: 3}
+  m_Name: SceneSwitcher
+  m_EditorClassIdentifier: 
+  PortalPrefab: {fileID: 4259764455171118, guid: fbd225c2d10f89a46a40efe282174b3f,
+    type: 2}
+  renderPlaneMaterialLeft: {fileID: 2100000, guid: b5862dda582633d45bd25da4faf4f336,
+    type: 2}
+  renderPlaneMaterialRight: {fileID: 2100000, guid: d564429ccd14450408b9a2cfb01a89fd,
+    type: 2}
+  PortalCameraPrefab: {fileID: 4735569386126886, guid: 203105f23506dcc42a6c5a6eeef77bbb,
+    type: 2}
+  levelCodes: {fileID: 11400000, guid: d9854b7eb6c82e14cbd8ff6b28644452, type: 2}
+  onPortalTraversed:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onPortalDespawned:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  VRMode: 1
