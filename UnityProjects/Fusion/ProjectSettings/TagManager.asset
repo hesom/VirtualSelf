@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - PortalSpawn
+  - MirrorCube
+  - Floor
   layers:
   - Default
   - TransparentFX
@@ -18,9 +20,9 @@ TagManager:
   - Master
   - RightEye
   - LeftEye
-  - 
-  - 
-  - 
+  - Mirror
+  - NotMirror
+  - VisibleBeforeMirror
   - 
   - 
   - 
