@@ -180,7 +180,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &619466404
 GameObject:
@@ -244,7 +244,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 17975
+    m_Bits: 469780023
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -372,6 +372,11 @@ Prefab:
       propertyPath: rightHandControllers.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114892109605653334, guid: 33edf201cbc6fe645ad9078697cd2aea,
+        type: 2}
+      propertyPath: _interactionControllers._values.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4822923098130148, guid: 33edf201cbc6fe645ad9078697cd2aea, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -437,22 +442,22 @@ Prefab:
     - target: {fileID: 114892109605653334, guid: 33edf201cbc6fe645ad9078697cd2aea,
         type: 2}
       propertyPath: _autoGenerateLayers
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114892109605653334, guid: 33edf201cbc6fe645ad9078697cd2aea,
         type: 2}
       propertyPath: _interactionLayer.layerIndex
-      value: 10
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 114892109605653334, guid: 33edf201cbc6fe645ad9078697cd2aea,
         type: 2}
       propertyPath: _interactionNoContactLayer.layerIndex
-      value: 11
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 114892109605653334, guid: 33edf201cbc6fe645ad9078697cd2aea,
         type: 2}
       propertyPath: _contactBoneLayer.layerIndex
-      value: 12
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 1739234805131538, guid: 33edf201cbc6fe645ad9078697cd2aea, type: 2}
       propertyPath: m_IsActive
@@ -557,7 +562,7 @@ Prefab:
     - target: {fileID: 20862101930491778, guid: dae2e2be31c98324eac460f702db97e9,
         type: 2}
       propertyPath: m_CullingMask.m_Bits
-      value: 18999
+      value: 469781047
       objectReference: {fileID: 0}
     - target: {fileID: 20862101930491778, guid: dae2e2be31c98324eac460f702db97e9,
         type: 2}
