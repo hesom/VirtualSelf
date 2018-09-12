@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Leap;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using UnityEngine.XR;
 
 namespace VirtualSelf
 {
@@ -112,9 +114,6 @@ namespace VirtualSelf
                     portalCameraObjLeft = Instantiate(PortalCameraPrefab, leftCamera.transform);
                     portalCameraObjRight = Instantiate(PortalCameraPrefab, rightCamera.transform);
                     portalCameraRight = portalCameraObjRight.GetComponent<Camera>();
-
-                    
-
                 }
                 portalCameraLeft = portalCameraObjLeft.GetComponent<Camera>();
 
@@ -123,7 +122,8 @@ namespace VirtualSelf
                 {
                     portalCameraLeft.targetTexture.Release();
                 }
-                portalCameraLeft.targetTexture = new RenderTexture(Screen.width, 4*Screen.height, 24);
+
+                portalCameraLeft.targetTexture = new RenderTexture(XRSettings.eyeTextureWidth, XRSettings.eyeTextureHeight, 24);
                 renderPlaneMaterialLeft.mainTexture = portalCameraLeft.targetTexture;
 
                 if (VRMode)
@@ -132,7 +132,7 @@ namespace VirtualSelf
                     {
                         portalCameraRight.targetTexture.Release();
                     }
-                    portalCameraRight.targetTexture = new RenderTexture(Screen.width, 4*Screen.height, 24);
+                    portalCameraRight.targetTexture = new RenderTexture(XRSettings.eyeTextureWidth, XRSettings.eyeTextureHeight, 24);
                     renderPlaneMaterialRight.mainTexture = portalCameraRight.targetTexture;
                     
                     var renderPortalScriptLeft = leftCamera.GetComponent<RenderPortal>();
