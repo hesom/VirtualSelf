@@ -112,6 +112,9 @@ namespace VirtualSelf
                     portalCameraObjLeft = Instantiate(PortalCameraPrefab, leftCamera.transform);
                     portalCameraObjRight = Instantiate(PortalCameraPrefab, rightCamera.transform);
                     portalCameraRight = portalCameraObjRight.GetComponent<Camera>();
+
+                    
+
                 }
                 portalCameraLeft = portalCameraObjLeft.GetComponent<Camera>();
 
@@ -120,7 +123,6 @@ namespace VirtualSelf
                 {
                     portalCameraLeft.targetTexture.Release();
                 }
-                Debug.Log(Screen.width);
                 portalCameraLeft.targetTexture = new RenderTexture(Screen.width, 4*Screen.height, 24);
                 renderPlaneMaterialLeft.mainTexture = portalCameraLeft.targetTexture;
 
@@ -132,6 +134,11 @@ namespace VirtualSelf
                     }
                     portalCameraRight.targetTexture = new RenderTexture(Screen.width, 4*Screen.height, 24);
                     renderPlaneMaterialRight.mainTexture = portalCameraRight.targetTexture;
+                    
+                    var renderPortalScriptLeft = leftCamera.GetComponent<RenderPortal>();
+                    var renderPortalScriptRight = rightCamera.GetComponent<RenderPortal>();
+                    renderPortalScriptLeft.portalCamera = portalCameraLeft.GetComponent<Camera>();
+                    renderPortalScriptRight.portalCamera = portalCameraRight.GetComponent<Camera>();
                 }
 
                 Transform portalObj = Instantiate(PortalPrefab);

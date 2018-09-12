@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_VirtualSelf/_Scenes/SceneSwitcher/MasterScene.unity
+    path: Assets/_VirtualSelf/_Scenes/MasterScene.unity
     guid: 7b7518bd74949b54db03082762e9cf6c
   - enabled: 1
     path: Assets/_VirtualSelf/_Scenes/SceneSwitcher/RedScene.unity
@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_VirtualSelf/_Scenes/SceneSwitcher/BlueScene.unity
     guid: b671637a78f133141827ea48799fc9e7
+  - enabled: 1
+    path: Assets/_VirtualSelf/_Scenes/MirrorScene.unity
+    guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects: {}
