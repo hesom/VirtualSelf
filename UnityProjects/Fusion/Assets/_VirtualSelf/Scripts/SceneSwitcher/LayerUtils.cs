@@ -40,6 +40,11 @@ namespace VirtualSelf
                 ProcessLightRecursive(child.gameObject, layerName);
             }
         }
+        
+        public static void DeactivateLightCullingLayer(Light light, string layerName)
+        {
+            light.cullingMask &= ~(1 << LayerMask.NameToLayer(layerName));
+        }
 
         /// <summary>
         /// Traverses all child objects of root and sets Components of type T to enabled

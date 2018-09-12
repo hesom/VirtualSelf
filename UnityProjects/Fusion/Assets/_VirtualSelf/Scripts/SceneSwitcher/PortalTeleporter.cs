@@ -54,7 +54,11 @@ namespace VirtualSelf
                     if(PortalCameraRight != null)
                         Destroy(PortalCameraRight.gameObject);
                     sceneSwitcher.NotifyPortalDespawn();
-
+                    foreach (var light in FindObjectsOfType<Light>())
+                    {
+                        light.cullingMask = -1;
+                        LayerUtils.DeactivateLightCullingLayer(light, "Behind Portal");
+                    }
                 }
                 playerIsOverlapping = false;
             }

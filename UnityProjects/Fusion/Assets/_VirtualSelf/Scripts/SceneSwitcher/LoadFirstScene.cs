@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using VirtualSelf;
 
 public class LoadFirstScene : MonoBehaviour
 {
@@ -28,6 +29,11 @@ public class LoadFirstScene : MonoBehaviour
         else
         {
             SceneManager.SetActiveScene(SceneManager.GetSceneByName(startScene));
+
+	        foreach (var light in FindObjectsOfType<Light>())
+	        {
+		        LayerUtils.DeactivateLightCullingLayer(light, "Behind Portal");
+	        }
         }
     }
 
