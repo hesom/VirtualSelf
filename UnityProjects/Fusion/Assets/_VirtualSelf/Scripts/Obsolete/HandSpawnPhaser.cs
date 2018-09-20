@@ -39,7 +39,7 @@ public class HandSpawnPhaser : HandTransitionBehavior
         if (debugPrint) Debug.Log("Hand reset "+capsuleHand.Handedness);
         _material.SetValue(capsuleHand, transparentMaterial);
         interactionHand.contactEnabled = false;
-        Invoke("RestoreHand", phaseDuration);
+        Invoke(nameof(RestoreHand), phaseDuration);
     }
 
     private void RestoreHand() {

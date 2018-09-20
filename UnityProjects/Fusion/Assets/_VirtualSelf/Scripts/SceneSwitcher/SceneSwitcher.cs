@@ -8,6 +8,9 @@ using UnityEngine.XR;
 
 namespace VirtualSelf
 {
+//    [System.Serializable]
+//    public class UnityEventDynamic : UnityEvent<Scene>{}
+    
     [CreateAssetMenu]
     public class SceneSwitcher : ScriptableObject
     {
@@ -19,6 +22,7 @@ namespace VirtualSelf
         public LevelCodes levelCodes;
 
         public UnityEvent onPortalTraversed;
+//        public UnityEventDynamic onPortalTraversed2;
         public UnityEvent onPortalDespawned;
 
         private GameObject renderPlaneLeft;
@@ -235,6 +239,7 @@ namespace VirtualSelf
         public void NotifyPortalTraversed()
         {
             onPortalTraversed.Invoke();
+//            onPortalTraversed2.Invoke(SceneManager.GetActiveScene());
         }
 
         public void SetLeftCamera(Camera camera)
