@@ -7,6 +7,10 @@ TagManager:
   - PortalSpawn
   - MirrorCube
   - Floor
+  - Flame
+  - Projectile
+  - Enemy
+  - Placeholder
   layers:
   - Default
   - TransparentFX
@@ -23,7 +27,7 @@ TagManager:
   - Mirror
   - NotMirror
   - VisibleBeforeMirror
-  - 
+  - Enemy
   - 
   - 
   - 

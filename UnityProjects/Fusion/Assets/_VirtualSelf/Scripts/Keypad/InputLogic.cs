@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -63,7 +64,7 @@ public class InputLogic : MonoBehaviour
         return new string(currentSequence);
     }
 
-    //[EnumAction(typeof(Key))]
+    [EnumAction(typeof(Key))]
     public void PressKeyWorkaround(int arg)
     {
         PressKey((Key) arg);
@@ -123,50 +124,14 @@ public class InputLogic : MonoBehaviour
         switch (c)
         {
             case '0':
-                for (int i=1;i<=currentSlot;i++) segments[i].SetCharacter(currentSequence[currentSlot-i]);
-                    segments[0].SetCharacter(c);
-                    currentSequence[currentSlot] = c;
-                    break;
             case '1':
-                for (int i=1;i<=currentSlot;i++) segments[i].SetCharacter(currentSequence[currentSlot-i]);
-                    segments[0].SetCharacter(c);
-                    currentSequence[currentSlot] = c;
-                    break;
             case '2':
-                for (int i=1;i<=currentSlot;i++) segments[i].SetCharacter(currentSequence[currentSlot-i]);
-                    segments[0].SetCharacter(c);
-                    currentSequence[currentSlot] = c;
-                    break;
             case '3':
-                for (int i=1;i<=currentSlot;i++) segments[i].SetCharacter(currentSequence[currentSlot-i]);
-                    segments[0].SetCharacter(c);
-                    currentSequence[currentSlot] = c;
-                    break;
             case '4':
-                for (int i=1;i<=currentSlot;i++) segments[i].SetCharacter(currentSequence[currentSlot-i]);
-                    segments[0].SetCharacter(c);
-                    currentSequence[currentSlot] = c;
-                    break;
             case '5':
-                for (int i=1;i<=currentSlot;i++) segments[i].SetCharacter(currentSequence[currentSlot-i]);
-                    segments[0].SetCharacter(c);
-                    currentSequence[currentSlot] = c;
-                    break;
             case '6':
-                for (int i=1;i<=currentSlot;i++) segments[i].SetCharacter(currentSequence[currentSlot-i]);
-                    segments[0].SetCharacter(c);
-                    currentSequence[currentSlot] = c;
-                    break;
             case '7':
-                for (int i=1;i<=currentSlot;i++) segments[i].SetCharacter(currentSequence[currentSlot-i]);
-                    segments[0].SetCharacter(c);
-                    currentSequence[currentSlot] = c;
-                    break;
             case '8':
-                for (int i=1;i<=currentSlot;i++) segments[i].SetCharacter(currentSequence[currentSlot-i]);
-                    segments[0].SetCharacter(c);
-                    currentSequence[currentSlot] = c;
-                break;
             case '9':
                 for (int i=1;i<=currentSlot;i++) segments[i].SetCharacter(currentSequence[currentSlot-i]);
                 segments[0].SetCharacter(c);

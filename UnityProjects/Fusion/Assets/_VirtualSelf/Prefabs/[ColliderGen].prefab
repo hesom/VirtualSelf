@@ -1,0 +1,236 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1282067855416622}
+  m_IsPrefabAsset: 1
+--- !u!1 &1282067855416622
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4604441050004718}
+  - component: {fileID: 114241644855665418}
+  - component: {fileID: 114159274807714826}
+  - component: {fileID: 114899892556596318}
+  - component: {fileID: 114021902696478648}
+  - component: {fileID: 114120311852299588}
+  - component: {fileID: 114876326591030818}
+  - component: {fileID: 114209106552296048}
+  m_Layer: 0
+  m_Name: '[ColliderGen]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4604441050004718
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1282067855416622}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114021902696478648
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1282067855416622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072b52b6f12582045addfed778893e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: torso
+  Objects:
+  - {fileID: 0}
+  - {fileID: 0}
+  Advanced:
+    Orientation: 1
+    LoadEarly: 0
+    CreateEndpoints: 0
+    Small: 0
+    LerpFraction: 0.5
+    Primitive: 1
+    Flatness: 1
+    LookUp: 0
+    Material: {fileID: 0}
+    RenderAlways: 1
+--- !u!114 &114120311852299588
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1282067855416622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072b52b6f12582045addfed778893e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: shoulders
+  Objects:
+  - {fileID: 0}
+  - {fileID: 0}
+  Advanced:
+    Orientation: 0
+    LoadEarly: 1
+    CreateEndpoints: 1
+    Small: 1
+    LerpFraction: 0.65
+    Primitive: 1
+    Flatness: 1
+    LookUp: 0
+    Material: {fileID: 0}
+    RenderAlways: 1
+--- !u!114 &114159274807714826
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1282067855416622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072b52b6f12582045addfed778893e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: left leg
+  Objects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Advanced:
+    Orientation: 1
+    LoadEarly: 0
+    CreateEndpoints: 0
+    Small: 0
+    LerpFraction: 0.5
+    Primitive: 1
+    Flatness: 1
+    LookUp: 0
+    Material: {fileID: 0}
+    RenderAlways: 1
+--- !u!114 &114209106552296048
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1282067855416622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072b52b6f12582045addfed778893e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: left arm
+  Objects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Advanced:
+    Orientation: 1
+    LoadEarly: 0
+    CreateEndpoints: 0
+    Small: 0
+    LerpFraction: 0.5
+    Primitive: 1
+    Flatness: 1
+    LookUp: 0
+    Material: {fileID: 0}
+    RenderAlways: 1
+--- !u!114 &114241644855665418
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1282067855416622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072b52b6f12582045addfed778893e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: right leg
+  Objects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Advanced:
+    Orientation: 1
+    LoadEarly: 0
+    CreateEndpoints: 0
+    Small: 0
+    LerpFraction: 0.5
+    Primitive: 1
+    Flatness: 1
+    LookUp: 0
+    Material: {fileID: 0}
+    RenderAlways: 1
+--- !u!114 &114876326591030818
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1282067855416622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072b52b6f12582045addfed778893e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: right arm
+  Objects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Advanced:
+    Orientation: 1
+    LoadEarly: 0
+    CreateEndpoints: 0
+    Small: 0
+    LerpFraction: 0.5
+    Primitive: 1
+    Flatness: 1
+    LookUp: 0
+    Material: {fileID: 0}
+    RenderAlways: 1
+--- !u!114 &114899892556596318
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1282067855416622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072b52b6f12582045addfed778893e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: hip
+  Objects:
+  - {fileID: 0}
+  - {fileID: 0}
+  Advanced:
+    Orientation: 0
+    LoadEarly: 0
+    CreateEndpoints: 0
+    Small: 1
+    LerpFraction: -0.1
+    Primitive: 0
+    Flatness: 1
+    LookUp: 0
+    Material: {fileID: 0}
+    RenderAlways: 1

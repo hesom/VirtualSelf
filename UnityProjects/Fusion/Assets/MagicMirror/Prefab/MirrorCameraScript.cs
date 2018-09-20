@@ -7,7 +7,6 @@ public class MirrorCameraScript : MonoBehaviour
 {
     public GameObject MirrorObject;
 	public bool VRMode;
-    public int antiAliasingLevel = 1;
 
     private Renderer mirrorRenderer;
     private Material mirrorMaterial;
@@ -57,7 +56,7 @@ public class MirrorCameraScript : MonoBehaviour
             }
             reflectionTexture = new RenderTexture(mirrorScript.TextureSize, mirrorScript.TextureSize, 16);
             reflectionTexture.filterMode = FilterMode.Bilinear;
-            reflectionTexture.antiAliasing = antiAliasingLevel;
+            reflectionTexture.antiAliasing = 1;
             reflectionTexture.name = "MirrorRenderTexture_" + GetInstanceID();
             reflectionTexture.hideFlags = HideFlags.HideAndDontSave;
             reflectionTexture.autoGenerateMips = false;

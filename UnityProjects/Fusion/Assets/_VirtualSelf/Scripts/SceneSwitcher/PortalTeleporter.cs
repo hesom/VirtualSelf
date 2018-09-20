@@ -48,7 +48,9 @@ namespace VirtualSelf
                     sceneSwitcher.NotifyPortalTraversed();
 
                     Scene activeScene = SceneManager.GetActiveScene();
+#pragma warning disable 618
                     SceneManager.UnloadScene(activeScene);
+#pragma warning restore 618
                     SceneManager.SetActiveScene(scene);
                     Destroy(PortalCameraLeft.gameObject);
                     if(PortalCameraRight != null)
