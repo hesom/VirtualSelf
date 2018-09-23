@@ -2564,6 +2564,7 @@ GameObject:
   - component: {fileID: 366134145}
   - component: {fileID: 366134143}
   - component: {fileID: 366134144}
+  - component: {fileID: 366134146}
   m_Layer: 0
   m_Name: LeftCapsuleProxy
   m_TagString: Untagged
@@ -2619,6 +2620,28 @@ Transform:
   m_Father: {fileID: 584667166}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &366134146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 366134142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70cd40fdc2371ae488800d36550324ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HandModel: {fileID: 0}
+  OnFinish:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnReset:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1001 &377928789
 Prefab:
   m_ObjectHideFlags: 0
@@ -7972,6 +7995,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1004834360}
   - component: {fileID: 1004834362}
+  - component: {fileID: 1004834361}
   m_Layer: 0
   m_Name: ProxyTestGesture
   m_TagString: Untagged
@@ -7992,6 +8016,28 @@ Transform:
   m_Father: {fileID: 584667166}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1004834361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1004834359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70cd40fdc2371ae488800d36550324ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HandModel: {fileID: 366134143}
+  OnFinish:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnReset:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1004834362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15410,7 +15456,7 @@ GameObject:
   - component: {fileID: 1861455841}
   - component: {fileID: 1861455839}
   m_Layer: 0
-  m_Name: ProxyTestGesture (1)
+  m_Name: InjectionTestGesture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15481,7 +15527,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1861455837}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b612ae0ab6e49104aa64fdf0dd0a56ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 70cd40fdc2371ae488800d36550324ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   HandModel: {fileID: 0}

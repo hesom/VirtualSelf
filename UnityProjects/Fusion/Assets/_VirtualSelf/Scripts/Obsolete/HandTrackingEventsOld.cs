@@ -7,7 +7,7 @@ using UnityEngine.Events;
 namespace VirtualSelf
 {
 
-public class HandTrackingEvents : MonoBehaviour
+public class HandTrackingEventsOld : HandTransitionBehavior
 {
 	[Tooltip("This can be null if this script is on a HandModel")]
 	public HandModelBase HandModel;
@@ -16,7 +16,6 @@ public class HandTrackingEvents : MonoBehaviour
 
 	void Start()
 	{
-		if (HandModel == null) HandModel = GetComponent<HandModelBase>();
 		if (HandModel != null)
 		{
 			HandModel.OnBegin += HandReset;
@@ -24,18 +23,19 @@ public class HandTrackingEvents : MonoBehaviour
 		}
 	}
 
-	void HandReset()
+	protected override void HandReset()
 	{
 		OnReset.Invoke();
 	}
 
-	void HandFinish()
+	protected override void HandFinish()
 	{
 		OnFinish.Invoke();
 	}
 
-	void OnDestroy()
+	protected override void OnDestroy()
 	{
+		base.OnDestroy();
 		if (HandModel != null)
 		{
 			HandModel.OnBegin -= HandReset;
