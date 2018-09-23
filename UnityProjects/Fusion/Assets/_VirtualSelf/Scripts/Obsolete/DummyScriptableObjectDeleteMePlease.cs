@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [CreateAssetMenu]
-public class NewBehaviourScript : ScriptableObject {
+public class DummyScriptableObjectDeleteMePlease : ScriptableObject {
 
     // list [ enum left/right, monobehavior script, string field, enum replaceOnPortalTraverse/replaceOnSceneLoad ]
 
