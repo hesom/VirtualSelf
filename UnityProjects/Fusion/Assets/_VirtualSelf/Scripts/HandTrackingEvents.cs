@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Leap.Unity;
 using UnityEngine;
@@ -21,6 +22,10 @@ public class HandTrackingEvents : MonoBehaviour
 		{
 			HandModel.OnBegin += HandReset;
 			HandModel.OnFinish += HandFinish;
+		}
+		else
+		{
+			throw new InvalidOperationException("hand not found");
 		}
 	}
 

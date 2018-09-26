@@ -19,7 +19,10 @@ public class HandProxy : HandModelBase
 
     void Awake()
     {
-        HandModelBase[] handmodels = FindObjectsOfType<HandModelBase>();
+//        GameObject[] allGameObjects = Resources.FindObjectsOfTypeAll<GameObject>();
+//        foreach (GameObject)
+        HandModelBase[] handmodels = Resources.FindObjectsOfTypeAll<HandModelBase>();
+//        HandModelBase[] handmodels = FindObjectsOfType<HandModelBase>();
         foreach (var h in handmodels)
         {
             if (IsCompatible(h))
@@ -42,7 +45,7 @@ public class HandProxy : HandModelBase
 
         return false;
     }
-
+    
     public override Chirality Handedness
     {
         get { return _source.Handedness; }
