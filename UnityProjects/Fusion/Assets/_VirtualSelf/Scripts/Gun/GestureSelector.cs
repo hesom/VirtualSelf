@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Leap.Unity;
 using UnityEngine;
 using VirtualSelf;
 
@@ -12,6 +13,9 @@ public class GestureSelector : MonoBehaviour {
         public GameObject Scope;
         public GameObject BulletSpawn;
     }
+
+    private HandModelBase LeftHand;
+    private HandModelBase RightHand;
 
     public GestureObjects[] GestureObjectsArr;
     /**public int SelectedIndex
@@ -58,14 +62,21 @@ public class GestureSelector : MonoBehaviour {
 		ActivateGesture(SelectedIndex);
 	    _postStart = true;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    public void UnloadUnscopeAll()
+    {
+        foreach (GestureObjects g in GestureObjectsArr)
+        {
+            GunGesture gg = g.PlayerGestures.GetComponent<GunGesture>();
+            if (gg == null) g.PlayerGestures.GetComponent<GunGesturePinch>().UnloadUnscope();
+            else gg.UnloadUnscope();
+        }
+    }
 
     void OnValidate()
     {
+        if (!isActiveAndEnabled) return;
+        
         ActivateGesture(SelectedIndex);
     }
 }
