@@ -1,0 +1,3 @@
+The asset is taken from Valve's SteamVR files themselves.
+
+File Path: "[SteamApps Folder]/SteamVR/resources/rendermodels/lh_basestation_vive/"

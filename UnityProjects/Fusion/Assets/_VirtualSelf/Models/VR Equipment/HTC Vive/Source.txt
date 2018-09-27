@@ -1,0 +1,4 @@
+https://poly.google.com/view/6ZPbRl78eRZ
+
+Has been opened in Autodesk Maya (2018) first, and then exported as FBX.
+Directly importing into Unity does not work, because the materials will not work correctly. (The .obj file is also WAY bigger.)
