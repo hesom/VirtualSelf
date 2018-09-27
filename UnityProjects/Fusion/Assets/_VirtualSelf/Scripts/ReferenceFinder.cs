@@ -14,13 +14,25 @@ public class ReferenceFinder : MonoBehaviour {
 		public MonoBehaviour Script; // PinchDetector
 		public string FieldName; // public HandModelBase HandModel;
 		public string SourceObject; // CapsuleHand_L
-		[NonSerialized] public MemberInfo _setter;
+		
+		private MemberInfo _setter;
+		private Type _fieldType;
+
+		public Type FieldType => _fieldType;
 
 		public void SetValue(object o)
 		{
 			if (_setter is FieldInfo) ((FieldInfo)_setter).SetValue(Script, o);
 			else if (_setter is PropertyInfo) ((PropertyInfo)_setter).SetValue(Script, o);
 			else Debug.LogError("field or property "+FieldName+" was not found");
+		}
+
+		public void AttachSetter()
+		{
+			_setter = VirtualSelfUtil.GetFieldOrProperty(Script.GetType(), FieldName);
+			_fieldType = _setter is FieldInfo
+				? (_setter as FieldInfo).FieldType
+				: (_setter as PropertyInfo).PropertyType;
 		}
 	}
 
@@ -33,13 +45,14 @@ public class ReferenceFinder : MonoBehaviour {
 		foreach (Reference r in References)
 		{
 			r.FieldName = r.FieldName.Replace(" ", "");
-			Type scriptType = r.Script.GetType(); // PinchDetector
+//			Type scriptType = r.Script.GetType(); // PinchDetector
 			
-			MemberInfo scriptSetter = VirtualSelfUtil.GetFieldOrProperty(scriptType, r.FieldName);
-			r._setter = scriptSetter;
-			Type componentType = scriptSetter is FieldInfo
-				? (scriptSetter as FieldInfo).FieldType
-				: (scriptSetter as PropertyInfo).PropertyType;
+//			MemberInfo scriptSetter = VirtualSelfUtil.GetFieldOrProperty(scriptType, r.FieldName);
+//			r._setter = scriptSetter;
+//			Type componentType = scriptSetter is FieldInfo
+//				? (scriptSetter as FieldInfo).FieldType
+//				: (scriptSetter as PropertyInfo).PropertyType;
+			r.AttachSetter();
 
 			Component c = null;
 			foreach (GameObject o in allGameObjects)
@@ -51,10 +64,10 @@ public class ReferenceFinder : MonoBehaviour {
 					foreach (MonoBehaviour m in o.GetComponents<MonoBehaviour>())
 					{
 //						if (m.GetType().IsAssignableFrom(getComponentType))
-						if (componentType.IsInstanceOfType(m))
+						if (r.FieldType.IsInstanceOfType(m))
 						{
 							c = m;
-							RegisterWithModelSwitcher(m.gameObject);
+							TryRegisterWithModelSwitcher(m.gameObject, r);
 							goto FoundRef;
 						} 
 					}
@@ -63,7 +76,7 @@ public class ReferenceFinder : MonoBehaviour {
 			FoundRef:
 			
 			if (c == null) throw new EntryPointNotFoundException("did not find any GameObject named " + r.SourceObject +
-				                                      " with component " + componentType + " (which is what field " +
+				                                      " with component " + r.FieldType + " (which is what field " +
 				                                      r.FieldName + " requires)");
 
 			// set the field or property on the found script
@@ -71,10 +84,11 @@ public class ReferenceFinder : MonoBehaviour {
 		}
 	}
 
-	private void RegisterWithModelSwitcher(GameObject o)
+	private void TryRegisterWithModelSwitcher(GameObject o, Reference r)
 	{
+		// this only does something if the parent object has a modelswitcher, so this applies to only hand model fields
 		Transform parent = o.transform.parent;
-		if (parent != null) parent.GetComponent<ModelSwitcher>()?.RegisterHandReference(this);
+		if (parent != null) parent.GetComponent<ModelSwitcher>()?.RegisterHandReference(r);
 	}
 }
 	

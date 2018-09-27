@@ -23,7 +23,7 @@ public class ModelSwitcher : MonoBehaviour
 	public int ActiveGroup;
 	
 	private HandModelManager _man;
-	private HashSet<ReferenceFinder> _refFinders = new HashSet<ReferenceFinder>();
+	private HashSet<ReferenceFinder.Reference> _refFinders = new HashSet<ReferenceFinder.Reference>();
 	private bool _postStart;
 
 	void OnValidate()
@@ -65,12 +65,9 @@ public class ModelSwitcher : MonoBehaviour
 		// hard: for all scripts in all scenes, change the old left/right references to the new ones (e.g. in detectors)
 		// convention: every ReferenceFinder in the scene registers itself with this class
 		// now we can loop through all finders, which all have their script and field specified, and we replace those with the currently active hand
-		foreach (ReferenceFinder rf in _refFinders)
+		foreach (ReferenceFinder.Reference reff in _refFinders)
 		{
-			foreach (ReferenceFinder.Reference reff in rf.References)
-			{
-				reff.SetValue(IsRight(reff.SourceObject) ? newRight : newLeft);
-			}
+			reff.SetValue(IsRight(reff.SourceObject) ? newRight : newLeft);
 		}
 		
 		// we could also loop through every field and property of every script in all scenes, but this sounds like a bad idea 
@@ -87,9 +84,9 @@ public class ModelSwitcher : MonoBehaviour
 		return true;
 	}
 
-	public void RegisterHandReference(ReferenceFinder finder)
+	public void RegisterHandReference(ReferenceFinder.Reference reff)
 	{
-		_refFinders.Add(finder);
+		_refFinders.Add(reff);
 	}
 }
 
