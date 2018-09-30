@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: LevelCodes
   m_EditorClassIdentifier: 
   levels:
-  - code: 1111
+  - code: 0000
     level: RedScene
   - code: 2222
     level: MirrorScene
