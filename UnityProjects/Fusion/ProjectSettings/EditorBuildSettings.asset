@@ -20,4 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_VirtualSelf/_Scenes/MirrorScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/_VirtualSelf/_Scenes/BallCatcherScene.unity
+    guid: f669bd9f48515e747ab2ad205c8501b3
+  - enabled: 1
+    path: Assets/_VirtualSelf/_Scenes/Shooting Range.unity
+    guid: 145a9e6ca117faf4c944d9dc59930e24
+  - enabled: 1
+    path: Assets/_VirtualSelf/_Scenes/SnekScene.unity
+    guid: 1000c8cdae29ac444b439967ae64cf04
   m_configObjects: {}
