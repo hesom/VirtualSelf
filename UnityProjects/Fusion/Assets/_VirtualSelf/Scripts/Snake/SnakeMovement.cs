@@ -27,17 +27,19 @@ public class SnakeMovement : MonoBehaviour {
 
 	public bool useLeap = true;
 	public Transform palmPosition;
-    public Transform hmdPosition;
+    public bool useMainCameraAsAnchor;
+    public Transform anchorPoint;
 
 	public Transform orbPrefab;
 
 	private bool indexExtended = false;
+    private Transform mainCamera;
 
 	// Use this for initialization
 	void Start () {
 		startPos = transform.position;
 		startRot = transform.rotation;
-
+        mainCamera = Camera.main.transform;
 
 		var spawnLocations = GameObject.FindGameObjectsWithTag("OrbSpawn");
 		foreach(var spawn in spawnLocations){
@@ -67,7 +69,11 @@ public class SnakeMovement : MonoBehaviour {
 
 	void IndexRotationSnake()
 	{
-        Vector3 shoulderAnchor = hmdPosition.position - 0.1f * Vector3.down + 0.2f*Vector3.right;
+        if (useMainCameraAsAnchor)
+        {
+            anchorPoint = mainCamera;
+        }
+        Vector3 shoulderAnchor = anchorPoint.position - 0.1f * Vector3.down + 0.2f*Vector3.right;
 		Ray ray = new Ray(shoulderAnchor, palmPosition.position - shoulderAnchor);
 		CastRay(ray);
 	}
