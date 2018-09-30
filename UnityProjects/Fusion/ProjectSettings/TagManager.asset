@@ -11,6 +11,10 @@ TagManager:
   - Projectile
   - Enemy
   - Placeholder
+  - OrbSpawn
+  - Orb
+  - SawBlade
+  - SnakeBody
   layers:
   - Default
   - TransparentFX
@@ -28,8 +32,8 @@ TagManager:
   - NotMirror
   - VisibleBeforeMirror
   - Enemy
-  - 
-  - 
+  - Postprocessing
+  - BackGround
   - 
   - 
   - 
