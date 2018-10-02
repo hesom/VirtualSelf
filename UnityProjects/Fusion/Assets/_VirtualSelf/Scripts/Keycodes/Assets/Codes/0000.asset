@@ -17,3 +17,4 @@ MonoBehaviour:
   digitFour: 0
   renameAutomatically: 1
   codeString: 0000
+  IsDiscovered: 1
