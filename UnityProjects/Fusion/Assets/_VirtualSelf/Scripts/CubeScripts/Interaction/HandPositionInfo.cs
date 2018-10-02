@@ -1,4 +1,5 @@
-﻿using Leap.Unity;
+﻿using System.Collections;
+using Leap.Unity;
 using Leap.Unity.Attachments;
 using Leap.Unity.Interaction;
 using UnityEngine;
@@ -113,8 +114,9 @@ namespace VirtualSelf.CubeScripts.Interaction
         }
 
         /// <summary>Signal that a grasp has stopped.</summary>
-        public void GraspStop()
+        public IEnumerator GraspStop()
         {
+            yield return new WaitForSeconds(0.25f);
             leftHandIsGrasped = false;
             rightHandIsGrasped = false;
             leftInteraction.graspingEnabled = true;

@@ -96,9 +96,9 @@ namespace VirtualSelf.CubeScripts.Interaction {
                 SwitchActiveHand();
         }
 
-        public void GraspEnd()
+        public void GraspEnd() 
         {
-            handPosInfo.GraspStop();
+            graspingCube.StartCoroutine(handPosInfo.GraspStop());
         }
     }
 }
