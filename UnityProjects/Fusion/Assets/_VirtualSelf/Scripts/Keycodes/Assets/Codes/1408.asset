@@ -16,5 +16,5 @@ MonoBehaviour:
   digitTwo: 4
   digitThree: 0
   digitFour: 8
-  renameAutomatically: 1
+  renameAutomatically: 0
   codeString: 1408
