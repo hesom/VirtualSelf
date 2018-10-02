@@ -55,6 +55,29 @@ public static class GameObjectsUtils {
 
         return (objects);
     }
+    
+    // TODO: @Manuel: Comment this?
+    public static string GetGameObjectPath(GameObject obj)
+    {
+        string path = "/" + obj.name;
+        while (obj.transform.parent != null)
+        {
+            obj = obj.transform.parent.gameObject;
+            path = "/" + obj.name + path;
+        }
+        return path;
+    }
+    
+    /// <summary>
+    /// Finds only GameObjects and Components, but no prefabs. Other Unity Object types are omitted by choice here.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
+    public static T[] FindObjectsOfTypeButNoPrefabs<T>() where T: Object 
+    {
+        T[] allGameObjects = Resources.FindObjectsOfTypeAll<T>();
+        return allGameObjects.Where(x => x is GameObject ? (x as GameObject).scene.name != null : (x as Component)?.gameObject.scene.name != null).ToArray();
+    }
 }
 
 }

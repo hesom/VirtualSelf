@@ -551,6 +551,18 @@ public static class ReflectionUtils {
 
         return (Optional<Type>.Empty());
     }
+    
+    // TODO: @Manuel: Comment this?
+    public static MemberInfo GetFieldOrProperty(Type t, string name)
+    {
+        BindingFlags flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.IgnoreCase;
+        FieldInfo f = t.GetField(name, flags);
+        if (f != null) return f;
+        PropertyInfo p = t.GetProperty(name, flags);
+        if (p != null) return p;
+
+        throw new EntryPointNotFoundException("no field or property "+name+" in "+t);
+    }
 }
 
 }
