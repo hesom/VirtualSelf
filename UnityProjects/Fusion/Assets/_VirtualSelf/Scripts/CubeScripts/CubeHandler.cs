@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Leap.Unity;
 using Leap.Unity.Attachments;
 using Leap.Unity.Interaction;
@@ -18,8 +19,6 @@ namespace VirtualSelf.CubeScripts
 
         public AttachmentHand LeftHand;
         public AttachmentHand RightHand;
-        public InteractionHand LeftInteraction;
-        public InteractionHand RightInteraction;
         public ScrambleConfig InitialScramble;
         public GameObject GhostCube;
 
@@ -28,10 +27,14 @@ namespace VirtualSelf.CubeScripts
         private HandManager handManager;
         private WinCondition winCondition;
         private InteractionBehaviour graspingCube;
+        
+        public InteractionHand LeftInteraction;
+        public InteractionHand RightInteraction;
 
         private void Awake()
         {
             graspingCube = transform.parent.GetComponent<InteractionBehaviour>();
+            FindInteractionHands();
             CheckAllPreconditions();
             var cube = new Cube2X2(gameObject);
             var ghostCube = new Cube2X2(GhostCube);
@@ -67,6 +70,24 @@ namespace VirtualSelf.CubeScripts
             handManager.Update();
 
             winCondition.CheckWhiteSideSolved();
+        }
+
+        private void FindInteractionHands() {
+            GameObject[] objects = UnityEngine.SceneManagement.SceneManager
+                .GetActiveScene()
+                .GetRootGameObjects();
+            GameObject interactionManager = objects.First(
+                o => o.GetComponent<InteractionManager>() != null);
+            if (interactionManager == null)
+                throw new UnityException("No InteractionManager is found");
+            
+            var hands = interactionManager.GetComponentsInChildren<InteractionHand>();
+            if (hands.Length < 0 || hands.Length > 2)
+                throw new UnityException(
+                    "No InteractionHands found in children of InteractionManager");
+
+            LeftInteraction = hands[0].isLeft ? hands[0] : hands[1];
+            RightInteraction = hands[0].isLeft ? hands[1] : hands[0];
         }
 
         private void CheckAllPreconditions()
