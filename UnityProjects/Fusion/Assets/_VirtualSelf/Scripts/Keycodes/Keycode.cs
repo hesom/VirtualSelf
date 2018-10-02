@@ -32,6 +32,14 @@ public sealed class Keycode : ScriptableObject {
     /// </summary>
     public static readonly string[] PossibleDigits = 
             { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+    
+    /// <summary>
+    /// Whether this keycode has been discovered by the player yet, or not. This means nothing to
+    /// this class, but is important for other parts of the game.<br/>
+    /// This can be set in the Inspector for testing purposes, but is ultimately supposed to be set
+    /// by code.
+    /// </summary>
+    public bool IsDiscovered;
 
     /// <summary>
     /// The first digit of the keycode. Together with the other three, this is stored in
@@ -76,14 +84,6 @@ public sealed class Keycode : ScriptableObject {
     /// </summary>
     [SerializeField]
     private string codeString;
-
-    /// <summary>
-    /// Whether this keycode has been discovered by the player yet, or not. This means nothing to
-    /// this class, but is important for other parts of the game.<br/>
-    /// This can be set in the Inspector for testing purposes, but is ultimately supposed to be set
-    /// by code.
-    /// </summary>
-    public bool IsDiscovered;
 
 
     /* ---------- Methods ---------- */

@@ -163,22 +163,6 @@ public sealed class KeycodeEditor : UnityEditor.Editor {
         
         serializedObject.ApplyModifiedProperties();
     }
-
-
-    /* ---------- Overrides ---------- */
-
-    
-
-
-
-
-    /* ---------- Inner Classes ---------- */
-
-
-
-
-
-
 }
 
 }

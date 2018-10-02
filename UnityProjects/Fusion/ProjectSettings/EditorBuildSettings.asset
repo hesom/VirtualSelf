@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_VirtualSelf/_Scenes/SnekScene.unity
     guid: 1000c8cdae29ac444b439967ae64cf04
+  - enabled: 1
+    path: Assets/_VirtualSelf/_Scenes/TutorialScene.unity
+    guid: 54960d75e8f2b954d90379f6ae832058
   m_configObjects: {}
