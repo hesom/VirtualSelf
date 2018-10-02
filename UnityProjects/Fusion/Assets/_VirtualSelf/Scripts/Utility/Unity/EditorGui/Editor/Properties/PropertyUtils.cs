@@ -367,7 +367,7 @@ public static class PropertyUtils {
             /* If the nested property object is just a normal field, we should be done at this
              * point - it was the last field we retrieved via the property path. */
             
-            resultObject = partObject;
+            resultObject = partObject.Get();
         }
 
         return (resultObject);
