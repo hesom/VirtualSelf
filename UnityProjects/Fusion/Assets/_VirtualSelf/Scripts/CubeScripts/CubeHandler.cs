@@ -4,6 +4,7 @@ using Leap.Unity;
 using Leap.Unity.Attachments;
 using Leap.Unity.Interaction;
 using UnityEngine;
+using UnityEngine.Events;
 using VirtualSelf.CubeScripts.Interaction;
 
 namespace VirtualSelf.CubeScripts
@@ -31,10 +32,12 @@ namespace VirtualSelf.CubeScripts
         public InteractionHand LeftInteraction;
         public InteractionHand RightInteraction;
 
+        public UnityEvent OnWin;
+
         private void Awake()
         {
             graspingCube = transform.parent.GetComponent<InteractionBehaviour>();
-            FindInteractionHands();
+            //FindInteractionHands();
             CheckAllPreconditions();
             var cube = new Cube2X2(gameObject);
             var ghostCube = new Cube2X2(GhostCube);

@@ -1315,6 +1315,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1546650928}
     m_Modifications:
+    - target: {fileID: 114260071749041596, guid: a9039a365c334744e9e2b6a8aed9d278,
+        type: 2}
+      propertyPath: OnWin.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4765542400421860, guid: a9039a365c334744e9e2b6a8aed9d278, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1448,6 +1453,16 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9c4d75b790ad05846991224867c89459, type: 2}
+    - target: {fileID: 114260071749041596, guid: a9039a365c334744e9e2b6a8aed9d278,
+        type: 2}
+      propertyPath: OnWin.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114260071749041596, guid: a9039a365c334744e9e2b6a8aed9d278,
+        type: 2}
+      propertyPath: OnWin.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9039a365c334744e9e2b6a8aed9d278, type: 2}
   m_IsPrefabAsset: 0
@@ -2105,6 +2120,35 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1495421844}
   m_CullTransparentMesh: 0
+--- !u!1 &1502997645 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1497728892764648, guid: a9039a365c334744e9e2b6a8aed9d278,
+    type: 2}
+  m_PrefabInternal: {fileID: 1156149665}
+--- !u!114 &1502997646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1502997645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e1037f97c8c2c4da273efe9f755cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  References:
+  - Script: {fileID: 1502997647}
+    FieldName: LeftInteraction
+    SourceObject: Interaction Hand (Left)
+  - Script: {fileID: 1502997647}
+    FieldName: RightInteraction
+    SourceObject: Interaction Hand (Right)
+--- !u!114 &1502997647 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114260071749041596, guid: a9039a365c334744e9e2b6a8aed9d278,
+    type: 2}
+  m_PrefabInternal: {fileID: 1156149665}
+  m_Script: {fileID: 11500000, guid: 3d8179ed62a0c9f4885d9f94f641f9bf, type: 3}
 --- !u!1 &1546650924
 GameObject:
   m_ObjectHideFlags: 0
