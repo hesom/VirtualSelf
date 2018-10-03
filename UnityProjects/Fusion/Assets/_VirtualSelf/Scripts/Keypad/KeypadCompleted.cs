@@ -6,6 +6,7 @@ using Leap.Unity.Interaction;
 
 public class KeypadCompleted : MonoBehaviour {
 
+    public UnityEvent OnStarted;
     public UnityEvent OnKeypadCompleted;
 
     private int missingKeyCount;
@@ -14,6 +15,7 @@ public class KeypadCompleted : MonoBehaviour {
 	void Start () {
         var missingKeys = GetComponentsInChildren<AnchorableBehaviour>();
         missingKeyCount = missingKeys.Length;
+        OnStarted.Invoke();
 	}
 
     public void KeySetIn()

@@ -21,6 +21,7 @@ public class InputLogic : MonoBehaviour
     private int currentSlot;
     private char[] currentSequence;
     private bool waitingForClear;
+    private bool deactivated = false;
 
 	// Use this for initialization
 	void Start () {
@@ -67,7 +68,10 @@ public class InputLogic : MonoBehaviour
     [EnumAction(typeof(Key))]
     public void PressKeyWorkaround(int arg)
     {
-        PressKey((Key) arg);
+        if (!deactivated)
+        {
+            PressKey((Key) arg);
+        }
     }
 
     // not supported by unity inspector
@@ -155,5 +159,15 @@ public class InputLogic : MonoBehaviour
             OnSequenceComplete.Invoke(GetSequence());
             StartClear();
         }
+    }
+
+    public void Deactivate()
+    {
+        deactivated = true;
+    }
+
+    public void Activate()
+    {
+        deactivated = false;
     }
 }
