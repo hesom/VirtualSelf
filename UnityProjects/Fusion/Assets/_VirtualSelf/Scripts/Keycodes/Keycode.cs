@@ -22,7 +22,7 @@ namespace VirtualSelf.GameSystems {
     fileName = "Keycode",
     menuName = "Keycodes/Keycode"
 )]
-public sealed class Keycode : ScriptableObject { 
+public sealed class Keycode : ScriptableObject, ISerializationCallbackReceiver {
     
     /* ---------- Variables & Properties ---------- */
 
@@ -82,11 +82,23 @@ public sealed class Keycode : ScriptableObject {
     /// now use it on the keypad to reach the <see cref="Room"/> associated with that code.
     /// </summary>
     public bool IsDiscovered {
-        get { return (isDiscovered); }
+
+        get {
+            if (Application.isPlaying) { return (isDiscoveredRuntimeValue); }
+            else { return (isDiscovered); }
+        }
         set {
-            if (value != isDiscovered) {
-                isDiscovered = value;
-                DiscoveredStateChanged?.Invoke(this, EventArgs.Empty);
+            if (Application.isPlaying) {
+                if (value != isDiscoveredRuntimeValue) {
+                    isDiscoveredRuntimeValue = value;
+                    DiscoveredStateChangedRuntime?.Invoke(this, EventArgs.Empty);
+                }
+            }
+            else {
+                if (value != isDiscovered) {
+                    isDiscovered = value;
+                    DiscoveredStateChangedEditor?.Invoke(this, EventArgs.Empty);
+                }               
             }
         }
     }
@@ -144,26 +156,49 @@ public sealed class Keycode : ScriptableObject {
     
     /// <summary>
     /// This is used (only) in <see cref="OnValidate"/>, to make it possible to raise
-    /// <see cref="DiscoveredStateChanged"/> via changing the value of <see cref="IsDiscovered"/>
-    /// within the Inspector of this class, as well.
+    /// <see cref="DiscoveredStateChangedEditor"/> via changing the value of
+    /// <see cref="IsDiscovered"/> within the Inspector of this class, as well.
     /// </summary>
     private bool isDiscoveredOldValue;
+    
+    /// <summary>
+    /// This value is initialized from <see cref="isDiscovered"/> during runtime, and is not
+    /// serialized. All runtime exposure to the outside is actually this value, and not the "real"
+    /// <see cref="isDiscovered"/>.<br/>
+    /// This is because otherwise, changes made to <see cref="isDiscovered"/> would persist even
+    /// after Playmode is closed, which is (usually) not what we want.
+    /// </summary>
+    [NonSerialized]
+    private bool isDiscoveredRuntimeValue;
     
     
     /* ---------- Events & Delegates ---------- */
 
     /// <summary>
-    /// Raised whenever the value of <see cref="IsDiscovered"/> is changed.<br/>
+    /// Raised whenever the value of <see cref="IsDiscovered"/> is changed, during runtime.<br/>
     /// This is intended for classes which are interested in when a keycode has been "discovered"
     /// by the player.
     /// <remarks>
-    /// This also works when the value is changed within the Unity Inspector of this class.
+    /// For listening to changes to the value during edit time (in the editor), use
+    /// <see cref="DiscoveredStateChangedEditor"/>.
     /// </remarks>
     /// </summary>
-    public event EventHandler DiscoveredStateChanged;
+    public event EventHandler DiscoveredStateChangedRuntime;
+    
+    /// <summary>
+    /// Raised whenever the value of <see cref="IsDiscovered"/> is changed, during edit time (in the
+    /// editor).<br/>
+    /// This is intended for classes which are interested in when changes to the value are being
+    /// made during development.
+    /// <remarks>
+    /// For listening to changes to the value during runtime, use
+    /// <see cref="DiscoveredStateChangedRuntime"/>.
+    /// </remarks>
+    /// </summary>
+    public event EventHandler DiscoveredStateChangedEditor;
 
 
-    /* ---------- Override ---------- */
+    /* ---------- Methods ---------- */
 
     private void OnValidate() {
         
@@ -174,7 +209,7 @@ public sealed class Keycode : ScriptableObject {
 
         if (isDiscovered != isDiscoveredOldValue) {
             
-            DiscoveredStateChanged?.Invoke(this, EventArgs.Empty);
+            DiscoveredStateChangedEditor?.Invoke(this, EventArgs.Empty);
             isDiscoveredOldValue = isDiscovered;
         }
         
@@ -189,6 +224,16 @@ public sealed class Keycode : ScriptableObject {
             AssetDatabase.SaveAssets();   
         }
     }
+        
+    
+    /* ---------- Overrides ---------- */
+
+    public void OnAfterDeserialize() {
+        
+        isDiscoveredRuntimeValue = isDiscovered;
+    }
+
+    public void OnBeforeSerialize() {  }
 }
 
 }
