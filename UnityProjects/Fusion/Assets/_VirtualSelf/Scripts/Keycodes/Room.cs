@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace VirtualSelf.GameSystems {
 
+
 /// <summary>
 /// This class models the metadata for a room within the game, which are then created in the form of
 /// <see cref="ScriptableObject"/> asset files.<br/>
@@ -125,7 +126,22 @@ public sealed class Room : ScriptableObject {
     /// </remarks>
     /// </summary>
     public event EventHandler DiscoveredStateChanged;
+    
+    
+    /* ---------- Methods ---------- */
 
+    /// <summary>
+    /// Returns whether this room asset currently has a scene file attached (within
+    /// <see cref="Scene"/>), or not.
+    /// </summary>
+    /// <returns>
+    /// <c>true</c> if the room asset has a scene file attached, and <c>false</c> otherwise.
+    /// </returns>
+    public bool HasSceneAttached() {
+
+        return ((scene != null) && (scene.Scene != null));
+    }
+    
 
     /* ---------- Overrides ---------- */
 

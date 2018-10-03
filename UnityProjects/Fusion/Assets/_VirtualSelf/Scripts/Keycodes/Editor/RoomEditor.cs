@@ -106,7 +106,7 @@ public sealed class RoomEditor : UnityEditor.Editor {
         
         /* ---------- Section: Error Messages, etc. ---------- */
 
-        if (refObject.Scene.Scene == null) {
+        if (refObject.HasSceneAttached() == false) {
             
             EditorGUILayout.HelpBox(
                 "No scene object has been added to this room asset yet. It cannot be used in the " +
