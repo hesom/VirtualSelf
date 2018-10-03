@@ -323,6 +323,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce17490711cac0e4881e9e0297b20a8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &811661722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 811661720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfdca0017db48074a802945cee32a18d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &919716793 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114876551195846980, guid: 33edf201cbc6fe645ad9078697cd2aea,
@@ -357,7 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 241563038c9e16148b9884c5f8fd0e59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startScene: MirrorScene
+  startScene: LaserScene
 --- !u!4 &1035628203
 Transform:
   m_ObjectHideFlags: 0
