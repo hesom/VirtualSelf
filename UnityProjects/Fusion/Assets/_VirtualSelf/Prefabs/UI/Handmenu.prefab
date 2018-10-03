@@ -487,8 +487,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1703625435318172}
   m_LocalRotation: {x: 0.000000010536713, y: -0.70710677, z: -0.7071069, w: 0}
-  m_LocalPosition: {x: 0.50589, y: 0.51566, z: 0.14957}
-  m_LocalScale: {x: 0.03562568, y: 0.023114415, z: 0.050850444}
+  m_LocalPosition: {x: 0.005, y: 0, z: -0.11}
+  m_LocalScale: {x: 0.027610907, y: 0.017914323, z: 0.039410528}
   m_Children: []
   m_Father: {fileID: 4873790164738468}
   m_RootOrder: 0
@@ -596,8 +596,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1090354813185874}
   m_LocalRotation: {x: 0.000000010536713, y: -0.70710677, z: -0.7071069, w: 0}
-  m_LocalPosition: {x: 0.50589, y: 0.51566, z: 0.14957}
-  m_LocalScale: {x: 0.03562568, y: 0.023114415, z: 0.050850444}
+  m_LocalPosition: {x: 0.01, y: 0, z: -0.101}
+  m_LocalScale: {x: 0.027610907, y: 0.017914323, z: 0.039410528}
   m_Children: []
   m_Father: {fileID: 4348126663972840}
   m_RootOrder: 0
@@ -637,8 +637,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1404401436825362}
   m_LocalRotation: {x: 0.000000010536713, y: -0.70710677, z: -0.7071069, w: 0}
-  m_LocalPosition: {x: 0.50589, y: 0.51566, z: 0.14957}
-  m_LocalScale: {x: 0.03562568, y: 0.023114415, z: 0.050850444}
+  m_LocalPosition: {x: 0.005, y: 0, z: -0.028}
+  m_LocalScale: {x: 0.027610907, y: 0.017914323, z: 0.039410528}
   m_Children: []
   m_Father: {fileID: 4932138590078010}
   m_RootOrder: 0
@@ -722,8 +722,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1769760414145402}
   m_LocalRotation: {x: 0.000000010536713, y: -0.70710677, z: -0.7071069, w: 0}
-  m_LocalPosition: {x: 0.50589, y: 0.51566, z: 0.14957}
-  m_LocalScale: {x: 0.03562568, y: 0.023114415, z: 0.050850444}
+  m_LocalPosition: {x: 0.005, y: 0, z: -0.028}
+  m_LocalScale: {x: 0.027610907, y: 0.017914323, z: 0.039410528}
   m_Children: []
   m_Father: {fileID: 4577822785937754}
   m_RootOrder: 0
@@ -773,7 +773,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: c0a7331f8533ebb459a92ce5a3c60342, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -948,7 +948,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: c0a7331f8533ebb459a92ce5a3c60342, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -983,7 +983,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: c0a7331f8533ebb459a92ce5a3c60342, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1018,7 +1018,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: c0a7331f8533ebb459a92ce5a3c60342, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1307,13 +1307,13 @@ TextMesh:
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
-  m_Anchor: 0
-  m_Alignment: 0
+  m_Anchor: 4
+  m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 100
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 0}
+  m_Font: {fileID: 12800000, guid: c0a7331f8533ebb459a92ce5a3c60342, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4278190080
@@ -1328,13 +1328,13 @@ TextMesh:
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
-  m_Anchor: 0
-  m_Alignment: 0
+  m_Anchor: 4
+  m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 100
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 0}
+  m_Font: {fileID: 12800000, guid: c0a7331f8533ebb459a92ce5a3c60342, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4278190080
@@ -1351,13 +1351,13 @@ TextMesh:
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
-  m_Anchor: 0
-  m_Alignment: 0
+  m_Anchor: 4
+  m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 100
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 0}
+  m_Font: {fileID: 12800000, guid: c0a7331f8533ebb459a92ce5a3c60342, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4278190080
@@ -1368,17 +1368,17 @@ TextMesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1769760414145402}
-  m_Text: Flame
+  m_Text: Fire
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
-  m_Anchor: 0
-  m_Alignment: 0
+  m_Anchor: 4
+  m_Alignment: 1
   m_TabSize: 4
   m_FontSize: 100
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 0}
+  m_Font: {fileID: 12800000, guid: c0a7331f8533ebb459a92ce5a3c60342, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4278190080
