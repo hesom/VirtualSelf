@@ -1,3 +1,4 @@
+using System;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,7 +10,13 @@ namespace VirtualSelf.GameSystems {
 /// This is the template class for creating keypad keycodes in the form of
 /// <see cref="ScriptableObject"/> asset files. These keycodes are used in different parts of the
 /// game, ultimately to connect all the rooms (scenes) we've made together.<br/>
-/// TODO: More, link to other classes
+/// For each <see cref="Room"/> we want to have, a corresponding keycode asset file should be
+/// created, and its values populated.<br/>
+/// <br/>
+/// This class is used within <see cref="KeycodesList"/>, together with the <see cref="Room"/>s,
+/// but any code can obtain a reference to it (preferably by using the Unity Inspector) and then
+/// read or modify its values at runtime. There is also an event than can be subscribed to, to
+/// listen to relevant state changes.
 /// </summary>
 [CreateAssetMenu(
     fileName = "Keycode",
@@ -19,11 +26,40 @@ public sealed class Keycode : ScriptableObject {
     
     /* ---------- Variables & Properties ---------- */
 
+    /// <summary>
+    /// This is just used for interfacing with Unity Editor code, while keeping the assorted
+    /// variable private.
+    /// </summary>
     public const string FieldNameDigitOne = nameof(digitOne);
+    /// <summary>
+    /// This is just used for interfacing with Unity Editor code, while keeping the assorted
+    /// variable private.
+    /// </summary>
     public const string FieldNameDigitTwo = nameof(digitTwo);
+    /// <summary>
+    /// This is just used for interfacing with Unity Editor code, while keeping the assorted
+    /// variable private.
+    /// </summary>
     public const string FieldNameDigitThree = nameof(digitThree);
+    /// <summary>
+    /// This is just used for interfacing with Unity Editor code, while keeping the assorted
+    /// variable private.
+    /// </summary>
     public const string FieldNameDigitFour = nameof(digitFour);
+    /// <summary>
+    /// This is just used for interfacing with Unity Editor code, while keeping the assorted
+    /// variable private.
+    /// </summary>
     public const string FieldNameCodeString = nameof(codeString);
+    /// <summary>
+    /// This is just used for interfacing with Unity Editor code, while keeping the assorted
+    /// variable private.
+    /// </summary>
+    public const string FieldNameIsDiscovered = nameof(isDiscovered);
+    /// <summary>
+    /// This is just used for interfacing with Unity Editor code, while keeping the assorted
+    /// variable private.
+    /// </summary>
     public const string FieldNameRenameAutomatically = nameof(renameAutomatically);
     
     /// <summary>
@@ -34,13 +70,27 @@ public sealed class Keycode : ScriptableObject {
             { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
     
     /// <summary>
-    /// Whether this keycode has been discovered by the player yet, or not. This means nothing to
-    /// this class, but is important for other parts of the game.<br/>
-    /// This can be set in the Inspector for testing purposes, but is ultimately supposed to be set
-    /// by code.
+    /// The actual keycode code of this asset instance. This code is created via the Unity Inspector
+    /// of this class.
     /// </summary>
-    public bool IsDiscovered;
-
+    /// <seealso cref="codeString"/>
+    public string CodeString => codeString;
+    
+    /// <summary>
+    /// Denotes whether this keycode has already been "discovered" by the player, or not.
+    /// Discovering, in this case, means that the player has found the keycode in the game, and can
+    /// now use it on the keypad to reach the <see cref="Room"/> associated with that code.
+    /// </summary>
+    public bool IsDiscovered {
+        get { return (isDiscovered); }
+        set {
+            if (value != isDiscovered) {
+                isDiscovered = value;
+                DiscoveredStateChanged?.Invoke(this, EventArgs.Empty);
+            }
+        }
+    }
+    
     /// <summary>
     /// The first digit of the keycode. Together with the other three, this is stored in
     /// <see cref="codeString"/> as the final keycode.
@@ -68,6 +118,12 @@ public sealed class Keycode : ScriptableObject {
     /// </summary>
     [SerializeField]
     private int digitFour;
+    
+    /// <summary>
+    /// See <see cref="IsDiscovered"/> for details.
+    /// </summary>
+    [SerializeField]
+    private bool isDiscovered;
 
     /// <summary>
     /// Whether to rename this ScriptableObject asset automatically, whenever the code is changed,
@@ -82,21 +138,46 @@ public sealed class Keycode : ScriptableObject {
     /// <see cref="OnValidate"/>, from <see cref="digitOne"/> to <see cref="digitFour"/>, whenever a
     /// change to one of the digits is made.
     /// </summary>
+    /// <seealso cref="CodeString"/>
     [SerializeField]
     private string codeString;
+    
+    /// <summary>
+    /// This is used (only) in <see cref="OnValidate"/>, to make it possible to raise
+    /// <see cref="DiscoveredStateChanged"/> via changing the value of <see cref="IsDiscovered"/>
+    /// within the Inspector of this class, as well.
+    /// </summary>
+    private bool isDiscoveredOldValue;
+    
+    
+    /* ---------- Events & Delegates ---------- */
+
+    /// <summary>
+    /// Raised whenever the value of <see cref="IsDiscovered"/> is changed.<br/>
+    /// This is intended for classes which are interested in when a keycode has been "discovered"
+    /// by the player.
+    /// <remarks>
+    /// This also works when the value is changed within the Unity Inspector of this class.
+    /// </remarks>
+    /// </summary>
+    public event EventHandler DiscoveredStateChanged;
 
 
-    /* ---------- Methods ---------- */
+    /* ---------- Override ---------- */
 
     private void OnValidate() {
-
+        
         codeString = (
             digitOne.ToString() + digitTwo.ToString() +
             digitThree.ToString() + digitFour.ToString()
         );
-        
-        // Debug.Log("code is: " + codeString);
 
+        if (isDiscovered != isDiscoveredOldValue) {
+            
+            DiscoveredStateChanged?.Invoke(this, EventArgs.Empty);
+            isDiscoveredOldValue = isDiscovered;
+        }
+        
         if (renameAutomatically) {
             
             /* This code uses Unity's built-in asset database related utility methods to find the

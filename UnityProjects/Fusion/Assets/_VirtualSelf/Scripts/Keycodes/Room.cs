@@ -6,14 +6,17 @@ using UnityEngine;
 namespace VirtualSelf.GameSystems {
 
 /// <summary>
-/// This class models the metadata for a room within the game. It basically represents the room
-/// within the game code (the actual room is, of course, the scene file - but this class associates
-/// the scenes with the concept of a "room", and the rest of the game).<br/>
+/// This class models the metadata for a room within the game, which are then created in the form of
+/// <see cref="ScriptableObject"/> asset files.<br/>
+/// An (asset) instance of this class basically represents a room within the game code (the actual
+/// room is, of course, the scene file - but this class associates the scenes with the concept of a
+/// "room", and the rest of the game).<br/>
 /// For each room we want to have, an asset should be created, and its values populated.<br/>
 /// <br/>
-/// This class is used within <see cref="KeycodesList"/>, but any code can obtain a reference to it
-/// (preferably by using the Unity Inspector) and then read or modify its values at runtime. There
-/// is also an event than can be subscribed to, to listen to relevant state changes.
+/// This class is used within <see cref="KeycodesList"/>, together with the <see cref="Keycode"/>s,
+/// but any code can obtain a reference to it (preferably by using the Unity Inspector) and then
+/// read or modify its values at runtime. There is also an event than can be subscribed to, to
+/// listen to relevant state changes.
 /// </summary>
 [CreateAssetMenu(
     fileName = "Room",

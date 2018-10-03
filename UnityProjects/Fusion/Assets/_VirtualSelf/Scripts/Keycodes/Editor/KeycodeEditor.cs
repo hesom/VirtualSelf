@@ -31,7 +31,7 @@ public sealed class KeycodeEditor : UnityEditor.Editor {
         new SerializedPropertyInfo(Keycode.FieldNameCodeString, "");
     
     private static readonly SerializedPropertyInfo PropIsDiscoveredInfo =
-        new SerializedPropertyInfo(nameof(Keycode.IsDiscovered), "Is discovered");
+        new SerializedPropertyInfo(Keycode.FieldNameIsDiscovered, "Is discovered");
     
     private static readonly SerializedPropertyInfo PropRenameAutomaticallyInfo = 
         new SerializedPropertyInfo(

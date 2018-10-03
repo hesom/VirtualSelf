@@ -26,12 +26,12 @@ public sealed class RoomEditor : UnityEditor.Editor {
     private static readonly SerializedPropertyInfo PropIsDiscoveredInfo =
         new SerializedPropertyInfo(Room.FieldNameIsDiscovered, "Is discovered");
 
+    private Room refObject;
+
     private SerializedProperty propRoomName;
     private SerializedProperty propDescription;
     private SerializedProperty propScene;
     private SerializedProperty propIsDiscovered;
-
-    private SceneReference refScene;
     
     private GUIStyle styleBox;
 
@@ -39,13 +39,13 @@ public sealed class RoomEditor : UnityEditor.Editor {
     /* ---------- Methods ---------- */
 
     private void OnEnable() {
+        
+        refObject = ((Room) target);
 
         propRoomName = serializedObject.FindProperty(PropRoomNameInfo);
         propDescription = serializedObject.FindProperty(PropDescriptionInfo);
         propScene = serializedObject.FindProperty(PropSceneInfo);
         propIsDiscovered = serializedObject.FindProperty(PropIsDiscoveredInfo);
-
-        refScene = PropertyUtils.GetActualObjectOfAs<SceneReference>(propScene);
     }
 
 
@@ -60,8 +60,6 @@ public sealed class RoomEditor : UnityEditor.Editor {
         /* Cannot be moved into "OnEnable", or anywhere else. That throws an exception. */
         styleBox = new GUIStyle("Box");
         
-        refScene = PropertyUtils.GetActualObjectOfAs<SceneReference>(propScene);
-
         
         /* ---------- Section: Room Attributes ---------- */
         
@@ -108,7 +106,7 @@ public sealed class RoomEditor : UnityEditor.Editor {
         
         /* ---------- Section: Error Messages, etc. ---------- */
 
-        if (refScene.Scene == null) {
+        if (refObject.Scene.Scene == null) {
             
             EditorGUILayout.HelpBox(
                 "No scene object has been added to this room asset yet. It cannot be used in the " +
