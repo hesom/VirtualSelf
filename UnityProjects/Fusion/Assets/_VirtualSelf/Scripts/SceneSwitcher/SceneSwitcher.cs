@@ -20,6 +20,7 @@ namespace VirtualSelf
         public Transform PortalCameraPrefab;
 
         public LevelCodes levelCodes;
+        public string resetCode = "9999";
 
         public UnityEvent onPortalTraversed;
 //        public UnityEventDynamic onPortalTraversed2;
@@ -64,6 +65,12 @@ namespace VirtualSelf
 
         public void NextLevel(string sequence)
         {
+            if(sequence == resetCode)
+            {
+                // reload current scene
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                return;
+            }
             string newLevel = levelCodes.GetLevelFromCode(sequence);
             if (newLevel != null)
             {
