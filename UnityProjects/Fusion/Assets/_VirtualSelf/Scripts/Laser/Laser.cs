@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Laser : MonoBehaviour {
 
     public ParticleSystem hitEffectParticles;
+    public string playerColliderTagName = "PlayerCollider";
+    public UnityEvent OnHit;
 
     private LineRenderer lr;
 
@@ -26,6 +29,11 @@ public class Laser : MonoBehaviour {
                 hitEffectParticles.gameObject.SetActive(true);
                 hitEffectParticles.transform.position = hit.point;
                 hitEffectParticles.transform.forward = hit.normal;
+
+                if(hit.collider.tag == playerColliderTagName)
+                {
+                    OnHit.Invoke();
+                }
             }
         }
         else
