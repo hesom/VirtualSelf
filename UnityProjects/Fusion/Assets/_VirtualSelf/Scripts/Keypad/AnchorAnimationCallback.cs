@@ -12,16 +12,10 @@ namespace VirtualSelf
 		public float maxSnapDistance = 0.01f;
 		public UnityEvent onAnchorAnimationFinished;
 		private bool animationStarted = false;
-		private Rigidbody rb;
 		
 		public void StartAnchorAnimation()
 		{
 			animationStarted = true;
-		}
-
-		void Start()
-		{
-			rb = GetComponent<Rigidbody>();
 		}
 
 		void Update()

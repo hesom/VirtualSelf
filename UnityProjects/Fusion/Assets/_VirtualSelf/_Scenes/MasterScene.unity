@@ -357,7 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 241563038c9e16148b9884c5f8fd0e59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startScene: BallCatcherScene
+  startScene: MirrorScene
 --- !u!4 &1035628203
 Transform:
   m_ObjectHideFlags: 0
