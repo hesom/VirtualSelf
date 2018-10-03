@@ -10,7 +10,6 @@ public class ReflectLaser : MonoBehaviour
     public ParticleSystem reflectParticles;
 
     public UnityEvent OnTargetHit;
-    private bool targetEverHit = false;
 
     private LineRenderer lr;
 
@@ -46,11 +45,10 @@ public class ReflectLaser : MonoBehaviour
                         hitEffectParticles.transform.position = hit.point;
                         hitEffectParticles.transform.forward = hit.normal;
 
-                        if(!targetEverHit && hit.collider.tag == "LaserTarget")
+                        if(hit.collider.tag == "LaserTarget")
                         {
                             OnTargetHit.Invoke();
                             Debug.Log("Target Hit");
-                            targetEverHit = true;
                         }
                     }
                     else

@@ -15,6 +15,10 @@ TagManager:
   - Orb
   - SawBlade
   - SnakeBody
+  - Wire
+  - Sphere
+  - LaserTarget
+  - LaserReflector
   layers:
   - Default
   - TransparentFX
