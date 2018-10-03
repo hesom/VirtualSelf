@@ -14,7 +14,7 @@ MonoBehaviour:
   keycodeSceneMappings:
   - keycode: {fileID: 11400000, guid: 3d07fd7afa1b5374e9307904c5d02534, type: 2}
     scene:
-      Scene: {fileID: 0}
+      Scene: {fileID: 102900000, guid: 9ef20eef7040be844b5c209edff39189, type: 3}
       SceneName: 
       sceneIndex: -1
       sceneEnabled: 1
@@ -36,3 +36,9 @@ MonoBehaviour:
       SceneName: MirrorScene
       sceneIndex: 4
       sceneEnabled: 1
+  - keycode: {fileID: 0}
+    scene:
+      Scene: {fileID: 0}
+      SceneName: 
+      sceneIndex: 0
+      sceneEnabled: 0

@@ -8,13 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecf62c2e39cc41d7ad357baa569680a5, type: 3}
-  m_Name: 0000
+  m_Script: {fileID: 11500000, guid: aec14f45991dec54b88cab32bf259dd6, type: 3}
+  m_Name: TutorialRoom
   m_EditorClassIdentifier: 
-  IsDiscovered: 1
-  digitOne: 0
-  digitTwo: 0
-  digitThree: 0
-  digitFour: 0
-  renameAutomatically: 1
-  codeString: 0000
+  roomName: 
+  description: 

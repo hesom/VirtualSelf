@@ -62,6 +62,9 @@ public sealed class KeycodeEditor : UnityEditor.Editor {
         propIsDiscovered = serializedObject.FindProperty(PropIsDiscoveredInfo);
         propRenameAutomatically = serializedObject.FindProperty(PropRenameAutomaticallyInfo);
     }
+    
+    
+    /* ---------- Overrides ---------- */
 
     public override void OnInspectorGUI() {
         
@@ -106,7 +109,7 @@ public sealed class KeycodeEditor : UnityEditor.Editor {
         EditorGUILayout.LabelField("Resulting Code:", EditorStyles.boldLabel);
         
         EditorGUILayout.Space();
-            
+        
         EditorGUILayout.BeginHorizontal();
         
         EditorGUILayout.LabelField(propCodeString.stringValue);
@@ -139,7 +142,6 @@ public sealed class KeycodeEditor : UnityEditor.Editor {
         EditorGUILayout.Space();
         
         
-        
         /* ---------- Section: Editor Options ---------- */
         
         EditorGUILayout.BeginVertical(styleBox);
@@ -157,6 +159,7 @@ public sealed class KeycodeEditor : UnityEditor.Editor {
         EditorGUILayout.EndHorizontal();
         
         EditorGUILayout.EndVertical();
+        
         
         
         /* ---------- Section: Finalization ---------- */
