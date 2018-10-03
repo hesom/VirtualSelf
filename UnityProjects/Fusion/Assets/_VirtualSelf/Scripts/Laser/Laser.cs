@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour {
 
+    public ParticleSystem hitEffectParticles;
+
     private LineRenderer lr;
 
 	// Use this for initialization
@@ -21,11 +23,15 @@ public class Laser : MonoBehaviour {
             if (hit.collider)
             {
                 lr.SetPosition(1, hit.point);
+                hitEffectParticles.gameObject.SetActive(true);
+                hitEffectParticles.transform.position = hit.point;
+                hitEffectParticles.transform.forward = hit.normal;
             }
         }
         else
         {
             lr.SetPosition(1, transform.right * 5000);
+            hitEffectParticles.gameObject.SetActive(false);
         }
 	}
 }
