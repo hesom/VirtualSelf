@@ -4,7 +4,7 @@ namespace VirtualSelf.CubeScripts {
 	
 	public class GhostRotation : MonoBehaviour {
 
-		public Rigidbody OriginalCube;
+		public Transform OriginalCube;
 	
 		// Update is called once per frame
 		void Update () {
