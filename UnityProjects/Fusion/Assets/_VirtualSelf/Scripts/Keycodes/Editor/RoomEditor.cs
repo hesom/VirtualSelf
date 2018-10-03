@@ -15,16 +15,16 @@ public sealed class RoomEditor : UnityEditor.Editor {
     /* ---------- Variables & Properties ---------- */
     
     private static readonly SerializedPropertyInfo PropRoomNameInfo = 
-        new SerializedPropertyInfo(Room.fieldNameRoomName, "Room Name");
+        new SerializedPropertyInfo(Room.FieldNameRoomName, "Room Name");
 
     private static readonly SerializedPropertyInfo PropDescriptionInfo = 
-        new SerializedPropertyInfo(Room.fieldNameDescription, "Room Description");
+        new SerializedPropertyInfo(Room.FieldNameDescription, "Room Description");
     
     private static readonly SerializedPropertyInfo PropSceneInfo = 
-        new SerializedPropertyInfo(Room.fieldNameScene, "Scene");   
+        new SerializedPropertyInfo(Room.FieldNameScene, "Scene");   
     
     private static readonly SerializedPropertyInfo PropIsDiscoveredInfo =
-        new SerializedPropertyInfo(nameof(Room.IsDiscovered), "Is discovered");
+        new SerializedPropertyInfo(Room.FieldNameIsDiscovered, "Is discovered");
 
     private SerializedProperty propRoomName;
     private SerializedProperty propDescription;
@@ -108,12 +108,22 @@ public sealed class RoomEditor : UnityEditor.Editor {
         
         /* ---------- Section: Error Messages, etc. ---------- */
 
-        if (refScene == null) {
+        if (refScene.Scene == null) {
             
             EditorGUILayout.HelpBox(
                 "No scene object has been added to this room asset yet. It cannot be used in the " +
                 "keycode-scene mappings list until this has been done.",
                 MessageType.Error
+            );
+        }
+
+        if (propRoomName.stringValue.Trim() == "") {
+            
+            EditorGUILayout.HelpBox(
+                "This room asset has not been given a name yet. Please add a name to it, to be " +
+                "displayed ingame. (Otherwise, the name of the scene file connected to this " +
+                "asset will be used.)",
+                MessageType.Warning
             );
         }
                 

@@ -11,5 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec14f45991dec54b88cab32bf259dd6, type: 3}
   m_Name: TutorialRoom
   m_EditorClassIdentifier: 
+  IsDiscovered: 0
   roomName: 
+  scene:
+    Scene: {fileID: 0}
+    SceneName: 
+    sceneIndex: 3
+    sceneEnabled: 1
   description: 

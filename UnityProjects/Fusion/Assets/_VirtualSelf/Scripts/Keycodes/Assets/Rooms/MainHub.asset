@@ -11,11 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec14f45991dec54b88cab32bf259dd6, type: 3}
   m_Name: MainHub
   m_EditorClassIdentifier: 
-  IsDiscovered: 0
-  roomName: Basid
-  scene:
-    Scene: {fileID: 102900000, guid: 9ef20eef7040be844b5c209edff39189, type: 3}
-    SceneName: 
-    sceneIndex: -1
-    sceneEnabled: 0
+  roomName: BlueScene
   description: 
+  scene:
+    Scene: {fileID: 102900000, guid: b671637a78f133141827ea48799fc9e7, type: 3}
+    SceneName: BlueScene
+    sceneIndex: 3
+    sceneEnabled: 1
+  isDiscovered: 1
