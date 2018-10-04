@@ -24,10 +24,11 @@ namespace VirtualSelf
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
-        private void OnTriggerEnter(Collider other)
+        void OnTriggerEnter(Collider other)
         {
             if (other.tag == "Player")
             {
+                Debug.Log("Collision");
                 for (int i = 0; i < SceneManager.sceneCount; i++)
                 {
                     Scene s = SceneManager.GetSceneAt(i);
