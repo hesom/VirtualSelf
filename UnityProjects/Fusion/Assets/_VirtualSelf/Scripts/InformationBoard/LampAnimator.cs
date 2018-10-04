@@ -8,22 +8,22 @@ namespace VirtualSelf.Utility {
 /// <summary>
 /// TODO: Fill out this class description: LightAnimator
 /// </summary>
+[RequireComponent(typeof(Light))]
 public sealed class LampAnimator : MonoBehaviour {
     
     /* ---------- Enumerations ---------- */
 
     public enum AnimationMode {
 
-        Breathe,
-        Blink
+        Static,
+        Blink,
+        Breathe
     }
     
 
     /* ---------- Variables & Properties ---------- */
 
     public Material LampMaterial;
-
-    public Light LampLight;
 
     public Color ColorLightOff;
 
@@ -35,6 +35,8 @@ public sealed class LampAnimator : MonoBehaviour {
 
     public Oscillator LightIntensityOscillator;
     
+    private Light lampLight;
+    
     private Oscillator emissionOscillator;
 
     private float currentEmission;
@@ -43,6 +45,8 @@ public sealed class LampAnimator : MonoBehaviour {
     /* ---------- Methods ---------- */
 
     private void Start() {
+
+        lampLight = GetComponent<Light>();
 
         emissionOscillator = new Oscillator {
             OscillType = LightIntensityOscillator.OscillType,
@@ -60,7 +64,7 @@ public sealed class LampAnimator : MonoBehaviour {
         
         LampMaterial.SetColor("_EmissionColor", finalColor);
 
-        LampLight.intensity = LightIntensityOscillator.Oscillate();
+        lampLight.intensity = LightIntensityOscillator.Oscillate();
     }
 
 
