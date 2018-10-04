@@ -213,7 +213,9 @@ public sealed class Keycode : ScriptableObject, ISerializationCallbackReceiver {
             isDiscoveredOldValue = isDiscovered;
         }
         
-        if (renameAutomatically) {
+        /* The second condition is critical, otherwise Unity will be stuck in an infinite loop as
+         * soon as Playmode starts. */
+        if (renameAutomatically && (Application.isPlaying == false)) {
             
             /* This code uses Unity's built-in asset database related utility methods to find the
              * ScriptableObject asset this particular instance belongs to, and to rename that
