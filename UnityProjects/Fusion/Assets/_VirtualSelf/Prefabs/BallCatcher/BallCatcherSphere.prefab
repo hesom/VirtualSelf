@@ -133,7 +133,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1247977566245572}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f10fa40360571247a7ca806d6859557, type: 3}
   m_Name: 
@@ -148,11 +148,11 @@ MonoBehaviour:
   _allowMultiGrasp: 0
   _moveObjectWhenGrasped: 1
   graspedMovementType: 0
-  _overrideInteractionLayer: 0
+  _overrideInteractionLayer: 1
   _interactionLayer:
-    layerIndex: 0
-  _overrideNoContactLayer: 0
+    layerIndex: 26
+  _overrideNoContactLayer: 1
   _noContactLayer:
-    layerIndex: 0
+    layerIndex: 27
   _eventTable:
     _entries: []
