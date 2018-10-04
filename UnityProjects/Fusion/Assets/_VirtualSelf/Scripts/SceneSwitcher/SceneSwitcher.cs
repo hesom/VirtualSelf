@@ -40,6 +40,7 @@ namespace VirtualSelf
         private bool portalSpawned = false;
         private string currentPortalScene;
         private GameObject currentPortal;
+        private Keycode currentPortalKeycode;
 
         private string loadSceneName = null;
 
@@ -78,10 +79,11 @@ namespace VirtualSelf
             var allMappings = keycodes.GetKeycodeFromCodeString(sequence);
 
             string newLevel;
+            Keycode keyCodeReference;
             if (allMappings.IsPresent()) {
                 var roomMapping = allMappings.Get();
                 newLevel = roomMapping.RoomReference.Scene.SceneName;
-
+                keyCodeReference = roomMapping.KeycodeReference;
                 if (!roomMapping.KeycodeReference.IsDiscovered) {
                     return;
                 }
@@ -106,6 +108,7 @@ namespace VirtualSelf
                     SceneManager.UnloadSceneAsync(GetCurrentPortalScene());
                 }
                 SceneManager.LoadSceneAsync(newLevel, LoadSceneMode.Additive);
+                currentPortalKeycode = keyCodeReference;
             }
         }
 
@@ -202,7 +205,7 @@ namespace VirtualSelf
                 portalAnimation.Play("PortalUp");
                 NotifyPortalSpawn(portalObj.gameObject);
             }
-
+            
             NotifyPortalSceneSwitch(loadSceneName);
         }
 
@@ -264,6 +267,7 @@ namespace VirtualSelf
         public void NotifyPortalTraversed()
         {
             onPortalTraversed.Invoke();
+            currentPortalKeycode.IsDiscovered = true;
 //            onPortalTraversed2.Invoke(SceneManager.GetActiveScene());
         }
 
