@@ -1,8 +1,8 @@
-using RoboRyanTron.SceneReference;
+using System.Collections.Generic;
+using System.Text;
 using Rotorz.ReorderableList;
 using UnityEditor;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+using VirtualSelf.Utility;
 using VirtualSelf.Utility.Editor;
 
 
@@ -17,21 +17,42 @@ public sealed class KeycodesListEditor : UnityEditor.Editor {
 
     /* ---------- Variables & Properties ---------- */
 
-    private static readonly SerializedPropertyInfo propKeycodeSceneMappingsInfo =
-        new SerializedPropertyInfo(
-            KeycodesList.FieldNameKeycodeSceneMappings, "Keycode - Scene List");
+    private const string MessageDuplicateMappings =
+        "The list currently contains duplicate mappings for some keycodes and/or rooms. " +
+        "This is not allowed. Please fix all the responsible mappings to eliminate the " +
+        "duplicates.\n" +
+        "Any leftover duplicate mappings will be ignored, and not be available in the " +
+        "game.\n" +
+        "The existing duplicates are:";
     
-    private KeycodesList refObject;
+    private static readonly SerializedPropertyInfo PropKeycodeRoomMappingsInfo =
+        new SerializedPropertyInfo(
+            KeycodesList.FieldNameKeycodeRoomMappings, "Keycode - Room Mappings List");
+    
+    // private KeycodesList refObject;
 
-    private SerializedProperty propKeycodeSceneMappings;
+    private SerializedProperty propKeycodeRoomMappings;
+
+    private List<KeycodeRoomMapping> refKeycodeRoomMappings;
+    
+    private ReorderableListControl mappingsListControl;
+    private IReorderableListAdaptor mappingsListAdaptor;
 
 
     /* ---------- Methods ---------- */
 
     private void OnEnable() {
 
-        refObject = ((KeycodesList) target);
+        // refObject = ((KeycodesList) target);
+        
+        propKeycodeRoomMappings = serializedObject.FindProperty(PropKeycodeRoomMappingsInfo);
 
+        refKeycodeRoomMappings =
+            PropertyUtils.GetActualObjectOfAs<List<KeycodeRoomMapping>>(propKeycodeRoomMappings);
+
+        mappingsListControl = new ReorderableListControl(ReorderableListFlags.ShowSizeField);
+        mappingsListAdaptor = new DynamicHeightListAdaptor(
+            propKeycodeRoomMappings, KeycodeRoomMapping.FieldNamePropDrawingHeight);
     }
     
     
@@ -42,16 +63,45 @@ public sealed class KeycodesListEditor : UnityEditor.Editor {
         /* ---------- Section: Initialization ---------- */
         
         serializedObject.Update();
+        
+       
+        /* ---------- Section: Message(s) ---------- */
+        
+        SortedDictionary<int, IList<int>> duplicates = 
+            CollectionsUtils.FindAllDuplicatesIn(refKeycodeRoomMappings);
 
-        propKeycodeSceneMappings = serializedObject.FindProperty(propKeycodeSceneMappingsInfo);
-        
-        
-        /* ---------- YOUR EDITOR CODE HERE ---------- */       
-        
-        ReorderableListGUI.Title(propKeycodeSceneMappingsInfo.EditorText);
+        if (duplicates.Count != 0) {
 
-        ReorderableListGUI.ListField(propKeycodeSceneMappings, ReorderableListFlags.ShowSizeField);
+            StringBuilder messageDuplicates = new StringBuilder();
+            
+            messageDuplicates.Append(MessageDuplicateMappings);
+
+            foreach (var element in duplicates) {
+
+                messageDuplicates.Append("\n- Mapping " + element.Key + " has duplicates: ");
+
+                foreach (int foundElement in element.Value) {
+
+                    messageDuplicates.Append(foundElement + ", ");
+                }
+
+                messageDuplicates.Remove(messageDuplicates.Length - 2, 2);
+            }
+            
+            EditorGUILayout.HelpBox(messageDuplicates.ToString(), MessageType.Error);
+            
+            EditorGUILayout.Space();
+        }
         
+        
+        /* ---------- Section: List ---------- */
+        
+        ReorderableListGUI.Title(PropKeycodeRoomMappingsInfo.EditorText);
+        
+        mappingsListControl.Draw(mappingsListAdaptor);
+
+        // serializedObject.ApplyModifiedProperties();
+              
         
         
         /* ---------- Section: Finalization ---------- */
