@@ -3,13 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using VirtualSelf;
+using VirtualSelf.GameSystems;
 
 public class LoadFirstScene : MonoBehaviour
 {
 
     public string startScene;
+	public KeycodesList keycodes;
 
-    void Start()
+	void Awake() 
+	{
+		keycodes.Initialize();	
+	}
+
+	void Start()
     {
         bool startSceneLoaded = false;
         for (int i = 0; i < SceneManager.sceneCount; i++)

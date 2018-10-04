@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Leap;
+using RoboRyanTron.SceneReference;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using UnityEngine.XR;
+using VirtualSelf.GameSystems;
 
 namespace VirtualSelf
 {
@@ -20,6 +22,7 @@ namespace VirtualSelf
         public Transform PortalCameraPrefab;
 
         public LevelCodes levelCodes;
+        public KeycodesList keycodes;
         public string resetCode = "9999";
 
         public UnityEvent onPortalTraversed;
@@ -71,7 +74,22 @@ namespace VirtualSelf
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 return;
             }
-            string newLevel = levelCodes.GetLevelFromCode(sequence);
+
+            var allMappings = keycodes.GetKeycodeFromCodeString(sequence);
+
+            string newLevel;
+            if (allMappings.IsPresent()) {
+                var roomMapping = allMappings.Get();
+                newLevel = roomMapping.RoomReference.Scene.SceneName;
+
+                if (!roomMapping.KeycodeReference.IsDiscovered) {
+                    return;
+                }
+            }
+            else {
+                return;
+            }
+            
             if (newLevel != null)
             {
                 loadSceneName = newLevel;
