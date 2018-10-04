@@ -14,8 +14,8 @@ MonoBehaviour:
   roomName: Gallery Of Our Failures
   description: 
   scene:
-    Scene: {fileID: 0}
-    SceneName: 
-    sceneIndex: -1
-    sceneEnabled: 0
+    Scene: {fileID: 102900000, guid: c3486f1fd992d43408e77ccd48b71fd0, type: 3}
+    SceneName: LaserScene
+    sceneIndex: 10
+    sceneEnabled: 1
   isDiscovered: 0

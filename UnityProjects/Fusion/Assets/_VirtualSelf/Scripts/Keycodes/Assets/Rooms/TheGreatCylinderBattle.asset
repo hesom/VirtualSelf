@@ -46,8 +46,8 @@ MonoBehaviour:
 
     THE LEGEND NEVER DIES!'
   scene:
-    Scene: {fileID: 0}
-    SceneName: 
-    sceneIndex: -1
-    sceneEnabled: 0
+    Scene: {fileID: 102900000, guid: af64181fb78074647936d77952b0d70b, type: 3}
+    SceneName: Hot Wire
+    sceneIndex: 9
+    sceneEnabled: 1
   isDiscovered: 0

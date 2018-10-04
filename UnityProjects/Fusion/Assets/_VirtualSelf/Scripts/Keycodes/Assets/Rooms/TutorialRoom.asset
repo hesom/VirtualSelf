@@ -18,4 +18,4 @@ MonoBehaviour:
     SceneName: TutorialScene
     sceneIndex: 8
     sceneEnabled: 1
-  isDiscovered: 0
+  isDiscovered: 1

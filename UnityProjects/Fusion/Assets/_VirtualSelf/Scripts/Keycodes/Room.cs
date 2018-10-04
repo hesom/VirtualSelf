@@ -82,6 +82,7 @@ public sealed class Room : ScriptableObject, ISerializationCallbackReceiver {
         set {
             if (Application.isPlaying) {
                 if (value != isDiscoveredRuntimeValue) {
+                    Debug.Log($"Room {roomName} has been discovered!");
                     isDiscoveredRuntimeValue = value;
                     DiscoveredStateChangedRuntime?.Invoke(this, EventArgs.Empty);
                 }

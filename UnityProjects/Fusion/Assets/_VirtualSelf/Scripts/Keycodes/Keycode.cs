@@ -221,9 +221,10 @@ public sealed class Keycode : ScriptableObject, ISerializationCallbackReceiver {
              * ScriptableObject asset this particular instance belongs to, and to rename that
              * object accordingly. */
             
-            string assetPath =  AssetDatabase.GetAssetPath(GetInstanceID());
-            AssetDatabase.RenameAsset(assetPath, codeString);
-            AssetDatabase.SaveAssets();   
+            // TODO: Replace with a button
+//            string assetPath =  AssetDatabase.GetAssetPath(GetInstanceID());
+//            AssetDatabase.RenameAsset(assetPath, codeString);
+//            AssetDatabase.SaveAssets();   
         }
     }
         
