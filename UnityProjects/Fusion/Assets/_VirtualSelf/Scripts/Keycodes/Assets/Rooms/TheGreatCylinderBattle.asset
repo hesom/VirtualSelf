@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec14f45991dec54b88cab32bf259dd6, type: 3}
+  m_Name: TheGreatCylinderBattle
+  m_EditorClassIdentifier: 
+  roomName: The Great Battle
+  description: 'SOUL LEVEL NINETY NINE
+
+    FOURTY EIGHT VITALITY
+
+    SIXTY SIX ENDURANCE
+
+    (twelve attunement)
+
+    SIXTEEN FUCKING STRENGTH
+
+    Ten dexterity. BUT DON''T TELL ANYONE U LEVELED THAT UP - U FUCKN FAGGT.
+
+    WHAT ARE U, CASUL?
+
+    GIANTS, GIANTS, GIANTS; BECOME... UNSTOPPABLE
+
+    WOT RINGS U GOT, BITCH?
+
+    HAVEL''S RING, AND THE RING OF FAVOR AND PROTECTION.
+
+    STAMINA, HEALTH, ENDURANCE - EVERYTHING YOU COULD EVER WANT
+
+    BLACK FLAME, BLACK FLAME; THAT MEANS NEW GAME PLUS, BITCHES
+
+    FATHER MASK, THE BEST LOOKING MASK IN THE GAME
+
+    AND OF COURSE - DON''T FCKING FORGET YOUR CHAOS TWOHANDER, AND THE GRASS CREST
+    SHIELD.
+
+
+    WELL, WHAT IS IT?
+
+    THE LEGEND NEVER DIES!'
+  scene:
+    Scene: {fileID: 0}
+    SceneName: 
+    sceneIndex: -1
+    sceneEnabled: 0
+  isDiscovered: 0

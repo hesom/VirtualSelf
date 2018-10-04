@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec14f45991dec54b88cab32bf259dd6, type: 3}
+  m_Name: MirrorPuzzle
+  m_EditorClassIdentifier: 
+  roomName: The Puzzling Mirror
+  description: 'Mirror, mirror, on the wall
+
+    Help me sort each single ball
+
+    Mirror, mirror, speak it true
+
+    Which one is the correct hue?
+
+'
+  scene:
+    Scene: {fileID: 102900000, guid: 99c9720ab356a0642a771bea13969a05, type: 3}
+    SceneName: MirrorScene
+    sceneIndex: 4
+    sceneEnabled: 1
+  isDiscovered: 0

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[CreateAssetMenu]
+// [CreateAssetMenu]
 public class DummyScriptableObjectDeleteMePlease : ScriptableObject {
 
     // list [ enum left/right, monobehavior script, string field, enum replaceOnPortalTraverse/replaceOnSceneLoad ]

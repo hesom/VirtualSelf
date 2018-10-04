@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec14f45991dec54b88cab32bf259dd6, type: 3}
+  m_Name: EasterEggRoomWithSnek
+  m_EditorClassIdentifier: 
+  roomName: The Snake Escape
+  description: You thought it was the end of the game, but it was me, DIO!!
+  scene:
+    Scene: {fileID: 102900000, guid: 1000c8cdae29ac444b439967ae64cf04, type: 3}
+    SceneName: SnekScene
+    sceneIndex: 7
+    sceneEnabled: 1
+  isDiscovered: 0

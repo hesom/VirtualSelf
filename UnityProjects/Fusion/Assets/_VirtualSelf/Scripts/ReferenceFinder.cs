@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
+using VirtualSelf.Utility;
 
 namespace VirtualSelf
 {
@@ -29,7 +30,7 @@ public class ReferenceFinder : MonoBehaviour {
 
 		public void AttachSetter()
 		{
-			_setter = VirtualSelfUtil.GetFieldOrProperty(Script.GetType(), FieldName);
+			_setter = ReflectionUtils.GetFieldOrProperty(Script.GetType(), FieldName);
 			_fieldType = _setter is FieldInfo
 				? (_setter as FieldInfo).FieldType
 				: (_setter as PropertyInfo).PropertyType;
@@ -40,7 +41,7 @@ public class ReferenceFinder : MonoBehaviour {
 	
 	void Awake()
 	{
-		GameObject[] allGameObjects = VirtualSelfUtil.FindObjectsOfTypeButNoPrefabs<GameObject>();
+		GameObject[] allGameObjects = GameObjectsUtils.FindObjectsOfTypeButNoPrefabs<GameObject>();
 		
 		foreach (Reference r in References)
 		{
