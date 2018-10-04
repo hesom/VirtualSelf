@@ -23,7 +23,7 @@ namespace VirtualSelf
 
         public LevelCodes levelCodes;
         public KeycodesList keycodes;
-        public string resetCode = "9999";
+        public Keycode resetCode;
 
         public UnityEvent onPortalTraversed;
 //        public UnityEventDynamic onPortalTraversed2;
@@ -68,7 +68,7 @@ namespace VirtualSelf
 
         public void NextLevel(string sequence)
         {
-            if(sequence == resetCode)
+            if(sequence == resetCode.CodeString)
             {
                 // reload current scene
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);

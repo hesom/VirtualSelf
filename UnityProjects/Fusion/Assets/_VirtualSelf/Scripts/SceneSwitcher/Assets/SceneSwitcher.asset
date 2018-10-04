@@ -20,6 +20,8 @@ MonoBehaviour:
   PortalCameraPrefab: {fileID: 4735569386126886, guid: 203105f23506dcc42a6c5a6eeef77bbb,
     type: 2}
   levelCodes: {fileID: 11400000, guid: d9854b7eb6c82e14cbd8ff6b28644452, type: 2}
+  keycodes: {fileID: 11400000, guid: 0e367153ea9cfb04187473c1ee09202b, type: 2}
+  resetCode: {fileID: 11400000, guid: 74817d3dc06b6694fa659dea488541a5, type: 2}
   onPortalTraversed:
     m_PersistentCalls:
       m_Calls: []

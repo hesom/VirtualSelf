@@ -29,10 +29,10 @@ MonoBehaviour:
     propDrawingHeight: 51
   - keycodeReference: {fileID: 0}
     roomReference: {fileID: 11400000, guid: f16a7000d0d826949aa18b8cf8d6cdc5, type: 2}
-    propDrawingHeight: 138
+    propDrawingHeight: 127
   - keycodeReference: {fileID: 11400000, guid: c05089ed0eead4f499e2179112ced8d7, type: 2}
     roomReference: {fileID: 11400000, guid: 66728184d29fb78409418ae907df464d, type: 2}
-    propDrawingHeight: 100
+    propDrawingHeight: 89
   - keycodeReference: {fileID: 11400000, guid: 772b52d4de9f1674199838ce87f02644, type: 2}
     roomReference: {fileID: 11400000, guid: 12dbf91755f359248911f2e330a9b502, type: 2}
     propDrawingHeight: 51
