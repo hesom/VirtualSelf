@@ -27,7 +27,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: board_body
-    second: {fileID: 2100000, guid: f6fda92cb710471498e5639b843be89a, type: 2}
+    second: {fileID: 2100000, guid: 1e254f20d06a05344a6b024ab9366086, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -57,7 +57,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: stand
-    second: {fileID: 2100000, guid: f6fda92cb710471498e5639b843be89a, type: 2}
+    second: {fileID: 2100000, guid: 1e254f20d06a05344a6b024ab9366086, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
