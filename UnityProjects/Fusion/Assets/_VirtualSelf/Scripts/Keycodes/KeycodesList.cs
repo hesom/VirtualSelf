@@ -109,6 +109,20 @@ public sealed class KeycodesList : ScriptableObject {
 
     /* ---------- Methods ---------- */
 
+    // TODO
+    public Optional<KeycodeRoomMapping> GetKeycodeFromCodeString(string codeString) {
+        
+        foreach (KeycodeRoomMapping mapping in ValidMappings) {
+
+            if (mapping.KeycodeReference.CodeString.Equals(codeString)) {
+
+                return (Optional<KeycodeRoomMapping>.Of(mapping));
+            }
+        }
+
+        return (Optional<KeycodeRoomMapping>.Empty());
+    }
+
     /// <summary>
     /// Initializes this <see cref="KeycodesList"/>, and makes it ready to be used at runtime.<br/>
     /// Calling this method populates <see cref="ValidMappings"/>, and initializes all the events
