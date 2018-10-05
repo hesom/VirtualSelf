@@ -240,6 +240,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1209465966327874, guid: 86d02d1721cade14d9c5dda84486af26, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86d02d1721cade14d9c5dda84486af26, type: 2}
   m_IsPrefabAsset: 0
@@ -672,9 +676,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startScene:
-    Scene: {fileID: 102900000, guid: 72a0857d35c52d945ac85bc38a351218, type: 3}
-    SceneName: Keycodes System Test Scene
-    sceneIndex: 9
+    Scene: {fileID: 102900000, guid: 54960d75e8f2b954d90379f6ae832058, type: 3}
+    SceneName: TutorialScene
+    sceneIndex: 8
     sceneEnabled: 1
   keycodes: {fileID: 11400000, guid: 0e367153ea9cfb04187473c1ee09202b, type: 2}
 --- !u!4 &1035628203

@@ -2009,7 +2009,7 @@ Prefab:
     - target: {fileID: 114388129428201290, guid: 2b0d4e3704c09af4489175bea9964021,
         type: 2}
       propertyPath: OnObjectsCounted.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114388129428201290, guid: 2b0d4e3704c09af4489175bea9964021,
         type: 2}
@@ -2020,12 +2020,11 @@ Prefab:
         type: 2}
       propertyPath: OnObjectsCounted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 11400000, guid: 7e4a1e2e9d911254c9b66f1e3e1facad,
-        type: 2}
+      objectReference: {fileID: 932560224}
     - target: {fileID: 114388129428201290, guid: 2b0d4e3704c09af4489175bea9964021,
         type: 2}
       propertyPath: OnObjectsCounted.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114388129428201290, guid: 2b0d4e3704c09af4489175bea9964021,
         type: 2}
@@ -2036,12 +2035,11 @@ Prefab:
         type: 2}
       propertyPath: OnObjectsCounted.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 11400000, guid: 87b36390df1612548b1149d8568727d0,
-        type: 2}
+      objectReference: {fileID: 932560224}
     - target: {fileID: 114388129428201290, guid: 2b0d4e3704c09af4489175bea9964021,
         type: 2}
       propertyPath: OnObjectsCounted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: set_IsDiscovered
+      value: DebugLog
       objectReference: {fileID: 0}
     - target: {fileID: 114388129428201290, guid: 2b0d4e3704c09af4489175bea9964021,
         type: 2}
@@ -2051,7 +2049,7 @@ Prefab:
     - target: {fileID: 114388129428201290, guid: 2b0d4e3704c09af4489175bea9964021,
         type: 2}
       propertyPath: OnObjectsCounted.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: set_IsDiscovered
+      value: DebugLog
       objectReference: {fileID: 0}
     - target: {fileID: 114388129428201290, guid: 2b0d4e3704c09af4489175bea9964021,
         type: 2}
@@ -2068,9 +2066,30 @@ Prefab:
       propertyPath: OnObjectsCounted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114388129428201290, guid: 2b0d4e3704c09af4489175bea9964021,
+        type: 2}
+      propertyPath: countThreshold
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b0d4e3704c09af4489175bea9964021, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &932560223 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1839670265188584, guid: 2b0d4e3704c09af4489175bea9964021,
+    type: 2}
+  m_PrefabInternal: {fileID: 932560222}
+--- !u!114 &932560224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 932560223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71a9b56d4fabf0640b14b807612507d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &968519819
 GameObject:
   m_ObjectHideFlags: 0
@@ -2810,7 +2829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 4387911130412568, guid: b06f92767ebcf5242888e88713d5967c, type: 2}
-  ballsPerBatch: 10
+  ballsPerBatch: 50
 --- !u!114 &1552989587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3794,7 +3813,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1552989585}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.899, y: 1.782, z: 1.478}
+  m_LocalPosition: {x: 0.638, y: 1.782, z: 1.478}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1658580570}

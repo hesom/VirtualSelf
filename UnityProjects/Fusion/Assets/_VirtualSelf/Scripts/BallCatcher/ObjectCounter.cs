@@ -27,7 +27,7 @@ public class ObjectCounter : MonoBehaviour {
 		digitTens.SetCharacter(tens.ToString()[0]);
 		digitHundreds.SetCharacter(hundreds.ToString()[0]);
 		
-		if(counter > countThreshold && onObjectsCountedFired){
+		if(!onObjectsCountedFired && counter >= countThreshold){
 			OnObjectsCounted.Invoke();
 			onObjectsCountedFired = true;
 		}
