@@ -19,6 +19,7 @@ TagManager:
   - Sphere
   - LaserTarget
   - LaserReflector
+  - Keypad
   layers:
   - Default
   - TransparentFX
