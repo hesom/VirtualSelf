@@ -9,6 +9,7 @@ namespace VirtualSelf.Utility {
 /// <summary>
 /// TODO: Fill out this class description: ScrollRectKeyboardControls
 /// </summary>
+[RequireComponent(typeof(ScrollRect))]
 public sealed class ScrollRectKeyboardControls : MonoBehaviour {
 
     /* ---------- Variables & Properties ---------- */
