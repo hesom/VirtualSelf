@@ -9,17 +9,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aec14f45991dec54b88cab32bf259dd6, type: 3}
-  m_Name: BallMazeCube
+  m_Name: HotWireRoom
   m_EditorClassIdentifier: 
-  roomName: BallMazeCube
-  description: 'Rubiks Stuff.
-
-    And Maze Stuff.
-
-    Fun.'
+  roomName: Hot Wire
+  description: 
   scene:
-    Scene: {fileID: 102900000, guid: ba68d802d21e7e54f8a64ed4c20ede2e, type: 3}
-    SceneName: Ballmaze
-    sceneIndex: 12
+    Scene: {fileID: 102900000, guid: af64181fb78074647936d77952b0d70b, type: 3}
+    SceneName: Hot Wire
+    sceneIndex: 10
     sceneEnabled: 1
   isDiscovered: 0

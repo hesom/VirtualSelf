@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ecf62c2e39cc41d7ad357baa569680a5, type: 3}
-  m_Name: 0008
+  m_Name: AIBattle
   m_EditorClassIdentifier: 
   digitOne: 0
   digitTwo: 0
   digitThree: 0
-  digitFour: 8
+  digitFour: 0
   isDiscovered: 0
   renameAutomatically: 1
-  codeString: 0008
+  codeString: 0000

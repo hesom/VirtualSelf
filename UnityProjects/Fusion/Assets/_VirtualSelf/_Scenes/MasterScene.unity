@@ -335,6 +335,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 614369659}
     m_Modifications:
+    - target: {fileID: 114208436780229226, guid: c9487347712baf544a321ad9f793f26c,
+        type: 2}
+      propertyPath: _OnUnpress.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4821553097307734, guid: c9487347712baf544a321ad9f793f26c, type: 2}
       propertyPath: m_LocalPosition.x
       value: -0.015030931
@@ -385,6 +390,37 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1443767262055660, guid: c9487347712baf544a321ad9f793f26c, type: 2}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208436780229226, guid: c9487347712baf544a321ad9f793f26c,
+        type: 2}
+      propertyPath: _OnUnpress.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208436780229226, guid: c9487347712baf544a321ad9f793f26c,
+        type: 2}
+      propertyPath: _OnUnpress.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208436780229226, guid: c9487347712baf544a321ad9f793f26c,
+        type: 2}
+      propertyPath: _OnUnpress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 87b36390df1612548b1149d8568727d0,
+        type: 2}
+    - target: {fileID: 114208436780229226, guid: c9487347712baf544a321ad9f793f26c,
+        type: 2}
+      propertyPath: _OnUnpress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_IsDiscovered
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208436780229226, guid: c9487347712baf544a321ad9f793f26c,
+        type: 2}
+      propertyPath: _OnUnpress.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208436780229226, guid: c9487347712baf544a321ad9f793f26c,
+        type: 2}
+      propertyPath: _OnUnpress.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

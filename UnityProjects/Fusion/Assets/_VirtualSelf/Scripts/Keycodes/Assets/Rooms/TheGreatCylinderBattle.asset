@@ -48,6 +48,6 @@ MonoBehaviour:
   scene:
     Scene: {fileID: 102900000, guid: af64181fb78074647936d77952b0d70b, type: 3}
     SceneName: Hot Wire
-    sceneIndex: 9
+    sceneIndex: 10
     sceneEnabled: 1
   isDiscovered: 0
