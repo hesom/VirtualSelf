@@ -9,13 +9,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aec14f45991dec54b88cab32bf259dd6, type: 3}
-  m_Name: MainHub
+  m_Name: BallMazeCube
   m_EditorClassIdentifier: 
-  roomName: The Main Hub
-  description: 
+  roomName: BallMazeCube
+  description: 'Rubiks Stuff.
+
+    And Maze Stuff.
+
+    Fun.'
   scene:
-    Scene: {fileID: 102900000, guid: 72a0857d35c52d945ac85bc38a351218, type: 3}
-    SceneName: Keycodes System Test Scene
-    sceneIndex: 9
-    sceneEnabled: 1
-  isDiscovered: 1
+    Scene: {fileID: 0}
+    SceneName: 
+    sceneIndex: -1
+    sceneEnabled: 0
+  isDiscovered: 0
