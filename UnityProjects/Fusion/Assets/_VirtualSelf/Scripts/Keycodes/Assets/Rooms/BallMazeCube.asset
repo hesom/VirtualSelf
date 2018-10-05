@@ -18,7 +18,7 @@ MonoBehaviour:
 
     Fun.'
   scene:
-    Scene: {fileID: 0}
+    Scene: {fileID: 102900000, guid: 6a8af7763a601f04a8d5742ebeee67f6, type: 3}
     SceneName: 
     sceneIndex: -1
     sceneEnabled: 0
