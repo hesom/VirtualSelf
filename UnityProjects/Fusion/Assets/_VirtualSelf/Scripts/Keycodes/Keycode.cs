@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.Remoting.Messaging;
 using UnityEditor;
 using UnityEngine;
 
@@ -56,11 +57,6 @@ public sealed class Keycode : ScriptableObject, ISerializationCallbackReceiver {
     /// variable private.
     /// </summary>
     public const string FieldNameIsDiscovered = nameof(isDiscovered);
-    /// <summary>
-    /// This is just used for interfacing with Unity Editor code, while keeping the assorted
-    /// variable private.
-    /// </summary>
-    public const string FieldNameRenameAutomatically = nameof(renameAutomatically);
     
     /// <summary>
     /// Contains all the possible values the digits of a keycode can have. Since we are using a
@@ -138,14 +134,6 @@ public sealed class Keycode : ScriptableObject, ISerializationCallbackReceiver {
     private bool isDiscovered;
 
     /// <summary>
-    /// Whether to rename this ScriptableObject asset automatically, whenever the code is changed,
-    /// to exactly the code (e.g. for the code "1408", the asset file would be renamed into "1408"),
-    /// or not. If this is <c>false</c>, the file will never be renamed by the code.
-    /// </summary>
-    [SerializeField]
-    private bool renameAutomatically = true;
-
-    /// <summary>
     /// The final resulting keycode, (necessarily) as a string. This is automatically created in
     /// <see cref="OnValidate"/>, from <see cref="digitOne"/> to <see cref="digitFour"/>, whenever a
     /// change to one of the digits is made.
@@ -197,20 +185,28 @@ public sealed class Keycode : ScriptableObject, ISerializationCallbackReceiver {
             OnDiscoveredStateChanged.Invoke(this);
             isDiscoveredOldValue = isDiscovered;
         }
+    }
+
+    /// <summary>
+    /// Renames the asset file this keycode instance is associated with, into
+    /// <see cref="CodeString"/>.<br/>
+    /// This method can only be called in the Unity Editor, during edit time. If it is called
+    /// during runtime, nothing will happen.
+    /// </summary>
+    public void RenameAssetToCode() {
+
+        /* This is critical. If we are in Playmode and try to run this, Unity apparently will be
+         * stuck in an infinite loop forever. */
         
-        /* The second condition is critical, otherwise Unity will be stuck in an infinite loop as
-         * soon as Playmode starts. */
-        if (renameAutomatically && (Application.isPlaying == false)) {
-            
-            /* This code uses Unity's built-in asset database related utility methods to find the
-             * ScriptableObject asset this particular instance belongs to, and to rename that
-             * object accordingly. */
-            
-            // TODO: Replace with a button
-//            string assetPath =  AssetDatabase.GetAssetPath(GetInstanceID());
-//            AssetDatabase.RenameAsset(assetPath, codeString);
-//            AssetDatabase.SaveAssets();   
-        }
+        if (Application.isPlaying == true) { return; }
+        
+        /* This code uses Unity's built-in asset database related utility methods to find the
+        * ScriptableObject asset this particular instance belongs to, and to rename that
+        * object accordingly. */
+    
+        string assetPath =  AssetDatabase.GetAssetPath(GetInstanceID());
+        AssetDatabase.RenameAsset(assetPath, codeString);
+        AssetDatabase.SaveAssets();          
     }
         
     

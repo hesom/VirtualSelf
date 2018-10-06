@@ -13,7 +13,7 @@ public sealed class KeycodeEditor : UnityEditor.Editor {
 
     /* ---------- Variables & Properties ---------- */
     
-    // private Keycode refObject;
+   private Keycode refObject;
 
     private static readonly SerializedPropertyInfo PropDigitOneInfo = 
         new SerializedPropertyInfo(Keycode.FieldNameDigitOne, "First Digit");
@@ -33,10 +33,6 @@ public sealed class KeycodeEditor : UnityEditor.Editor {
     private static readonly SerializedPropertyInfo PropIsDiscoveredInfo =
         new SerializedPropertyInfo(Keycode.FieldNameIsDiscovered, "Is discovered");
     
-    private static readonly SerializedPropertyInfo PropRenameAutomaticallyInfo = 
-        new SerializedPropertyInfo(
-            Keycode.FieldNameRenameAutomatically, "Rename asset file automatically");
-    
     private static readonly SerializedPropertyInfo PropOnDiscoveredStateChangedInfo =
         new SerializedPropertyInfo(nameof(Keycode.OnDiscoveredStateChanged),
             "On \"Discovered\" State Changed");
@@ -47,7 +43,6 @@ public sealed class KeycodeEditor : UnityEditor.Editor {
     private SerializedProperty propDigitFour;
     private SerializedProperty propCodeString;
     private SerializedProperty propIsDiscovered;
-    private SerializedProperty propRenameAutomatically;
     private SerializedProperty propOnDiscoveredStateChanged;
 
     private GUIStyle styleBox;
@@ -57,7 +52,7 @@ public sealed class KeycodeEditor : UnityEditor.Editor {
 
     private void OnEnable() {
 
-        // refObject = ((Keycode) target);
+        refObject = ((Keycode) target);
 
         propDigitOne = serializedObject.FindProperty(PropDigitOneInfo);
         propDigitTwo = serializedObject.FindProperty(PropDigitTwoInfo);
@@ -65,7 +60,6 @@ public sealed class KeycodeEditor : UnityEditor.Editor {
         propDigitFour = serializedObject.FindProperty(PropDigitFourInfo);
         propCodeString = serializedObject.FindProperty(PropCodeStringInfo);
         propIsDiscovered = serializedObject.FindProperty(PropIsDiscoveredInfo);
-        propRenameAutomatically = serializedObject.FindProperty(PropRenameAutomaticallyInfo);
         propOnDiscoveredStateChanged = serializedObject.FindProperty(PropOnDiscoveredStateChangedInfo);
     }
     
@@ -155,14 +149,11 @@ public sealed class KeycodeEditor : UnityEditor.Editor {
         EditorGUILayout.LabelField("Editor Options", EditorStyles.boldLabel);
 
         EditorGUILayout.Space();
-        
-        EditorGUILayout.BeginHorizontal();
 
-        propRenameAutomatically.boolValue = 
-            EditorGUILayout.ToggleLeft(PropRenameAutomaticallyInfo.EditorText,
-                propRenameAutomatically.boolValue);
-
-        EditorGUILayout.EndHorizontal();
+        if (GUILayout.Button("Rename asset file into keycode")) {
+            
+            refObject.RenameAssetToCode();
+        }
         
         EditorGUILayout.EndVertical();
         
