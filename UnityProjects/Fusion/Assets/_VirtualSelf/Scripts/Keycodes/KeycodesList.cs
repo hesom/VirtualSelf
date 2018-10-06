@@ -150,7 +150,7 @@ public sealed class KeycodesList : ScriptableObject {
         foreach (KeycodeRoomMapping mapping in validMappings) {
 
             mapping.KeycodeReference.DiscoveredStateChangedRuntime += OnKeycodeStateChanged;
-            mapping.RoomReference.DiscoveredStateChangedRuntime += OnRoomStateChanged;
+//            mapping.RoomReference.DiscoveredStateChangedRuntime += OnRoomStateChanged;
         }
         
         isInitialized = true;
@@ -163,7 +163,7 @@ public sealed class KeycodesList : ScriptableObject {
             foreach (KeycodeRoomMapping mapping in validMappings) {
     
                 mapping.KeycodeReference.DiscoveredStateChangedRuntime -= OnKeycodeStateChanged;
-                mapping.RoomReference.DiscoveredStateChangedRuntime -= OnRoomStateChanged;
+//                mapping.RoomReference.DiscoveredStateChangedRuntime -= OnRoomStateChanged;
             }           
         }
     }

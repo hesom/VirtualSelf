@@ -267,7 +267,7 @@ namespace VirtualSelf
         public void NotifyPortalTraversed()
         {
             onPortalTraversed.Invoke();
-            currentPortalRoom.IsDiscovered = true;
+            currentPortalRoom.HasBeenVisited = true;
 //            onPortalTraversed2.Invoke(SceneManager.GetActiveScene());
         }
 

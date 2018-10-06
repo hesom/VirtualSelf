@@ -16,6 +16,11 @@ MonoBehaviour:
   scene:
     Scene: {fileID: 102900000, guid: c3486f1fd992d43408e77ccd48b71fd0, type: 3}
     SceneName: LaserScene
-    sceneIndex: 10
+    sceneIndex: 11
     sceneEnabled: 1
-  isDiscovered: 0
+  hasBeenVisited: 0
+  OnVisitedStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VirtualSelf.Utility.UnityEvents.BoolUE, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
