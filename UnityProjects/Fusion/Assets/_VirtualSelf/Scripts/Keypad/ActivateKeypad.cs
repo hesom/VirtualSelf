@@ -1,24 +1,26 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using VirtualSelf.GameSystems;
 
+
 public class ActivateKeypad : MonoBehaviour {
 
-	public Keycode code;
+	public Keycode Code;
 	
-	// Use this for initialization
 	void Start() {
-		var obj = SceneManager.GetSceneByName("MasterScene").GetRootGameObjects();
-		foreach (var o in obj) {
-			if (o.tag == "Keypad") {
-				o.SetActive(true);
-			}
+
+		Scene masterScene = SceneManager.GetSceneByName("MasterScene");
+
+		if (masterScene.IsValid()) {
+
+			masterScene.GetRootGameObjects().ToList().ForEach(elem => {
+				
+				if (elem.CompareTag("Keypad")) { elem.SetActive(true); }
+			});
 		}
 
-		code.IsDiscovered = true;
+		Code.IsDiscovered = true;
 	}
 
 }
