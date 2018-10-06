@@ -150,6 +150,13 @@ public sealed class KeycodeEditor : UnityEditor.Editor {
 
         EditorGUILayout.Space();
 
+        if (GUILayout.Button("Generate random keycode")) {
+            
+            refObject.GenerateRandomCode();
+        }
+        
+        EditorGUILayout.Space();
+
         if (GUILayout.Button("Rename asset file into keycode")) {
             
             refObject.RenameAssetToCode();

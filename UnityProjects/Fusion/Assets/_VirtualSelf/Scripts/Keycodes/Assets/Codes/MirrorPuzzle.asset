@@ -11,10 +11,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf62c2e39cc41d7ad357baa569680a5, type: 3}
   m_Name: MirrorPuzzle
   m_EditorClassIdentifier: 
-  digitOne: 0
-  digitTwo: 0
-  digitThree: 0
-  digitFour: 0
+  digitOne: 5
+  digitTwo: 7
+  digitThree: 5
+  digitFour: 2
   isDiscovered: 0
-  renameAutomatically: 1
-  codeString: 0000
+  codeString: 5752
+  OnDiscoveredStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VirtualSelf.Utility.UnityEvents.ObjectUE, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null

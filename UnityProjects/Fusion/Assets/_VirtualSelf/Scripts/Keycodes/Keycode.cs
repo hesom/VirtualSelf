@@ -1,7 +1,7 @@
 using System;
-using System.Runtime.Remoting.Messaging;
 using UnityEditor;
 using UnityEngine;
+using Random = System.Random;
 
 
 namespace VirtualSelf.GameSystems {
@@ -175,16 +175,43 @@ public sealed class Keycode : ScriptableObject, ISerializationCallbackReceiver {
 
     private void OnValidate() {
         
-        codeString = (
-            digitOne.ToString() + digitTwo.ToString() +
-            digitThree.ToString() + digitFour.ToString()
-        );
+        UpdateCodeString();
 
         if (isDiscovered != isDiscoveredOldValue) {
             
             OnDiscoveredStateChanged.Invoke(this);
             isDiscoveredOldValue = isDiscovered;
         }
+    }
+
+    /// <summary>
+    /// Updates <see cref="CodeString"/> with the values from <see cref="digitOne"/>, etc.<br/>
+    /// This is normally run automatically. But if required, outside code can call this manually, as
+    /// well.
+    /// </summary>
+    public void UpdateCodeString() {
+        
+        codeString = (
+            digitOne.ToString() + digitTwo.ToString() +
+            digitThree.ToString() + digitFour.ToString()
+        );
+    }
+
+    /// <summary>
+    /// Generate a new random keycode string for this keycode.<br/>
+    /// This may be better than setting keycodes by hand, as humans are actually somewhat bad at
+    /// creating really random numbers.
+    /// </summary>
+    public void GenerateRandomCode() {
+
+        Random codeGen = new Random();
+
+        digitOne = codeGen.Next(PossibleDigits.Length);
+        digitTwo = codeGen.Next(PossibleDigits.Length);
+        digitThree = codeGen.Next(PossibleDigits.Length);
+        digitFour = codeGen.Next(PossibleDigits.Length);
+
+        UpdateCodeString();
     }
 
     /// <summary>
