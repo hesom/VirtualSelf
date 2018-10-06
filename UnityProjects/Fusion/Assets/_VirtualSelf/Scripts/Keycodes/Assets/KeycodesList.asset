@@ -42,3 +42,18 @@ MonoBehaviour:
   - keycodeReference: {fileID: 11400000, guid: fc99028d5231d9b428efaa51b6bf7353, type: 2}
     roomReference: {fileID: 11400000, guid: 05b74f5b63b22ee4fa393be0a146769a, type: 2}
     propDrawingHeight: 51
+  OnAnyListElementStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnKeycodeStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VirtualSelf.Utility.UnityEvents.ObjectUE, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnRoomStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VirtualSelf.Utility.UnityEvents.ObjectUE, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null

@@ -30,5 +30,5 @@ MonoBehaviour:
   OnVisitedStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: VirtualSelf.Utility.UnityEvents.BoolUE, Assembly-CSharp, Version=0.0.0.0,
+    m_TypeName: VirtualSelf.Utility.UnityEvents.ObjectUE, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
