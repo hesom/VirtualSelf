@@ -36,6 +36,10 @@ public sealed class KeycodeEditor : UnityEditor.Editor {
     private static readonly SerializedPropertyInfo PropRenameAutomaticallyInfo = 
         new SerializedPropertyInfo(
             Keycode.FieldNameRenameAutomatically, "Rename asset file automatically");
+    
+    private static readonly SerializedPropertyInfo PropOnDiscoveredStateChangedInfo =
+        new SerializedPropertyInfo(nameof(Keycode.OnDiscoveredStateChanged),
+            "On \"Discovered\" State Changed");
         
     private SerializedProperty propDigitOne;
     private SerializedProperty propDigitTwo;
@@ -44,6 +48,7 @@ public sealed class KeycodeEditor : UnityEditor.Editor {
     private SerializedProperty propCodeString;
     private SerializedProperty propIsDiscovered;
     private SerializedProperty propRenameAutomatically;
+    private SerializedProperty propOnDiscoveredStateChanged;
 
     private GUIStyle styleBox;
     
@@ -61,6 +66,7 @@ public sealed class KeycodeEditor : UnityEditor.Editor {
         propCodeString = serializedObject.FindProperty(PropCodeStringInfo);
         propIsDiscovered = serializedObject.FindProperty(PropIsDiscoveredInfo);
         propRenameAutomatically = serializedObject.FindProperty(PropRenameAutomaticallyInfo);
+        propOnDiscoveredStateChanged = serializedObject.FindProperty(PropOnDiscoveredStateChangedInfo);
     }
     
     
@@ -160,6 +166,22 @@ public sealed class KeycodeEditor : UnityEditor.Editor {
         
         EditorGUILayout.EndVertical();
         
+        EditorGUILayout.Space();
+         
+        
+        /* ---------- Section: Events ---------- */
+        
+        EditorGUILayout.BeginVertical(styleBox);
+        
+        EditorGUILayout.LabelField("Events", EditorStyles.boldLabel);
+        
+        EditorGUILayout.Space();
+
+        EditorGUILayout.PropertyField(propOnDiscoveredStateChanged);
+        
+        EditorGUILayout.EndVertical();
+            
+        EditorGUILayout.Space();       
         
         
         /* ---------- Section: Finalization ---------- */

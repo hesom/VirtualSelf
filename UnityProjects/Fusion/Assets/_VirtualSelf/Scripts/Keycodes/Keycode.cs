@@ -91,13 +91,13 @@ public sealed class Keycode : ScriptableObject, ISerializationCallbackReceiver {
             if (Application.isPlaying) {
                 if (value != isDiscoveredRuntimeValue) {
                     isDiscoveredRuntimeValue = value;
-                    DiscoveredStateChangedRuntime?.Invoke(this, EventArgs.Empty);
+                    OnDiscoveredStateChanged.Invoke(this);
                 }
             }
             else {
                 if (value != isDiscovered) {
                     isDiscovered = value;
-                    DiscoveredStateChangedEditor?.Invoke(this, EventArgs.Empty);
+                    OnDiscoveredStateChanged.Invoke(this);
                 }               
             }
         }
@@ -156,7 +156,7 @@ public sealed class Keycode : ScriptableObject, ISerializationCallbackReceiver {
     
     /// <summary>
     /// This is used (only) in <see cref="OnValidate"/>, to make it possible to raise
-    /// <see cref="DiscoveredStateChangedEditor"/> via changing the value of
+    /// <see cref="OnDiscoveredStateChanged"/> via changing the value of
     /// <see cref="IsDiscovered"/> within the Inspector of this class, as well.
     /// </summary>
     private bool isDiscoveredOldValue;
@@ -175,27 +175,12 @@ public sealed class Keycode : ScriptableObject, ISerializationCallbackReceiver {
     /* ---------- Events & Delegates ---------- */
 
     /// <summary>
-    /// Raised whenever the value of <see cref="IsDiscovered"/> is changed, during runtime.<br/>
+    /// Invoked whenever the value of <see cref="IsDiscovered"/> is changed.<br/>
     /// This is intended for classes which are interested in when a keycode has been "discovered"
-    /// by the player.
-    /// <remarks>
-    /// For listening to changes to the value during edit time (in the editor), use
-    /// <see cref="DiscoveredStateChangedEditor"/>.
-    /// </remarks>
+    /// by the player.<br/>
+    /// The object returned by this event is the keycode instance that invoked it.
     /// </summary>
-    public event EventHandler DiscoveredStateChangedRuntime;
-    
-    /// <summary>
-    /// Raised whenever the value of <see cref="IsDiscovered"/> is changed, during edit time (in the
-    /// editor).<br/>
-    /// This is intended for classes which are interested in when changes to the value are being
-    /// made during development.
-    /// <remarks>
-    /// For listening to changes to the value during runtime, use
-    /// <see cref="DiscoveredStateChangedRuntime"/>.
-    /// </remarks>
-    /// </summary>
-    public event EventHandler DiscoveredStateChangedEditor;
+    public Utility.UnityEvents.ObjectUE OnDiscoveredStateChanged;
 
 
     /* ---------- Methods ---------- */
@@ -209,7 +194,7 @@ public sealed class Keycode : ScriptableObject, ISerializationCallbackReceiver {
 
         if (isDiscovered != isDiscoveredOldValue) {
             
-            DiscoveredStateChangedEditor?.Invoke(this, EventArgs.Empty);
+            OnDiscoveredStateChanged.Invoke(this);
             isDiscoveredOldValue = isDiscovered;
         }
         
