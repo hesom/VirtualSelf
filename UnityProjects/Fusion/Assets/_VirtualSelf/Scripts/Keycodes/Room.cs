@@ -82,13 +82,13 @@ public sealed class Room : ScriptableObject, ISerializationCallbackReceiver {
             if (Application.isPlaying) {
                 if (value != hasBeenVisitedRuntimeValue) {
                     hasBeenVisitedRuntimeValue = value;
-                    OnVisitedStateChanged.Invoke(hasBeenVisitedRuntimeValue);
+                    OnVisitedStateChanged.Invoke(this);
                 }
             }
             else {
                 if (value != hasBeenVisited) {
                     hasBeenVisited = value;
-                    OnVisitedStateChanged.Invoke(hasBeenVisited);
+                    OnVisitedStateChanged.Invoke(this);
                 }               
             }
         }
@@ -141,9 +141,10 @@ public sealed class Room : ScriptableObject, ISerializationCallbackReceiver {
     /// <summary>
     /// Invoked whenever the value of <see cref="HasBeenVisited"/> is changed.<br/>
     /// This is intended for classes which are interested in when a room has been visited by the
-    /// player.
+    /// player.<br/>
+    /// The object returned by this event is the room instance that invoked it.
     /// </summary>
-    public Utility.UnityEvents.BoolUE OnVisitedStateChanged;
+    public Utility.UnityEvents.ObjectUE OnVisitedStateChanged;
     
     
     /* ---------- Methods ---------- */
@@ -152,7 +153,7 @@ public sealed class Room : ScriptableObject, ISerializationCallbackReceiver {
 
         if (hasBeenVisited != hasBeenVisitedOldValue) {
             
-            OnVisitedStateChanged.Invoke(hasBeenVisited);
+            OnVisitedStateChanged.Invoke(this);
             hasBeenVisitedOldValue = hasBeenVisited;
         }
 
