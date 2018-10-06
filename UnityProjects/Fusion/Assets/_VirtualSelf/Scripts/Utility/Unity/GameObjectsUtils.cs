@@ -56,7 +56,11 @@ public static class GameObjectsUtils {
         return (objects);
     }
     
-    // TODO: @Manuel: Comment this?
+    /// <summary>
+    /// Print the path of the gameobject in its hierarchy (scene transforms or folders for prefab).
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <returns></returns>
     public static string GetGameObjectPath(GameObject obj)
     {
         string path = "/" + obj.name;
