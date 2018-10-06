@@ -48,7 +48,7 @@ namespace VirtualSelf.CubeScripts
             var builder = new GeneralBuilder(locator, rotator);
             var handSwitcher = new HandPositionInfo(LeftHand, RightHand, LeftInteraction, RightInteraction, locator);
             handManager = new HandManager(handSwitcher, builder, graspingCube);
-            winCondition = new WinCondition(cube);
+            winCondition = new WinCondition(cube, this);
 
             switch (InitialScramble)
             {

@@ -8,11 +8,13 @@ namespace VirtualSelf.CubeScripts.Interaction
         private readonly Cube2X2 cube;
         private readonly GameObject[] whiteCubes;
         private bool alreadyWon;
+        private CubeHandler handler;
 
-        public WinCondition(Cube2X2 cube)
+        public WinCondition(Cube2X2 cube, CubeHandler cubeHandler)
         {
             this.cube = cube;
             whiteCubes = cube.CubesOnSide(Cube2X2.Side.Top);
+            handler = cubeHandler;
         }
 
         public void WhiteTop()
@@ -43,8 +45,9 @@ namespace VirtualSelf.CubeScripts.Interaction
                 if (angle > 0.001f) return;
             }
 
-            Debug.Log("Hello there! \n General Kenobi!");
+            //Debug.Log("Hello there! \n General Kenobi!");
             alreadyWon = true;
+            handler.OnWin.Invoke();
         }
 
         private bool WhiteFaceUp(Cube2X2.Position position)

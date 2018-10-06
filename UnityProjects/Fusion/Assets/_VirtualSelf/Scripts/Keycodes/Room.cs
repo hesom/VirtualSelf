@@ -46,7 +46,7 @@ public sealed class Room : ScriptableObject, ISerializationCallbackReceiver {
     /// This is just used for interfacing with Unity Editor code, while keeping the assorted
     /// variable private.
     /// </summary>
-    public const string FieldNameIsDiscovered = nameof(isDiscovered);
+    public const string FieldNameIsDiscovered = nameof(hasBeenVisited);
     
     /// <summary>
     /// The name of this room asset. This will be used as the "display name" for the room ingame,
@@ -68,29 +68,27 @@ public sealed class Room : ScriptableObject, ISerializationCallbackReceiver {
     public SceneReference Scene => scene;
 
     /// <summary>
-    /// Denotes whether this room has already been "discovered" by the player, or not. Discovering,
-    /// in this case, means that the player has entered the room for the first time - or, in code
-    /// terms, that the player has entered the scene (through the portal) associated with this room
-    /// asset for the first time.
+    /// Denotes whether this room has already been visited by the player (at least once), or not. In
+    /// code terms, this means that the player has entered the scene (through the portal) associated
+    /// with this room asset for the first time.
     /// </summary>
-    public bool IsDiscovered {
+    public bool HasBeenVisited {
 
         get {
-            if (Application.isPlaying) { return (isDiscoveredRuntimeValue); }
-            else { return (isDiscovered); }
+            if (Application.isPlaying) { return (hasBeenVisitedRuntimeValue); }
+            else { return (hasBeenVisited); }
         }
         set {
             if (Application.isPlaying) {
-                if (value != isDiscoveredRuntimeValue) {
-                    Debug.Log($"Room {roomName} has been discovered!");
-                    isDiscoveredRuntimeValue = value;
-                    DiscoveredStateChangedRuntime?.Invoke(this, EventArgs.Empty);
+                if (value != hasBeenVisitedRuntimeValue) {
+                    hasBeenVisitedRuntimeValue = value;
+                    OnVisitedStateChanged.Invoke(this);
                 }
             }
             else {
-                if (value != isDiscovered) {
-                    isDiscovered = value;
-                    DiscoveredStateChangedEditor?.Invoke(this, EventArgs.Empty);
+                if (value != hasBeenVisited) {
+                    hasBeenVisited = value;
+                    OnVisitedStateChanged.Invoke(this);
                 }               
             }
         }
@@ -115,63 +113,48 @@ public sealed class Room : ScriptableObject, ISerializationCallbackReceiver {
     private SceneReference scene;
     
     /// <summary>
-    /// See <see cref="IsDiscovered"/> for details.
+    /// See <see cref="HasBeenVisited"/> for details.
     /// </summary>
     [SerializeField]
-    private bool isDiscovered;
-
+    private bool hasBeenVisited;
+    
     /// <summary>
-    /// This is used (only) in <see cref="OnValidate"/>, to make it possible to raise
-    /// <see cref="DiscoveredStateChangedEditor"/> via changing the value of
-    /// <see cref="IsDiscovered"/> within the Inspector of this class, as well.
+    /// This is used (only) in <see cref="OnValidate"/>, to make it possible to invoke
+    /// <see cref="OnVisitedStateChanged"/> via changing the value of <see cref="HasBeenVisited"/>
+    /// within the Inspector of this class, as well.
     /// </summary>
-    private bool isDiscoveredOldValue;
+    private bool hasBeenVisitedOldValue;
 
     /// <summary>
-    /// This value is initialized from <see cref="isDiscovered"/> during runtime, and is not
+    /// This value is initialized from <see cref="hasBeenVisited"/> during runtime, and is not
     /// serialized. All runtime exposure to the outside is actually this value, and not the "real"
-    /// <see cref="isDiscovered"/>.<br/>
-    /// This is because otherwise, changes made to <see cref="isDiscovered"/> would persist even
+    /// <see cref="hasBeenVisited"/>.<br/>
+    /// This is because otherwise, changes made to <see cref="hasBeenVisited"/> would persist even
     /// after Playmode is closed, which is (usually) not what we want.
     /// </summary>
     [NonSerialized]
-    private bool isDiscoveredRuntimeValue;
+    private bool hasBeenVisitedRuntimeValue;
 
 
     /* ---------- Events & Delegates ---------- */
 
     /// <summary>
-    /// Raised whenever the value of <see cref="IsDiscovered"/> is changed, during runtime.<br/>
-    /// This is intended for classes which are interested in when a room has been "discovered"
-    /// by the player.
-    /// <remarks>
-    /// For listening to changes to the value during edit time (in the editor), use
-    /// <see cref="DiscoveredStateChangedEditor"/>.
-    /// </remarks>
+    /// Invoked whenever the value of <see cref="HasBeenVisited"/> is changed.<br/>
+    /// This is intended for classes which are interested in when a room has been visited by the
+    /// player.<br/>
+    /// The object returned by this event is the room instance that invoked it.
     /// </summary>
-    public event EventHandler DiscoveredStateChangedRuntime;
-    
-    /// <summary>
-    /// Raised whenever the value of <see cref="IsDiscovered"/> is changed, during edit time (in the
-    /// editor).<br/>
-    /// This is intended for classes which are interested in when changes to the value are being
-    /// made during development.
-    /// <remarks>
-    /// For listening to changes to the value during runtime, use
-    /// <see cref="DiscoveredStateChangedRuntime"/>.
-    /// </remarks>
-    /// </summary>
-    public event EventHandler DiscoveredStateChangedEditor;
+    public Utility.UnityEvents.ObjectUE OnVisitedStateChanged;
     
     
     /* ---------- Methods ---------- */
    
     private void OnValidate() {
 
-        if (isDiscovered != isDiscoveredOldValue) {
+        if (hasBeenVisited != hasBeenVisitedOldValue) {
             
-            DiscoveredStateChangedEditor?.Invoke(this, EventArgs.Empty);
-            isDiscoveredOldValue = isDiscovered;
+            OnVisitedStateChanged.Invoke(this);
+            hasBeenVisitedOldValue = hasBeenVisited;
         }
 
         /* If the name for this Room is still empty, we will set it to the name of the scene - this
@@ -204,7 +187,7 @@ public sealed class Room : ScriptableObject, ISerializationCallbackReceiver {
 
     public void OnAfterDeserialize() {
         
-        isDiscoveredRuntimeValue = isDiscovered;
+        hasBeenVisitedRuntimeValue = hasBeenVisited;
     }
 
     public void OnBeforeSerialize() {  }

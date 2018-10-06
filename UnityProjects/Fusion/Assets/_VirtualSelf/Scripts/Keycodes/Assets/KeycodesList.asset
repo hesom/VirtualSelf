@@ -15,9 +15,6 @@ MonoBehaviour:
   - keycodeReference: {fileID: 11400000, guid: 3d07fd7afa1b5374e9307904c5d02534, type: 2}
     roomReference: {fileID: 11400000, guid: 48d78a76f03672d4fa9778536dadef71, type: 2}
     propDrawingHeight: 51
-  - keycodeReference: {fileID: 11400000, guid: 083a39849d05a8f47a79ae69f6efe760, type: 2}
-    roomReference: {fileID: 11400000, guid: 5853b52f57c6b0c45868660bb4c94188, type: 2}
-    propDrawingHeight: 51
   - keycodeReference: {fileID: 11400000, guid: ce744b71da5d7b049b28e54d41c53fc6, type: 2}
     roomReference: {fileID: 11400000, guid: ab6f68471f7ad224092593d522989aee, type: 2}
     propDrawingHeight: 51
@@ -36,3 +33,27 @@ MonoBehaviour:
   - keycodeReference: {fileID: 11400000, guid: 772b52d4de9f1674199838ce87f02644, type: 2}
     roomReference: {fileID: 11400000, guid: 12dbf91755f359248911f2e330a9b502, type: 2}
     propDrawingHeight: 51
+  - keycodeReference: {fileID: 11400000, guid: b05d4716148bad445b1849bda67dcb56, type: 2}
+    roomReference: {fileID: 11400000, guid: bab4141199fbfb24cbde440c90e846d2, type: 2}
+    propDrawingHeight: 51
+  - keycodeReference: {fileID: 11400000, guid: 7e4a1e2e9d911254c9b66f1e3e1facad, type: 2}
+    roomReference: {fileID: 11400000, guid: 99c81d9bfce84f143a126bd461f3f6fa, type: 2}
+    propDrawingHeight: 51
+  - keycodeReference: {fileID: 11400000, guid: fc99028d5231d9b428efaa51b6bf7353, type: 2}
+    roomReference: {fileID: 11400000, guid: 05b74f5b63b22ee4fa393be0a146769a, type: 2}
+    propDrawingHeight: 51
+  OnAnyListElementStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnKeycodeStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VirtualSelf.Utility.UnityEvents.ObjectUE, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnRoomStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VirtualSelf.Utility.UnityEvents.ObjectUE, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null

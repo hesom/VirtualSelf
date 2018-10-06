@@ -552,7 +552,13 @@ public static class ReflectionUtils {
         return (Optional<Type>.Empty());
     }
     
-    // TODO: @Manuel: Comment this?
+    /// <summary>
+    /// Get a field for the given name, or a property. Case is ignored, includes private members.
+    /// </summary>
+    /// <param name="t"></param>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    /// <exception cref="EntryPointNotFoundException"></exception>
     public static MemberInfo GetFieldOrProperty(Type t, string name)
     {
         BindingFlags flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.IgnoreCase;

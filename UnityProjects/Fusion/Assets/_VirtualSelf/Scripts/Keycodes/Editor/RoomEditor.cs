@@ -23,15 +23,20 @@ public sealed class RoomEditor : UnityEditor.Editor {
     private static readonly SerializedPropertyInfo PropSceneInfo = 
         new SerializedPropertyInfo(Room.FieldNameScene, "Scene");   
     
-    private static readonly SerializedPropertyInfo PropIsDiscoveredInfo =
+    private static readonly SerializedPropertyInfo PropHasBeenVisitedInfo =
         new SerializedPropertyInfo(Room.FieldNameIsDiscovered, "Is discovered");
+    
+    private static readonly SerializedPropertyInfo PropOnVisitedStateChangedInfo =
+        new SerializedPropertyInfo(nameof(Room.OnVisitedStateChanged),
+            "On \"Visited\" State Changed");
 
     private Room refObject;
 
     private SerializedProperty propRoomName;
     private SerializedProperty propDescription;
     private SerializedProperty propScene;
-    private SerializedProperty propIsDiscovered;
+    private SerializedProperty propHasBeenVisited;
+    private SerializedProperty propOnVisitedStateChanged;
     
     private GUIStyle styleBox;
 
@@ -45,7 +50,8 @@ public sealed class RoomEditor : UnityEditor.Editor {
         propRoomName = serializedObject.FindProperty(PropRoomNameInfo);
         propDescription = serializedObject.FindProperty(PropDescriptionInfo);
         propScene = serializedObject.FindProperty(PropSceneInfo);
-        propIsDiscovered = serializedObject.FindProperty(PropIsDiscoveredInfo);
+        propHasBeenVisited = serializedObject.FindProperty(PropHasBeenVisitedInfo);
+        propOnVisitedStateChanged = serializedObject.FindProperty(PropOnVisitedStateChangedInfo);
     }
 
 
@@ -96,8 +102,23 @@ public sealed class RoomEditor : UnityEditor.Editor {
         
         EditorGUILayout.Space();
 
-        propIsDiscovered.boolValue =
-            EditorGUILayout.ToggleLeft(PropIsDiscoveredInfo.EditorText, propIsDiscovered.boolValue);
+        propHasBeenVisited.boolValue =
+            EditorGUILayout.ToggleLeft(PropHasBeenVisitedInfo.EditorText, propHasBeenVisited.boolValue);
+        
+        EditorGUILayout.EndVertical();
+            
+        EditorGUILayout.Space();
+        
+        
+        /* ---------- Section: Events ---------- */
+        
+        EditorGUILayout.BeginVertical(styleBox);
+        
+        EditorGUILayout.LabelField("Events", EditorStyles.boldLabel);
+        
+        EditorGUILayout.Space();
+
+        EditorGUILayout.PropertyField(propOnVisitedStateChanged);
         
         EditorGUILayout.EndVertical();
             

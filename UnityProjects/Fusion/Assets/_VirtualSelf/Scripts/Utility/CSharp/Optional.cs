@@ -3,9 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-namespace VirtualSelf {
-
-namespace Utility {
+namespace VirtualSelf.Utility {
 
     
 /// <summary>
@@ -62,8 +60,8 @@ public sealed class Optional<T> : IEnumerable<T> {
     /* ---------- Methods ---------- */
 
     /// <summary>
-    /// Creates an <see cref="Optional{T}"/> of type <c>T</c> containing <paramref name="value"/>,
-    /// if <paramref name="value"/> is not <c>null</c>.<br/>
+    /// Creates an <see cref="Optional{T}"/> of type <typeparamref name="T"/> containing
+    /// <paramref name="value"/>, if <paramref name="value"/> is not <c>null</c>.<br/>
     /// If it is <c>null</c>, throws an exception.
     /// </summary>
     /// <param name="value">
@@ -86,10 +84,11 @@ public sealed class Optional<T> : IEnumerable<T> {
     }
     
     /// <summary>
-    /// Creates an <see cref="Optional{T}"/> of type <c>T</c> containing <paramref name="value"/>,
-    /// if <paramref name="value"/>is not <c>null</c>.<br/>
-    /// If it is <c>null</c>, creates an empty <see cref="Optional{T}"/> of type <c>T</c>. Empty
-    /// means that the created <see cref="Optional{T}"/> will have no value present.
+    /// Creates an <see cref="Optional{T}"/> of type <typeparamref name="T"/> containing
+    /// <paramref name="value"/>, if <paramref name="value"/> is not <c>null</c>.<br/>
+    /// If it is <c>null</c>, creates an empty <see cref="Optional{T}"/> of type
+    /// <typeparamref name="T"/>. Empty means that the created <see cref="Optional{T}"/> will have
+    /// no value present.
     /// </summary>
     /// <param name="value">The value to create an <see cref="Optional{T}"/> of.</param>
     /// <returns>
@@ -104,10 +103,10 @@ public sealed class Optional<T> : IEnumerable<T> {
     }
 
     /// <summary>
-    /// Creates an empty <see cref="Optional{T}"/> of type <c>T</c>. Empty means that the created
-    /// <see cref="Optional{T}"/> will have no value present.
+    /// Creates an empty <see cref="Optional{T}"/> of type <typeparamref name="T"/>. Empty means
+    /// that the created <see cref="Optional{T}"/> will have no value present.
     /// </summary>
-    /// <returns>An empty <c>Optional</c> (of type <c>T</c>).</returns>
+    /// <returns>An empty <c>Optional</c> (of type <typeparamref name="T"/>).</returns>
     public static Optional<T> Empty() {
 
         return (new Optional<T>(new T[0]));
@@ -274,8 +273,6 @@ public sealed class Optional<T> : IEnumerable<T> {
 
         return (value.GetEnumerator());
     }
-}
-
 }
 
 }

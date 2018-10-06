@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 using VirtualSelf.Utility;
 
@@ -9,7 +11,12 @@ namespace VirtualSelf.GameSystems {
 
 
 /// <summary>
-/// TODO: Fill out this class description: KeycodesList
+/// A "container" class, which is supposed to hold all mappings of <see cref="Keycode"/>s to
+/// <see cref="Room"/>s that the game uses.<br/>
+/// The class mostly features a list of all these mappings, and additional utility and validation
+/// methods.<br/>
+/// The mappings list is supposed to be created via the Unity Inspector. There is no code access
+/// possible to it from the outside.
 /// </summary>
 [CreateAssetMenu(
     fileName = "KeycodesList",
@@ -94,33 +101,52 @@ public sealed class KeycodesList : ScriptableObject {
     /* ---------- Events & Delegates ---------- */
     
     /// <summary>
-    /// Raised whenever the state of any element (any <see cref="Keycode"/> or <see cref="Room"/>)
+    /// Invoked whenever the state of any element (any <see cref="Keycode"/> or <see cref="Room"/>)
     /// in the mappings list (<see cref="ValidMappings"/>) changes. This event is concerned about
     /// general changes to the list, not specific changes. Classes that just want to know when
-    /// there is a change to the list can subscribe to this.<br/>
-    /// For more specific events, try 
+    /// there is a change to the list in general, can subscribe to this.<br/>
+    /// For events specific to the Keycode or Room that changed, there are
+    /// <see cref="OnKeycodeStateChanged"/> and <see cref="OnRoomStateChanged"/>.
     /// </summary>
-    public event EventHandler AnyListElementStateChanged;
+    public UnityEvent OnAnyListElementStateChanged;
 
-    public event EventHandler<KeycodeStateChangedArgs> KeycodeStateChanged;
-    
-    public event EventHandler<RoomStateChangedArgs> RoomStateChanged;
+    /// <summary>
+    /// Invoked whenever the state of any specific <see cref="Keycode"/> in the mappings list
+    /// changes. The keycode in question is returned by the event.
+    /// </summary>
+    public Utility.UnityEvents.ObjectUE OnKeycodeStateChanged;
+
+    /// <summary>
+    /// Invoked whenever the state of any specific <see cref="Room"/> in the mappings list
+    /// changes. The room in question is returned by the event.
+    /// </summary>
+    public Utility.UnityEvents.ObjectUE OnRoomStateChanged;
     
 
     /* ---------- Methods ---------- */
 
-    // TODO
+    /// <summary>
+    /// Returns the mapping from the mappings list (<see cref="ValidMappings"/>) which has the
+    /// <see cref="Keycode"/> corresponding to the given keycode code string, if it exists.
+    /// </summary>
+    /// <param name="codeString">
+    /// The <see cref="Keycode"/> code string of which the corresponding keycode should be returned
+    /// for.
+    /// </param>
+    /// <returns>
+    /// A value containing the mapping with the <see cref="Keycode"/> corresponding to
+    /// <paramref name="codeString"/>, or an empty value if such a mapping does not exist within
+    /// <see cref="ValidMappings"/>.
+    /// </returns>
     public Optional<KeycodeRoomMapping> GetKeycodeFromCodeString(string codeString) {
-        
-        foreach (KeycodeRoomMapping mapping in ValidMappings) {
 
-            if (mapping.KeycodeReference.CodeString.Equals(codeString)) {
-
-                return (Optional<KeycodeRoomMapping>.Of(mapping));
-            }
-        }
-
-        return (Optional<KeycodeRoomMapping>.Empty());
+        return (
+            Optional<KeycodeRoomMapping>.OfNullable(
+                ValidMappings.FirstOrDefault(
+                    mapping => mapping.KeycodeReference.CodeString == codeString
+                )
+            )
+        );
     }
 
     /// <summary>
@@ -148,9 +174,10 @@ public sealed class KeycodesList : ScriptableObject {
         CreateValidMappingsList();
 
         foreach (KeycodeRoomMapping mapping in validMappings) {
-
-            mapping.KeycodeReference.DiscoveredStateChangedRuntime += OnKeycodeStateChanged;
-            mapping.RoomReference.DiscoveredStateChangedRuntime += OnRoomStateChanged;
+            
+            mapping.KeycodeReference.OnDiscoveredStateChanged.AddListener(
+                OnKeycodeStateChangedInvocation);
+            mapping.RoomReference.OnVisitedStateChanged.AddListener(OnRoomStateChangedInvocation);
         }
         
         isInitialized = true;
@@ -162,8 +189,10 @@ public sealed class KeycodesList : ScriptableObject {
             
             foreach (KeycodeRoomMapping mapping in validMappings) {
     
-                mapping.KeycodeReference.DiscoveredStateChangedRuntime -= OnKeycodeStateChanged;
-                mapping.RoomReference.DiscoveredStateChangedRuntime -= OnRoomStateChanged;
+                mapping.KeycodeReference.OnDiscoveredStateChanged.RemoveListener(
+                    OnKeycodeStateChangedInvocation);
+                mapping.RoomReference.OnVisitedStateChanged.RemoveListener(
+                    OnRoomStateChangedInvocation);
             }           
         }
     }
@@ -209,47 +238,16 @@ public sealed class KeycodesList : ScriptableObject {
     
     /* ---------- Event Methods ---------- */
 
-    private void OnKeycodeStateChanged(object sender, EventArgs eventArgs) {
+    private void OnKeycodeStateChangedInvocation(UnityEngine.Object keycode) {
         
-        AnyListElementStateChanged?.Invoke(this, EventArgs.Empty);
-        KeycodeStateChanged?.Invoke(this, new KeycodeStateChangedArgs(sender as Keycode));
+        OnAnyListElementStateChanged.Invoke();
+        OnKeycodeStateChanged.Invoke(keycode);
     }
-    
-    private void OnRoomStateChanged(object sender, EventArgs eventArgs) {
-        
-        AnyListElementStateChanged?.Invoke(this, EventArgs.Empty);
-        RoomStateChanged?.Invoke(this, new RoomStateChangedArgs(sender as Room));
-    }
-    
-    
-    /* ---------- Inner Classes ---------- */
 
-    /// <summary>
-    /// This class is used by <see cref="KeycodesList.KeycodeStateChanged"/>. It contains a
-    /// reference to the <see cref="Keycode"/> whose state has changed.
-    /// </summary>
-    public class KeycodeStateChangedArgs : EventArgs {
+    private void OnRoomStateChangedInvocation(UnityEngine.Object room) {
 
-        public Keycode KeycodeReference { get; }
-
-        public KeycodeStateChangedArgs(Keycode keycodeReference) {
-            
-            KeycodeReference = keycodeReference;
-        }
-    }
-    
-    /// <summary>
-    /// This class is used by <see cref="KeycodesList.RoomStateChanged"/>. It contains a
-    /// reference to the <see cref="Room"/> whose state has changed.
-    /// </summary>
-    public class RoomStateChangedArgs : EventArgs {
-
-        public Room RoomReference { get; }
-
-        public RoomStateChangedArgs(Room roomReference) {
-            
-            RoomReference = roomReference;
-        }
+        OnAnyListElementStateChanged.Invoke();
+        OnRoomStateChanged.Invoke(room);
     }
 }
 

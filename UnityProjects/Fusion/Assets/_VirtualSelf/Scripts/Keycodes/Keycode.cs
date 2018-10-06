@@ -1,6 +1,7 @@
 using System;
 using UnityEditor;
 using UnityEngine;
+using Random = System.Random;
 
 
 namespace VirtualSelf.GameSystems {
@@ -56,11 +57,6 @@ public sealed class Keycode : ScriptableObject, ISerializationCallbackReceiver {
     /// variable private.
     /// </summary>
     public const string FieldNameIsDiscovered = nameof(isDiscovered);
-    /// <summary>
-    /// This is just used for interfacing with Unity Editor code, while keeping the assorted
-    /// variable private.
-    /// </summary>
-    public const string FieldNameRenameAutomatically = nameof(renameAutomatically);
     
     /// <summary>
     /// Contains all the possible values the digits of a keycode can have. Since we are using a
@@ -91,13 +87,13 @@ public sealed class Keycode : ScriptableObject, ISerializationCallbackReceiver {
             if (Application.isPlaying) {
                 if (value != isDiscoveredRuntimeValue) {
                     isDiscoveredRuntimeValue = value;
-                    DiscoveredStateChangedRuntime?.Invoke(this, EventArgs.Empty);
+                    OnDiscoveredStateChanged.Invoke(this);
                 }
             }
             else {
                 if (value != isDiscovered) {
                     isDiscovered = value;
-                    DiscoveredStateChangedEditor?.Invoke(this, EventArgs.Empty);
+                    OnDiscoveredStateChanged.Invoke(this);
                 }               
             }
         }
@@ -138,14 +134,6 @@ public sealed class Keycode : ScriptableObject, ISerializationCallbackReceiver {
     private bool isDiscovered;
 
     /// <summary>
-    /// Whether to rename this ScriptableObject asset automatically, whenever the code is changed,
-    /// to exactly the code (e.g. for the code "1408", the asset file would be renamed into "1408"),
-    /// or not. If this is <c>false</c>, the file will never be renamed by the code.
-    /// </summary>
-    [SerializeField]
-    private bool renameAutomatically = true;
-
-    /// <summary>
     /// The final resulting keycode, (necessarily) as a string. This is automatically created in
     /// <see cref="OnValidate"/>, from <see cref="digitOne"/> to <see cref="digitFour"/>, whenever a
     /// change to one of the digits is made.
@@ -156,7 +144,7 @@ public sealed class Keycode : ScriptableObject, ISerializationCallbackReceiver {
     
     /// <summary>
     /// This is used (only) in <see cref="OnValidate"/>, to make it possible to raise
-    /// <see cref="DiscoveredStateChangedEditor"/> via changing the value of
+    /// <see cref="OnDiscoveredStateChanged"/> via changing the value of
     /// <see cref="IsDiscovered"/> within the Inspector of this class, as well.
     /// </summary>
     private bool isDiscoveredOldValue;
@@ -175,57 +163,77 @@ public sealed class Keycode : ScriptableObject, ISerializationCallbackReceiver {
     /* ---------- Events & Delegates ---------- */
 
     /// <summary>
-    /// Raised whenever the value of <see cref="IsDiscovered"/> is changed, during runtime.<br/>
+    /// Invoked whenever the value of <see cref="IsDiscovered"/> is changed.<br/>
     /// This is intended for classes which are interested in when a keycode has been "discovered"
-    /// by the player.
-    /// <remarks>
-    /// For listening to changes to the value during edit time (in the editor), use
-    /// <see cref="DiscoveredStateChangedEditor"/>.
-    /// </remarks>
+    /// by the player.<br/>
+    /// The object returned by this event is the keycode instance that invoked it.
     /// </summary>
-    public event EventHandler DiscoveredStateChangedRuntime;
-    
-    /// <summary>
-    /// Raised whenever the value of <see cref="IsDiscovered"/> is changed, during edit time (in the
-    /// editor).<br/>
-    /// This is intended for classes which are interested in when changes to the value are being
-    /// made during development.
-    /// <remarks>
-    /// For listening to changes to the value during runtime, use
-    /// <see cref="DiscoveredStateChangedRuntime"/>.
-    /// </remarks>
-    /// </summary>
-    public event EventHandler DiscoveredStateChangedEditor;
+    public Utility.UnityEvents.ObjectUE OnDiscoveredStateChanged;
 
 
     /* ---------- Methods ---------- */
 
     private void OnValidate() {
         
+        UpdateCodeString();
+
+        if (isDiscovered != isDiscoveredOldValue) {
+            
+            OnDiscoveredStateChanged.Invoke(this);
+            isDiscoveredOldValue = isDiscovered;
+        }
+    }
+
+    /// <summary>
+    /// Updates <see cref="CodeString"/> with the values from <see cref="digitOne"/>, etc.<br/>
+    /// This is normally run automatically. But if required, outside code can call this manually, as
+    /// well.
+    /// </summary>
+    public void UpdateCodeString() {
+        
         codeString = (
             digitOne.ToString() + digitTwo.ToString() +
             digitThree.ToString() + digitFour.ToString()
         );
+    }
 
-        if (isDiscovered != isDiscoveredOldValue) {
-            
-            DiscoveredStateChangedEditor?.Invoke(this, EventArgs.Empty);
-            isDiscoveredOldValue = isDiscovered;
-        }
+    /// <summary>
+    /// Generate a new random keycode string for this keycode.<br/>
+    /// This may be better than setting keycodes by hand, as humans are actually somewhat bad at
+    /// creating really random numbers.
+    /// </summary>
+    public void GenerateRandomCode() {
+
+        Random codeGen = new Random();
+
+        digitOne = codeGen.Next(PossibleDigits.Length);
+        digitTwo = codeGen.Next(PossibleDigits.Length);
+        digitThree = codeGen.Next(PossibleDigits.Length);
+        digitFour = codeGen.Next(PossibleDigits.Length);
+
+        UpdateCodeString();
+    }
+
+    /// <summary>
+    /// Renames the asset file this keycode instance is associated with, into
+    /// <see cref="CodeString"/>.<br/>
+    /// This method can only be called in the Unity Editor, during edit time. If it is called
+    /// during runtime, nothing will happen.
+    /// </summary>
+    public void RenameAssetToCode() {
+
+        /* This is critical. If we are in Playmode and try to run this, Unity apparently will be
+         * stuck in an infinite loop forever. */
         
-        /* The second condition is critical, otherwise Unity will be stuck in an infinite loop as
-         * soon as Playmode starts. */
-        if (renameAutomatically && (Application.isPlaying == false)) {
-            
-            /* This code uses Unity's built-in asset database related utility methods to find the
-             * ScriptableObject asset this particular instance belongs to, and to rename that
-             * object accordingly. */
-            
-            // TODO: Replace with a button
-//            string assetPath =  AssetDatabase.GetAssetPath(GetInstanceID());
-//            AssetDatabase.RenameAsset(assetPath, codeString);
-//            AssetDatabase.SaveAssets();   
-        }
+        if (Application.isPlaying == true) { return; }
+        
+        /* This code uses Unity's built-in asset database related utility methods to find the
+        * ScriptableObject asset this particular instance belongs to, and to rename that
+        * object accordingly. */
+    
+        string assetPath =  AssetDatabase.GetAssetPath(GetInstanceID());
+        AssetDatabase.RenameAsset(assetPath, codeString);
+        AssetDatabase.SaveAssets();          
     }
         
     
