@@ -735,6 +735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4016e62f7b646e140ab28df90b03c464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HideMethod: 0
 --- !u!4 &81112390 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000010194457784, guid: f938a6c1302c65c4888cf722823b3009,
@@ -6398,7 +6399,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1003455675}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70cd40fdc2371ae488800d36550324ab, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b4757652421a394384c015512fa5386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   HandModel: {fileID: 0}
@@ -10764,7 +10765,7 @@ MonoBehaviour:
   pinkyDistalJoint: {fileID: 0}
   pinkyTip: {fileID: 0}
   _chirality: 1
-  _isTracked: 1
+  _isTracked: 0
 --- !u!1 &1581213758
 GameObject:
   m_ObjectHideFlags: 0
@@ -11022,7 +11023,7 @@ MonoBehaviour:
   pinkyDistalJoint: {fileID: 0}
   pinkyTip: {fileID: 0}
   _chirality: 0
-  _isTracked: 1
+  _isTracked: 0
 --- !u!4 &1596858121 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000012551454130, guid: 0dc91d4f886a65e4fa82be6181a46900,
@@ -11167,6 +11168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4016e62f7b646e140ab28df90b03c464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HideMethod: 0
 --- !u!1001 &1649871041
 Prefab:
   m_ObjectHideFlags: 0

@@ -51,6 +51,18 @@ public class GestureSelector : MonoBehaviour {
         ActivateGesture(SelectedIndex);
     }
 
+    public void UnloadUnscopeAll()
+    {
+        foreach (var t in GestureObjectsArr)
+        {
+            // unload gestures
+            var g = t.PlayerGestures.GetComponent<GunGesture>();
+            if (g != null && _postStart) g.UnloadUnscope(false);
+            var g2 = t.PlayerGestures.GetComponent<GunGesturePinch>();
+            if (g2 != null && _postStart) g2.UnloadUnscope(false);
+        }
+    }
+
     private bool _postStart;
 
 	// Use this for initialization
