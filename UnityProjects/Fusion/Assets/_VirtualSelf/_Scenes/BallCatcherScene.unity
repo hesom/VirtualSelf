@@ -2857,8 +2857,8 @@ MonoBehaviour:
   onPortalTraversed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1552989585}
-        m_MethodName: SetActive
+      - m_Target: {fileID: 1552989586}
+        m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
