@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114487473289976442}
   - component: {fileID: 114387532928022052}
   - component: {fileID: 114743633478776050}
+  - component: {fileID: 114414088500283478}
   m_Layer: 0
   m_Name: Gestures
   m_TagString: Untagged
@@ -113,43 +114,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnActivate:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnDeactivate:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   Detectors:
   - {fileID: 114245979901712692}
   - {fileID: 114213517241409628}
   - {fileID: 114487473289976442}
-  AddAllSiblingDetectorsOnAwake: 1
+  AddAllSiblingDetectorsOnAwake: 0
   GateType: 0
   Negate: 0
+--- !u!114 &114414088500283478
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1527799010250430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e1037f97c8c2c4da273efe9f755cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  References:
+  - Script: {fileID: 114245979901712692}
+    FieldName: Hand Model1
+    SourceObject: Capsule Hand Left
+  - Script: {fileID: 114245979901712692}
+    FieldName: Hand Model2
+    SourceObject: Capsule Hand Right
+  - Script: {fileID: 114213517241409628}
+    FieldName: Hand Model
+    SourceObject: Capsule Hand Left
+  - Script: {fileID: 114487473289976442}
+    FieldName: Hand Model
+    SourceObject: Capsule Hand Right
+  - Script: {fileID: 114743633478776050}
+    FieldName: Hand Model1
+    SourceObject: Capsule Hand Left
+  - Script: {fileID: 114743633478776050}
+    FieldName: Hand Model1
+    SourceObject: Capsule Hand Left
 --- !u!114 &114487473289976442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -190,26 +199,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52ae9d4eafba1944ca8d7a1897277be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnActivate:
+  OnDownwardsComplete:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnUpwardsComplete:
+    m_PersistentCalls:
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   DetectorLogicGate: {fileID: 114387532928022052}
   HandModel1: {fileID: 0}
   HandModel2: {fileID: 0}
-  DistanceRequired: 0.2
+  DistanceRequired: 0.3
   DistanceAxis: 1
   DebugDot: {fileID: 1529570674292440, guid: 42c408d341fcac544b48237f4329e1ee, type: 2}
   debug: 0
