@@ -2810,6 +2810,7 @@ GameObject:
   - component: {fileID: 2058319165}
   - component: {fileID: 1552989586}
   - component: {fileID: 1552989587}
+  - component: {fileID: 1552989588}
   m_Layer: 0
   m_Name: Dispenser
   m_TagString: Untagged
@@ -2823,7 +2824,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1552989585}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 683fa3f1fddfe6b40914aae25877a661, type: 3}
   m_Name: 
@@ -2841,6 +2842,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfdca0017db48074a802945cee32a18d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1552989588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1552989585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 859acf72207b79b44aca6f7b1464a0cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneSwitcher: {fileID: 11400000, guid: 5cb869533c87ab346a98a422b734b580, type: 2}
+  onPortalTraversed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1552989585}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1635175634
 GameObject:
   m_ObjectHideFlags: 0
