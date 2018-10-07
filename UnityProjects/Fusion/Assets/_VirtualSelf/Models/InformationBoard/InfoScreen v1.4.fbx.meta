@@ -43,9 +43,9 @@ ModelImporter:
     2100006: screen
     2100008: panel_body
     2100010: panel_front
-    2100012: buttonLeft
-    2100014: buttonCenter
-    2100016: buttonRight
+    2100012: button_left
+    2100014: button_center
+    2100016: button_right
     2100018: stando
     2100020: mounts
     2300000: ButtonCenter
