@@ -43,8 +43,8 @@ namespace VirtualSelf
                     renderPlaneLeft.gameObject.SetActive(false);
                     renderPlaneRight.gameObject.SetActive(false);
                     colliderPlane.gameObject.SetActive(false);
-                    var fader = portal.GetComponent<Fader>();
-                    fader.StartFade();
+                    //var fader = portal.GetComponent<Fader>();
+                    //fader.StartFade();
                     sceneSwitcher.NotifyPortalTraversed();
 
                     Scene activeScene = SceneManager.GetActiveScene();

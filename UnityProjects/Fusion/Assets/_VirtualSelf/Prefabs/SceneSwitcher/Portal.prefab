@@ -11,6 +11,24 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1985052745114228}
   m_IsPrefabAsset: 1
+--- !u!1 &1041558829213794
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4934282029203984}
+  - component: {fileID: 65579183560013296}
+  - component: {fileID: 114463245722342490}
+  - component: {fileID: 114611053576902266}
+  m_Layer: 0
+  m_Name: PortalCollider
+  m_TagString: PortalCollider
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1075968768601480
 GameObject:
   m_ObjectHideFlags: 1
@@ -259,6 +277,7 @@ Transform:
   - {fileID: 4215292773661942}
   - {fileID: 4380508470149228}
   - {fileID: 4310310576584524}
+  - {fileID: 4934282029203984}
   m_Father: {fileID: 4259764455171118}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -275,6 +294,19 @@ Transform:
   m_Father: {fileID: 4380508470149228}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!4 &4934282029203984
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1041558829213794}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4819374080323368}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4958676720534366
 Transform:
   m_ObjectHideFlags: 1
@@ -534,6 +566,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65579183560013296
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1041558829213794}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.9467025, y: 3.9501357, z: 1}
+  m_Center: {x: 0.009375811, y: 1.9806926, z: 0}
 --- !u!65 &65906650751666666
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -574,6 +618,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeMaterial: {fileID: 2100000, guid: 6456134e3ecd14d44984af34f57aa4f1, type: 2}
   fadeDuration: 2
+--- !u!114 &114463245722342490
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1041558829213794}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 916c150f4be56e841bcd243dee4e16c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portalMesh: {fileID: 4819374080323368}
+  fadeDuration: 2
 --- !u!114 &114571996245605980
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -586,3 +643,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneSwitcher: {fileID: 11400000, guid: 5cb869533c87ab346a98a422b734b580, type: 2}
+--- !u!114 &114611053576902266
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1041558829213794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 859acf72207b79b44aca6f7b1464a0cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneSwitcher: {fileID: 11400000, guid: 5cb869533c87ab346a98a422b734b580, type: 2}
+  onPortalTraversed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114463245722342490}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null

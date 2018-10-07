@@ -21,6 +21,7 @@ TagManager:
   - LaserReflector
   - Keypad
   - GlobalGameState
+  - PortalCollider
   layers:
   - Default
   - TransparentFX
