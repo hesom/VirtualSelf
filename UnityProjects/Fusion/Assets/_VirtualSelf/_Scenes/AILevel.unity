@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17931,6 +17931,7 @@ GameObject:
   - component: {fileID: 360611771}
   - component: {fileID: 360611772}
   - component: {fileID: 360611773}
+  - component: {fileID: 360611774}
   m_Layer: 0
   m_Name: PlayerControls
   m_TagString: Untagged
@@ -18005,6 +18006,21 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &360611774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 360611770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e1037f97c8c2c4da273efe9f755cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  References:
+  - Script: {fileID: 360611773}
+    FieldName: Hand Model
+    SourceObject: Capsule Hand Right
 --- !u!4 &362380939 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4637730552355828, guid: f5d09be8c59374d42b426bf39f7b4114,
@@ -35952,6 +35968,7 @@ GameObject:
   - component: {fileID: 744265647}
   - component: {fileID: 744265646}
   - component: {fileID: 744265643}
+  - component: {fileID: 744265649}
   m_Layer: 0
   m_Name: PlayerGestures Classic
   m_TagString: Untagged
@@ -36125,6 +36142,30 @@ Transform:
   m_Father: {fileID: 524895381}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &744265649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 744265642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e1037f97c8c2c4da273efe9f755cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  References:
+  - Script: {fileID: 744265645}
+    FieldName: Hand Model
+    SourceObject: Capsule Hand Right
+  - Script: {fileID: 744265644}
+    FieldName: Hand Model
+    SourceObject: Capsule Hand Right
+  - Script: {fileID: 744265647}
+    FieldName: Hand Model
+    SourceObject: Capsule Hand Right
+  - Script: {fileID: 744265646}
+    FieldName: Hand Model
+    SourceObject: Capsule Hand Right
 --- !u!1 &744794032
 GameObject:
   m_ObjectHideFlags: 0
@@ -42372,6 +42413,7 @@ GameObject:
   - component: {fileID: 871914307}
   - component: {fileID: 871914306}
   - component: {fileID: 871914305}
+  - component: {fileID: 871914313}
   m_Layer: 0
   m_Name: PlayerGestures Enery Shield
   m_TagString: Shield
@@ -42683,6 +42725,30 @@ Transform:
   m_Father: {fileID: 551019439}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &871914313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 871914304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e1037f97c8c2c4da273efe9f755cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  References:
+  - Script: {fileID: 871914310}
+    FieldName: Hand Model
+    SourceObject: Capsule Hand Left
+  - Script: {fileID: 871914309}
+    FieldName: Hand Model
+    SourceObject: Capsule Hand Right
+  - Script: {fileID: 871914308}
+    FieldName: Hand Model
+    SourceObject: Capsule Hand Left
+  - Script: {fileID: 871914307}
+    FieldName: Hand Model
+    SourceObject: Capsule Hand Right
 --- !u!1 &874932161
 GameObject:
   m_ObjectHideFlags: 0
@@ -55186,6 +55252,7 @@ GameObject:
   - component: {fileID: 1208422318}
   - component: {fileID: 1208422317}
   - component: {fileID: 1208422314}
+  - component: {fileID: 1208422320}
   m_Layer: 0
   m_Name: PlayerGestures Fork
   m_TagString: Untagged
@@ -55359,6 +55426,30 @@ Transform:
   m_Father: {fileID: 524895381}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1208422320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1208422313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e1037f97c8c2c4da273efe9f755cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  References:
+  - Script: {fileID: 1208422316}
+    FieldName: Hand Model
+    SourceObject: Capsule Hand Right
+  - Script: {fileID: 1208422315}
+    FieldName: Hand Model
+    SourceObject: Capsule Hand Right
+  - Script: {fileID: 1208422318}
+    FieldName: Hand Model
+    SourceObject: Capsule Hand Right
+  - Script: {fileID: 1208422317}
+    FieldName: Hand Model
+    SourceObject: Capsule Hand Right
 --- !u!4 &1209918242 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4389579228603076, guid: eb9f1bf07b241fa4d9dd639e347ec9e1,
@@ -56742,6 +56833,7 @@ GameObject:
   - component: {fileID: 1321249955}
   - component: {fileID: 1321249954}
   - component: {fileID: 1321249953}
+  - component: {fileID: 1321249956}
   m_Layer: 0
   m_Name: ZoomGesture
   m_TagString: Untagged
@@ -56831,6 +56923,21 @@ MonoBehaviour:
   ShowGizmos: 1
   ActivateDistance: 0.02
   DeactivateDistance: 0.04
+--- !u!114 &1321249956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1321249951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e1037f97c8c2c4da273efe9f755cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  References:
+  - Script: {fileID: 1321249955}
+    FieldName: Hand Model
+    SourceObject: Capsule Hand Left
 --- !u!1 &1321366849
 GameObject:
   m_ObjectHideFlags: 0
@@ -66975,6 +67082,7 @@ GameObject:
   - component: {fileID: 1786212625}
   - component: {fileID: 1786212624}
   - component: {fileID: 1786212621}
+  - component: {fileID: 1786212627}
   m_Layer: 0
   m_Name: PlayerGestures Rectangle
   m_TagString: Untagged
@@ -67143,6 +67251,30 @@ Transform:
   m_Father: {fileID: 524895381}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1786212627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1786212620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e1037f97c8c2c4da273efe9f755cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  References:
+  - Script: {fileID: 1786212623}
+    FieldName: Hand Model
+    SourceObject: Capsule Hand Right
+  - Script: {fileID: 1786212622}
+    FieldName: Hand Model
+    SourceObject: Capsule Hand Right
+  - Script: {fileID: 1786212625}
+    FieldName: Hand Model
+    SourceObject: Capsule Hand Right
+  - Script: {fileID: 1786212624}
+    FieldName: Hand Model
+    SourceObject: Capsule Hand Left
 --- !u!1 &1793377610
 GameObject:
   m_ObjectHideFlags: 0
@@ -67397,6 +67529,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 093392e8d0c749e4bb15043d3e8f5f62, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1794127132 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1123688301162730, guid: 093392e8d0c749e4bb15043d3e8f5f62,
+    type: 2}
+  m_PrefabInternal: {fileID: 1794127131}
 --- !u!114 &1794127133 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114238933578042426, guid: 093392e8d0c749e4bb15043d3e8f5f62,
@@ -67414,6 +67551,45 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1794127131}
   m_Script: {fileID: 11500000, guid: 102de96fca8e9914c85c48e3d6199f0d, type: 3}
+--- !u!114 &1794127136 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114695397481526892, guid: 093392e8d0c749e4bb15043d3e8f5f62,
+    type: 2}
+  m_PrefabInternal: {fileID: 1794127131}
+  m_Script: {fileID: 11500000, guid: e98e641d160144e87a3d33fcdb893a02, type: 3}
+--- !u!114 &1794127137 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114307662875088366, guid: 093392e8d0c749e4bb15043d3e8f5f62,
+    type: 2}
+  m_PrefabInternal: {fileID: 1794127131}
+  m_Script: {fileID: 11500000, guid: e98e641d160144e87a3d33fcdb893a02, type: 3}
+--- !u!114 &1794127138 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114595536891493890, guid: 093392e8d0c749e4bb15043d3e8f5f62,
+    type: 2}
+  m_PrefabInternal: {fileID: 1794127131}
+  m_Script: {fileID: 11500000, guid: c057ae8396c1146c98a146b81dcc5870, type: 3}
+--- !u!114 &1794127139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1794127132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e1037f97c8c2c4da273efe9f755cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  References:
+  - Script: {fileID: 1794127138}
+    FieldName: Hand Model
+    SourceObject: Capsule Hand Right
+  - Script: {fileID: 1794127137}
+    FieldName: Hand Model
+    SourceObject: Capsule Hand Right
+  - Script: {fileID: 1794127136}
+    FieldName: Hand Model
+    SourceObject: Capsule Hand Right
 --- !u!4 &1797195138 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000012435123504, guid: 44f2514494ffb034eaa0c82ac2ffc556,
@@ -68260,11 +68436,11 @@ MonoBehaviour:
   _templateLayer:
     layerIndex: 0
   _interactionLayer:
-    layerIndex: 8
+    layerIndex: 18
   _interactionNoContactLayer:
-    layerIndex: 9
+    layerIndex: 20
   _contactBoneLayer:
-    layerIndex: 10
+    layerIndex: 21
   _drawControllerRuntimeGizmos: 0
 --- !u!4 &1856007785
 Transform:
@@ -84063,6 +84239,7 @@ GameObject:
   - component: {fileID: 1963666078}
   - component: {fileID: 1963666077}
   - component: {fileID: 1963666076}
+  - component: {fileID: 1963666079}
   m_Layer: 0
   m_Name: ZoomGesture (1)
   m_TagString: Untagged
@@ -84152,6 +84329,21 @@ MonoBehaviour:
   ShowGizmos: 1
   ActivateDistance: 0.02
   DeactivateDistance: 0.04
+--- !u!114 &1963666079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1963666074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e1037f97c8c2c4da273efe9f755cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  References:
+  - Script: {fileID: 1963666078}
+    FieldName: Hand Model
+    SourceObject: Capsule Hand Left
 --- !u!1 &1970705828
 GameObject:
   m_ObjectHideFlags: 0
