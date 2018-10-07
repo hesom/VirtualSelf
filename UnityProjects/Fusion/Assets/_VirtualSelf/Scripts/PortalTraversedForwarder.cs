@@ -16,6 +16,11 @@ namespace VirtualSelf
             sceneSwitcher.onPortalTraversed.AddListener(ForwardEvent);
         }
 
+        private void OnDestroy()
+        {
+            sceneSwitcher.onPortalTraversed.RemoveListener(ForwardEvent);
+        }
+
         public void ForwardEvent()
         {
             onPortalTraversed.Invoke();
