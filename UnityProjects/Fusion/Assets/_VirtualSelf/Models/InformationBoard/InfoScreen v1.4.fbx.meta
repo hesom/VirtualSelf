@@ -72,7 +72,62 @@ ModelImporter:
     4300010: Stando
     4300012: MountLeft
     4300014: MountRight
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: board_body
+    second: {fileID: 2100000, guid: 1e254f20d06a05344a6b024ab9366086, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: button_center
+    second: {fileID: 2100000, guid: 854034503fffa464c8a6d08ca95ffd70, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: button_left
+    second: {fileID: 2100000, guid: 854034503fffa464c8a6d08ca95ffd70, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: button_right
+    second: {fileID: 2100000, guid: 854034503fffa464c8a6d08ca95ffd70, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lamps_body
+    second: {fileID: 2100000, guid: 806bfe201dec5d441bba8de86e6ce772, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lamps_front
+    second: {fileID: 2100000, guid: 806bfe201dec5d441bba8de86e6ce772, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mounts
+    second: {fileID: 2100000, guid: 1e254f20d06a05344a6b024ab9366086, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: panel_body
+    second: {fileID: 2100000, guid: f6fda92cb710471498e5639b843be89a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: panel_front
+    second: {fileID: 2100000, guid: f6fda92cb710471498e5639b843be89a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: screen
+    second: {fileID: 2100000, guid: d008648c8a4b64a47906b14c4250683f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stando
+    second: {fileID: 2100000, guid: 1e254f20d06a05344a6b024ab9366086, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
