@@ -17,7 +17,7 @@ public class Gamescore : MonoBehaviour
 	public Slider Slider;
 	public UnityEvent OnWin;
 
-	private HashSet<ScoreObject> _scoreObjects = new HashSet<ScoreObject>();
+	private readonly HashSet<ScoreObject> _scoreObjects = new HashSet<ScoreObject>();
 	private bool _won;
 	
 	void Start()
@@ -30,6 +30,13 @@ public class Gamescore : MonoBehaviour
 	public void Increment(ScoreObject scoreObject, int amount = 1)
 	{
 		_scoreObjects.Add(scoreObject);
+		Score += amount;
+		Slider.value = Score;
+		CheckWin();
+	}
+
+	public void Increment(int amount)
+	{
 		Score += amount;
 		Slider.value = Score;
 		CheckWin();
