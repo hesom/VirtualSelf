@@ -364,7 +364,7 @@ Transform:
   - {fileID: 667614912}
   - {fileID: 1193162904}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &109723025 stripped
 GameObject:
@@ -472,6 +472,62 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 138728425}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &147227475
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 147227478}
+  - component: {fileID: 147227477}
+  - component: {fileID: 147227476}
+  m_Layer: 0
+  m_Name: '[GlobalGameState]'
+  m_TagString: GlobalGameState
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &147227476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 147227475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af66549789088b46a42db1ec7590b8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isKey7Repaired: 0
+--- !u!114 &147227477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 147227475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e933f13d48c681d48b14750922ac906d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _comment: Get this GameObject by searching for the tag GlobalGameState in scenes
+    outside of the MasterScene. Do this once in the Start method and not every frame
+  _isEditing: 0
+--- !u!4 &147227478
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 147227475}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &273680251 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1117351211026014, guid: c96f3fc093c047b4981420455fe4fd34,
@@ -530,7 +586,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4004496542989454, guid: 86d02d1721cade14d9c5dda84486af26, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 23167102713084324, guid: 86d02d1721cade14d9c5dda84486af26,
         type: 2}
@@ -1257,7 +1313,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &691592011
 MonoBehaviour:
@@ -1809,7 +1865,7 @@ Transform:
   - {fileID: 2006366848}
   - {fileID: 1066888865}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &858123851
 GameObject:
@@ -2207,7 +2263,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1035628204
 MonoBehaviour:
@@ -2980,7 +3036,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4822923098130148, guid: 33edf201cbc6fe645ad9078697cd2aea, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114685367921167028, guid: 33edf201cbc6fe645ad9078697cd2aea,
         type: 2}
@@ -3642,7 +3698,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1453964018
 MonoBehaviour:
@@ -3742,7 +3798,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4004635598650928, guid: 40b7b74fb8fd3f94ca237edc96762857, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1527799010250430, guid: 40b7b74fb8fd3f94ca237edc96762857, type: 2}
       propertyPath: m_Name
@@ -4752,7 +4808,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4050235663507654, guid: dae2e2be31c98324eac460f702db97e9, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 20862101930491778, guid: dae2e2be31c98324eac460f702db97e9,
         type: 2}
@@ -4905,7 +4961,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4714688821968750, guid: c96f3fc093c047b4981420455fe4fd34, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114724772068122664, guid: c96f3fc093c047b4981420455fe4fd34,
         type: 2}
