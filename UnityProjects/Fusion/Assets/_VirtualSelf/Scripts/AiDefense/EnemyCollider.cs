@@ -47,7 +47,7 @@ public class EnemyCollider : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-		
+//		Debug.Log(r.position+" "+transform.position);
 	}
 
 	public void Init(Spawner spawner, LocationProvider locationProvider)
@@ -103,15 +103,7 @@ public class EnemyCollider : MonoBehaviour
 					r.angularVelocity = Vector3.zero;
 //					Debug.Log(name+" is switching from ragdoll to navmeshagent");
 					State = EnemyState.PathToPlayer;
-//					a.nextPosition = r.position;
 
-//					r.position += Vector3.up * .5f;
-//					r.position = new Vector3(r.position.x, 0.5393f, r.position.z);
-//					r.rotation = Quaternion.identity;
-					
-//					a.updatePosition = true;
-//					a.updateRotation = true;
-//					a.updateUpAxis = true;
 					r.useGravity = false;
 					
 					o.enabled = false;
@@ -178,12 +170,7 @@ public class EnemyCollider : MonoBehaviour
 			Debug.Log(name+" collision with "+other.gameObject.name);
 			//Spawner.RemoveAgent(gameObject, true);
 //			spawner.PauseAgent(gameObject);
-//			a.updatePosition = false;
-//			a.updateRotation = false;
-//			a.updateUpAxis = false;
 
-//			r.position = a.nextPosition;
-//			r.isKinematic = false;
 			a.enabled = false;
 			o.enabled = true;
 			State = EnemyState.RagdollPhysics;

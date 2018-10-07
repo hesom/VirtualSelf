@@ -15,57 +15,60 @@ public class FireGestureGraphics : MonoBehaviour
     public AttachmentPointBehaviour attachPoint;
     public Vector3 flameRotate;
     public GameObject preFlamePrefab;
+    public KeyCode DebugStart = KeyCode.K;
 
     private GameObject flameEffectInstance;
-    private GameObject preFlameEffectInstance;
+    private GameObject ignitionFlameEffectInstance;
 
-    public void StartPreFlame()
+    public void StartIgnitionFlame()
     {
-        if (preFlameEffectInstance != null) Destroy(preFlameEffectInstance);
-        preFlameEffectInstance = Instantiate(preFlamePrefab);
+        RemoveFlamesFade();
+        if (ignitionFlameEffectInstance != null) Destroy(ignitionFlameEffectInstance);
+        ignitionFlameEffectInstance = Instantiate(preFlamePrefab);
     }
 
     public void StartFlames()
     {
         // remove any previous flame immediately
-        CancelInvoke("RemoveFlamesFade");
+        CancelInvoke(nameof(RemoveFlamesFade));
         if (flameEffectInstance != null) Destroy(flameEffectInstance);
-        RemovePreFlamesFade();
+        RemoveIgnitionFlamesFade();
 
         flameEffectInstance = Instantiate(flameEffectPrefab);
-        Invoke("RemoveFlamesFade", flameDuration);
+        Invoke(nameof(RemoveFlamesFade), flameDuration);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(DebugStart))
+        {
+            Debug.Log("Debug flame trigger");
+            flameRotate = new Vector3(-50, 0, 0);
+            StartFlames();
+        }
+        
         if (flameEffectInstance != null /*&& c.Frame().Hands.Count > 0*/)
         {
             Quaternion old = attachPoint.transform.localRotation;
-            attachPoint.transform.localRotation =
-                attachPoint.transform.localRotation * Quaternion.Euler(flameRotate);
+            
+            attachPoint.transform.localRotation = attachPoint.transform.localRotation * Quaternion.Euler(flameRotate);
             flameEffectInstance.transform.position = attachPoint.transform.position;
             flameEffectInstance.transform.rotation = attachPoint.transform.rotation;
-            attachPoint.transform.localRotation = old;
             
+            attachPoint.transform.localRotation = old;
         }
 
-        if (preFlameEffectInstance != null)
+        if (ignitionFlameEffectInstance != null)
         {
             Quaternion old = attachPoint.transform.localRotation;
             attachPoint.transform.localRotation =
                 attachPoint.transform.localRotation * Quaternion.Euler(flameRotate);
-            preFlameEffectInstance.transform.position = attachPoint.transform.position;
-            preFlameEffectInstance.transform.rotation = attachPoint.transform.rotation;
+            ignitionFlameEffectInstance.transform.position = attachPoint.transform.position;
+            ignitionFlameEffectInstance.transform.rotation = attachPoint.transform.rotation;
             attachPoint.transform.localRotation = old;
         }
     }
-
-//    static Vector3 Vec(Vector v)
-//    {
-//        return new Vector3(v.x, v.y, v.z);
-//    }
 
     public void RemoveFlamesFade()
     {
@@ -73,7 +76,7 @@ public class FireGestureGraphics : MonoBehaviour
         {
             foreach (Transform c in flameEffectInstance.transform.GetChildren())
             {
-                if (c.tag.Equals("Flame"))
+                if (c.CompareTag("Flame"))
                 {
                     c.GetComponent<ParticleSystem>().Stop();
                 }
@@ -84,45 +87,56 @@ public class FireGestureGraphics : MonoBehaviour
                 }
             }
 
-            Destroy(flameEffectInstance, 2.5f);
-            flameEffectInstance = null;
+            Invoke(nameof(RemoveFlamesImmediate), 2.5f);
+//            Destroy(flameEffectInstance, 2.5f);
+//            flameEffectInstance = null;
         }
 
-        RemovePreFlamesFade();
+        RemoveIgnitionFlamesFade();
     }
 
     public void RemoveFlamesFadeAndDeactivate()
     {
         RemoveFlamesFade();
-        Invoke("Deactivate", 2.51f);
+        Invoke(nameof(Deactivate), 2.51f);
     }
 
     private void Deactivate()
     {
-        gameObject.SetActive(false);
+        GetComponent<FireGesture>().enabled = false;
     }
 
-    void RemovePreFlamesFade()
+    void RemoveIgnitionFlamesFade()
     {
-        if (preFlameEffectInstance != null)
+        if (ignitionFlameEffectInstance != null)
         {
-            preFlameEffectInstance.transform.GetChild(0).GetComponent<ParticleSystem>().Stop();
+            ignitionFlameEffectInstance.transform.GetChild(0).GetComponent<ParticleSystem>().Stop();
 //            preFlameEffectInstance.GetComponent<ParticleSystem>().Stop();
-            Invoke("DestroyPreFlame", 1);
+            Invoke(nameof(DestroyIgnitionFlame), 1);
         }
     }
 
-    void DestroyPreFlame()
+    void DestroyIgnitionFlame()
     {
-        if (preFlameEffectInstance != null) Destroy(preFlameEffectInstance);
+        if (ignitionFlameEffectInstance != null) Destroy(ignitionFlameEffectInstance);
     }
 
+    private void RemoveFlamesImmediate() {
+        if (flameEffectInstance != null) {
+            StopAllCoroutines();
+            Destroy(flameEffectInstance);
+            flameEffectInstance = null;
+        }
+    }
+    
     IEnumerator FadeLight(ParticleSystem p)
     {
         ParticleSystem.LightsModule lm = p.lights;
 
         for (float f = lm.intensityMultiplier; f > 0; f -= 0.01f)
         {
+            if (!p.IsAlive()) yield break;
+            
             lm.intensityMultiplier = f;
             yield return null;
         }

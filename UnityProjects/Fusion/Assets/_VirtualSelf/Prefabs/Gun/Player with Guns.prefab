@@ -7688,11 +7688,11 @@ MonoBehaviour:
   _templateLayer:
     layerIndex: 0
   _interactionLayer:
-    layerIndex: 16
-  _interactionNoContactLayer:
-    layerIndex: 17
-  _contactBoneLayer:
     layerIndex: 18
+  _interactionNoContactLayer:
+    layerIndex: 20
+  _contactBoneLayer:
+    layerIndex: 21
   _drawControllerRuntimeGizmos: 0
 --- !u!114 &114589493439463456
 MonoBehaviour:

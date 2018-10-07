@@ -127,7 +127,7 @@ public class MeltOnCollision : MonoBehaviour
 
     void OnParticleCollision(GameObject other)
     {
-        if (other.tag.Equals("Flame"))
+        if (other.CompareTag("Flame"))
         {
             float t = Time.time;
             if (t - lastUpdate > Random.Range(updateSecondsMin, updateSecondsMax))
@@ -140,7 +140,8 @@ public class MeltOnCollision : MonoBehaviour
                 // one flame hit (between acceptable delays) will cause a melting sequence that lasts a few ticks, which are not necessarily frames
                 // the sequence of ticks should also finish faster than the next update comes in
                 // (see the ScaleDown methods for detailed documentation)
-                StopCoroutine(ScaleDownSequence());
+//                StopCoroutine(ScaleDownSequence());
+                StopAllCoroutines();
                 StartCoroutine(ScaleDownSequence()); 
 
                 // spawn melt effects

@@ -35,7 +35,7 @@ public class Bullet : MonoBehaviour
 		_i = (_i+1) % Bullets.Length;
 
 		rb = GetComponent<Rigidbody>();
-		Invoke("Destroy", 30); // destroy if no collision
+		Invoke(nameof(Destroy), 30); // destroy if no collision
 	}
 
 	void Destroy()
@@ -52,11 +52,6 @@ public class Bullet : MonoBehaviour
 		}
 	}
 
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 	void OnCollisionEnter(Collision other)
 	{
 		if (doneColliding) return;
@@ -64,7 +59,7 @@ public class Bullet : MonoBehaviour
 		
 //		GetComponent<Renderer>().enabled = false;
 		
-		CancelInvoke("Destroy");
+		CancelInvoke(nameof(Destroy));
 		if (DebugHit) Debug.Log(name+" collision with "+other.gameObject.name);
 		
 		if (other.rigidbody != null) gameObject.transform.SetParent(other.transform);
@@ -76,7 +71,7 @@ public class Bullet : MonoBehaviour
 		Vector3 lastAirPos = other.collider.bounds.Intersects(bl) ? preLastPos : lastPos;
 		
 		// determine surface hit position with ray from last air position towards collision position 
-		RaycastHit hit = new RaycastHit();
+		RaycastHit hit;
 		bool h = Physics.Raycast(lastAirPos, (other.contacts[0].point-lastAirPos), out hit, 10);
 		// if the ray hit this bullet itself, the bullet was already perfectly placed and we can ignore the ray
 		bool fallback = !h || hit.collider.gameObject == gameObject;
@@ -164,7 +159,7 @@ public class Bullet : MonoBehaviour
 	
 	void SpawnDecal(Collider col, Vector3 pos, Vector3 normal, GameObject prefab)
 	{
-		GameObject spawnedDecal = GameObject.Instantiate(prefab, pos, Quaternion.LookRotation(normal));
+		GameObject spawnedDecal = Instantiate(prefab, pos, Quaternion.LookRotation(normal));
 		spawnedDecal.transform.SetParent(col.transform);
 	}
 }
