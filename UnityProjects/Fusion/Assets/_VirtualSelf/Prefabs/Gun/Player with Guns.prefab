@@ -7341,6 +7341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85d40811b244e4c4e9a47b2bc8ae6f1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handModelBase: {fileID: 0}
   transparentMaterial: {fileID: 2100000, guid: d9ec864154a8e814f9b8eb272c4b06e0, type: 2}
   interactionHand: {fileID: 114223830790998862}
   phaseDuration: 1
@@ -7383,11 +7384,15 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+    m_CallsDirty: 1
   OnReset:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+    m_CallsDirty: 1
+  capsuleHand: {fileID: 0}
+  defaultMaterial: {fileID: 0}
 --- !u!114 &114342620238676546
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7890,6 +7895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85d40811b244e4c4e9a47b2bc8ae6f1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handModelBase: {fileID: 0}
   transparentMaterial: {fileID: 2100000, guid: d9ec864154a8e814f9b8eb272c4b06e0, type: 2}
   interactionHand: {fileID: 114208388601058418}
   phaseDuration: 1
@@ -7899,11 +7905,15 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+    m_CallsDirty: 1
   OnReset:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+    m_CallsDirty: 1
+  capsuleHand: {fileID: 0}
+  defaultMaterial: {fileID: 0}
 --- !u!114 &114682553115247742
 MonoBehaviour:
   m_ObjectHideFlags: 1

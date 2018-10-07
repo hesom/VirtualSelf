@@ -74,6 +74,12 @@ public class ModelSwitcher : MonoBehaviour
 //		Resources.FindObjectsOfTypeAll<MonoBehaviour>();
 	}
 
+	public void CycleGroup()
+	{
+		ActiveGroup = (ActiveGroup + 1) % 2;
+		ActivateGroup(ActiveGroup);
+	}
+
 	private bool IsRight(string name)
 	{
 		string[] split = Regex.Split(name.ToLower(), "[ _]");
