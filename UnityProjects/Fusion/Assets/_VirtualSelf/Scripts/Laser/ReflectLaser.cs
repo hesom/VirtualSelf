@@ -7,8 +7,9 @@ public class ReflectLaser : MonoBehaviour
 {
 
     public ParticleSystem hitEffectParticles;
+    public Transform hitPlane;
     public ParticleSystem reflectParticles;
-
+    public Transform reflectPlane;
     public UnityEvent OnTargetHit;
 
     private LineRenderer lr;
@@ -32,7 +33,9 @@ public class ReflectLaser : MonoBehaviour
                 lr.SetPosition(1, hit.point);
                 hitEffectParticles.gameObject.SetActive(true);
                 hitEffectParticles.transform.position = hit.point;
-                hitEffectParticles.transform.forward = hit.normal;
+                hitEffectParticles.transform.up = hit.normal;
+                hitPlane.position = hit.point;
+                hitPlane.up = hit.normal;
 
                 if(hit.collider.tag == "LaserReflector")
                 {
@@ -44,7 +47,8 @@ public class ReflectLaser : MonoBehaviour
                         lr.SetPosition(2, hit.point);
                         hitEffectParticles.transform.position = hit.point;
                         hitEffectParticles.transform.forward = hit.normal;
-
+                        reflectPlane.position = hit.point;
+                        reflectPlane.up = hit.normal;
                         if(hit.collider.tag == "LaserTarget")
                         {
                             OnTargetHit.Invoke();
