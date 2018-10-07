@@ -32,7 +32,8 @@ namespace VirtualSelf
             Hand h1 = HandModel1.GetLeapHand();
             Hand h2 = HandModel2.GetLeapHand();
 
-            if (HandModel1.IsTracked && HandModel2.IsTracked)
+//            if (HandModel1.IsTracked && HandModel2.IsTracked)
+            if (h1 != null && h2 != null)
             {
                 _lastPos = PalmPos(h1, h2);
                 //							

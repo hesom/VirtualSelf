@@ -15,11 +15,13 @@ public class GraspIndicator : MonoBehaviour
 
 	private bool _tracked = true;
 	private Renderer _ren;
+	private Light _light;
 	
 	// Use this for initialization
 	void Start ()
 	{
 		_ren = GetComponent<Renderer>();
+		_light = GetComponentInChildren<Light>();
 		
 		Hand.OnGraspBegin += GraspBegin;
 		Hand.OnGraspEnd += GraspEnd;
@@ -42,7 +44,10 @@ public class GraspIndicator : MonoBehaviour
 	{
 		Debug.Log("grasp");
 		IndicatorColor.State = IndicatorColor.States.Valid;
+		
 //		else if (IndicatorMaterial != null) IndicatorMaterial.State = States.Valid;
+
+		_light.color = IndicatorColor.CurrentColor();
 	}
 
 	private void GraspEnd()
@@ -50,6 +55,8 @@ public class GraspIndicator : MonoBehaviour
 		Debug.Log("ungrasp");
 		IndicatorColor.State = IndicatorColor.States.Invalid;
 //		else if (IndicatorMaterial != null) IndicatorMaterial.State = States.Valid;
+		
+		_light.color = IndicatorColor.CurrentColor();
 	}
 }
 	

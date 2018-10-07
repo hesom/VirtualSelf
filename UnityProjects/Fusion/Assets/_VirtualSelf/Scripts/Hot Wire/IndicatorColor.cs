@@ -21,22 +21,7 @@ public class IndicatorColor : MonoBehaviour {
 		set
 		{
 			_state = value;
-			Color col;
-			switch (value)
-			{
-				case States.Indetermined:
-					col = Indetermined;
-					break;
-				case States.Valid:
-					col = Valid;
-					break;
-				case States.Invalid:
-					col = Invalid;
-					break;
-				default:
-					throw new InvalidEnumArgumentException("not implemented: "+value);
-			}
-
+			Color col = ColorFromState(value);
 			Material m = GetComponent<Renderer>().material;
 			m.color = col;
 			if (Emission > 0) m.SetColor("_EmissionColor", col * Mathf.LinearToGammaSpace(Emission));
@@ -53,13 +38,39 @@ public class IndicatorColor : MonoBehaviour {
 	public void SetValidThenIndetermined()
 	{
 		State = States.Valid;
-		CancelInvoke("SetIndermined");
-		Invoke("SetIndermined", 1f);
+		CancelInvoke(nameof(SetIndermined));
+		Invoke(nameof(SetIndermined), 1f);
+	}
+
+	public Color CurrentColor()
+	{
+		return ColorFromState(_state);
 	}
 
 	private void SetIndermined()
 	{
 		State = States.Indetermined;
+	}
+
+	private Color ColorFromState(States state)
+	{
+		Color col;
+		switch (state)
+		{
+			case States.Indetermined:
+				col = Indetermined;
+				break;
+			case States.Valid:
+				col = Valid;
+				break;
+			case States.Invalid:
+				col = Invalid;
+				break;
+			default:
+				throw new InvalidEnumArgumentException("not implemented: "+state);
+		}
+
+		return col;
 	}
 }
 

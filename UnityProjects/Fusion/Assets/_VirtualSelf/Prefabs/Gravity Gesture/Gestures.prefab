@@ -157,8 +157,8 @@ MonoBehaviour:
     FieldName: Hand Model1
     SourceObject: Capsule Hand Left
   - Script: {fileID: 114743633478776050}
-    FieldName: Hand Model1
-    SourceObject: Capsule Hand Left
+    FieldName: Hand Model2
+    SourceObject: Capsule Hand Right
 --- !u!114 &114487473289976442
 MonoBehaviour:
   m_ObjectHideFlags: 1
