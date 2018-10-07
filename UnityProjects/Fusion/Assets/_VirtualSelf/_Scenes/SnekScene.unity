@@ -4279,6 +4279,7 @@ GameObject:
   - component: {fileID: 1839101767}
   - component: {fileID: 1839101772}
   - component: {fileID: 1839101773}
+  - component: {fileID: 1839101774}
   m_Layer: 0
   m_Name: SnakeHead
   m_TagString: Player
@@ -4292,7 +4293,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1839101766}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59cc1f32f3bffc5479e0793db84755b4, type: 3}
   m_Name: 
@@ -4445,6 +4446,34 @@ MonoBehaviour:
   MinimumExtendedCount: 5
   MaximumExtendedCount: 5
   ShowGizmos: 1
+--- !u!114 &1839101774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1839101766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 859acf72207b79b44aca6f7b1464a0cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneSwitcher: {fileID: 11400000, guid: 5cb869533c87ab346a98a422b734b580, type: 2}
+  onPortalTraversed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1839101767}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!4 &1839568624 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4946348289846278, guid: a6565cf7888a6f14d97c5730dd50a7c1,
