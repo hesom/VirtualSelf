@@ -9,6 +9,7 @@
 
 using UnityEngine;
 using System.Collections.Generic;
+using VirtualSelf.Utility;
 
 namespace Leap.Unity.Interaction {
 
@@ -171,6 +172,7 @@ namespace Leap.Unity.Interaction {
                      + "settings in the Interaction Manager, and avoid placing any non-"
                      + "Interaction objects in layers that contain Interaction objects.",
                      this);
+        Debug.LogError($"collision between {name} and {GameObjectsUtils.GetGameObjectPath(collision.gameObject)}", collision.gameObject);
       }
       #endif
     }

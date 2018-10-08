@@ -98,7 +98,8 @@ public class FireGestureGraphics : MonoBehaviour
     public void RemoveFlamesFadeAndDeactivate()
     {
         RemoveFlamesFade();
-        Invoke(nameof(Deactivate), 2.51f);
+        Deactivate();
+//        Invoke(nameof(Deactivate), 2.51f);
     }
 
     private void Deactivate()
