@@ -82,6 +82,7 @@ GameObject:
   - component: {fileID: 114063200996154552}
   - component: {fileID: 114622523320163826}
   - component: {fileID: 114263036565921038}
+  - component: {fileID: 114556438438020992}
   m_Layer: 15
   m_Name: RangedEnemy
   m_TagString: Enemy
@@ -543,6 +544,35 @@ MonoBehaviour:
   Bullet: {fileID: 1903522244189510, guid: 04dd4697dabf9f541b218d9107aca639, type: 2}
   BulletPathFadeInTicks: 200
   BulletPathFadeoutTicks: 100
+--- !u!114 &114556438438020992
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1518964160417360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f10fa40360571247a7ca806d6859557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _manager: {fileID: 0}
+  _ignoreHoverMode: 0
+  _isIgnoringAllHoverState: 0
+  _ignorePrimaryHover: 1
+  _ignoreContact: 0
+  _ignoreGrasping: 1
+  _contactForceMode: 0
+  _allowMultiGrasp: 0
+  _moveObjectWhenGrasped: 1
+  graspedMovementType: 0
+  _overrideInteractionLayer: 1
+  _interactionLayer:
+    layerIndex: 15
+  _overrideNoContactLayer: 0
+  _noContactLayer:
+    layerIndex: 0
+  _eventTable:
+    _entries: []
 --- !u!114 &114622523320163826
 MonoBehaviour:
   m_ObjectHideFlags: 1
