@@ -369,57 +369,57 @@ Prefab:
     - target: {fileID: 23167102713084324, guid: 86d02d1721cade14d9c5dda84486af26,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 23672043782585636, guid: 86d02d1721cade14d9c5dda84486af26,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 23094513225007854, guid: 86d02d1721cade14d9c5dda84486af26,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 23935611295760770, guid: 86d02d1721cade14d9c5dda84486af26,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 23032239777465618, guid: 86d02d1721cade14d9c5dda84486af26,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 23750471685345756, guid: 86d02d1721cade14d9c5dda84486af26,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 23053508610901320, guid: 86d02d1721cade14d9c5dda84486af26,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 23464373710042670, guid: 86d02d1721cade14d9c5dda84486af26,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 23955241782471522, guid: 86d02d1721cade14d9c5dda84486af26,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 23024157059708630, guid: 86d02d1721cade14d9c5dda84486af26,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 23315864969019270, guid: 86d02d1721cade14d9c5dda84486af26,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1209465966327874, guid: 86d02d1721cade14d9c5dda84486af26, type: 2}
       propertyPath: m_IsActive
@@ -1426,7 +1426,7 @@ MonoBehaviour:
   Period: 0.1
   HandModel: {fileID: 0}
   PointingType: 2
-  PointingDirection: {x: 0, y: -1, z: 0}
+  PointingDirection: {x: 0, y: 1, z: 0}
   TargetObject: {fileID: 0}
   OnAngle: 45
   OffAngle: 65
@@ -1886,7 +1886,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1035628202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1899,9 +1899,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startScene:
-    Scene: {fileID: 102900000, guid: 54960d75e8f2b954d90379f6ae832058, type: 3}
-    SceneName: TutorialScene
-    sceneIndex: 8
+    Scene: {fileID: 102900000, guid: 99c9720ab356a0642a771bea13969a05, type: 3}
+    SceneName: MirrorScene
+    sceneIndex: 4
     sceneEnabled: 1
   keycodes: {fileID: 11400000, guid: 0e367153ea9cfb04187473c1ee09202b, type: 2}
 --- !u!4 &1035628203

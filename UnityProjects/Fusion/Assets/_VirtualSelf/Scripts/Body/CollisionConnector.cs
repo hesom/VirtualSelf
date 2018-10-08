@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using Leap.Unity.Interaction;
 //using UnityEditor;
 using UnityEngine;
+using UnityEngine.Experimental.PlayerLoop;
 
 namespace VirtualSelf
 {
@@ -15,7 +17,8 @@ public class CollisionConnector : MonoBehaviour
 {
 	public enum Rotation {X,Y,Z}
 	public enum Endpoint {None, AsSibling, AsChild}
-
+	public enum UpdateMethod {Update, LateUpdate, FixedUpdate, PostPhysics, PrePhysics}
+	
 	public string Name;
 	public GameObject[] Objects;
 	
@@ -36,10 +39,13 @@ public class CollisionConnector : MonoBehaviour
 		public Material Material;
 		[Tooltip("Render the links even when no material is set. The used material is the default of a new primitve gameobject.")]
 		public bool RenderAlways = true; // ideally the default material value would just be default diffuse, but access to that during or before serialization is not possible
+		[Tooltip("Method in which the colliders are updated")]
+		public UpdateMethod UpdateMethod;
 		// debug
 //		public Rotation v1;
 //		public Rotation v2;
 //		public Rotation v3;
+
 	}
 
 	public SizeSettings Size = new SizeSettings();
@@ -93,9 +99,37 @@ public class CollisionConnector : MonoBehaviour
 	{
 		if (Connectors == null) Init(); // cannot use !LoadEarly here, for combinatin: loadearly + not active from start 
 		_postStart = true;
+		
+		PhysicsCallbacks.OnPostPhysics += PostPhysics;
+		PhysicsCallbacks.OnPrePhysics += PrePhysics;
 	}
 
-	void Update () {
+	void Update()
+	{
+		if (Advanced.UpdateMethod == UpdateMethod.Update) UpdateColliders();
+	}
+
+	void FixedUpdate()
+	{
+		if (Advanced.UpdateMethod == UpdateMethod.FixedUpdate) UpdateColliders();
+	}
+
+	void LateUpdate()
+	{
+		if (Advanced.UpdateMethod == UpdateMethod.LateUpdate) UpdateColliders();
+	}
+
+	void PostPhysics()
+	{
+		if (Advanced.UpdateMethod == UpdateMethod.PostPhysics) UpdateColliders();
+	}
+
+	void PrePhysics()
+	{
+		if (Advanced.UpdateMethod == UpdateMethod.PrePhysics) UpdateColliders();
+	}
+
+	private void UpdateColliders() {
 		for (int i = 0; i < Objects.Length - 1; i++)
 		{
 			GameObject o1 = Objects[i];
