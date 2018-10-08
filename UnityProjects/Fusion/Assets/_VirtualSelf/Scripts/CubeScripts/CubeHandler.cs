@@ -37,7 +37,7 @@ namespace VirtualSelf.CubeScripts
         private void Awake()
         {
             graspingCube = transform.parent.GetComponent<InteractionBehaviour>();
-            //FindInteractionHands();
+            FindInteractionHands();
             CheckAllPreconditions();
             var cube = new Cube2X2(gameObject);
             var ghostCube = new Cube2X2(GhostCube);
