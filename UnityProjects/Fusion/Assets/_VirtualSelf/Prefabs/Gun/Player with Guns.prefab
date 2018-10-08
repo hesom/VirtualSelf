@@ -7695,9 +7695,9 @@ MonoBehaviour:
   _interactionLayer:
     layerIndex: 18
   _interactionNoContactLayer:
-    layerIndex: 20
+    layerIndex: 23
   _contactBoneLayer:
-    layerIndex: 21
+    layerIndex: 24
   _drawControllerRuntimeGizmos: 0
 --- !u!114 &114589493439463456
 MonoBehaviour:

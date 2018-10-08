@@ -13,7 +13,8 @@ namespace VirtualSelf
         /// <param name="layerName">The name of the layer</param>
         public static void SetLayersRecursive(GameObject root, string layerName)
         {
-            root.layer = LayerMask.NameToLayer(layerName);
+            string layer = root.GetComponent<BehindPortalSpecialLayerFix>()?.layerBehindPortal ?? layerName;
+            root.layer = LayerMask.NameToLayer(layer);
 
             if (root.transform.childCount == 0) return;
 

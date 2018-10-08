@@ -29,9 +29,30 @@ namespace VirtualSelf
                     // Teleport him!
                     var scene = SceneManager.GetSceneByName(sceneSwitcher.GetCurrentPortalScene());
                     var rootObjects = scene.GetRootGameObjects();
+                    var objectLayers = sceneSwitcher.objectLayer;
+                    var cullingMasks = sceneSwitcher.cameraCullingLayermasks;
                     foreach (var o in rootObjects)
                     {
-                        LayerUtils.SetLayersRecursive(o, "Default");
+                        o.layer = objectLayers[o];
+                        Camera cam = o.GetComponent<Camera>();
+                        if(cam != null)
+                        {
+                            cam.cullingMask = cullingMasks[cam];
+                        }
+                        foreach(var child in o.GetComponentsInChildren<Transform>())
+                        {
+                            child.gameObject.layer = objectLayers[child.gameObject];
+                            Camera childCam = child.GetComponent<Camera>();
+                            if(childCam != null)
+                            {
+                                childCam.cullingMask = cullingMasks[childCam];
+                            }
+                        }
+                        MirrorScript mirror = o.GetComponent<MirrorScript>();
+                        if(mirror != null)
+                        {
+                            mirror.ReflectLayers = sceneSwitcher.mirrorMasks[mirror];
+                        }
                         LayerUtils.ProcessLightRecursive(o, "Default");
                         LayerUtils.SetEnabledRecursive<Leap.Unity.Interaction.InteractionBehaviour>(o, true);
                     }
