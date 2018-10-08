@@ -6,5 +6,8 @@ namespace VirtualSelf.BodyRotations
     public class BodyRotationData : ScriptableObject
     {
         public Quaternion RelativeInverseRotation;
+
+        public Vector3 PositionOffset;
+
     }
 }

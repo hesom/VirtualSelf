@@ -18,6 +18,7 @@ namespace VirtualSelf.BodyRotations
             if (childMeshTransform == null)
                 throw new UnityException("The tracked gameobject has to have its real mesh as a child.");
             childMeshTransform.localRotation = Rotation.RelativeInverseRotation;
+            childMeshTransform.localPosition = Rotation.PositionOffset;
         }
 
         /// <summary>
@@ -31,6 +32,11 @@ namespace VirtualSelf.BodyRotations
             childMeshTransform.localRotation = inverse;
             Rotation.RelativeInverseRotation = inverse;
         }
+
+        public void SaveCurrentRotation() {
+            Rotation.RelativeInverseRotation = childMeshTransform.localRotation;
+            Rotation.PositionOffset = childMeshTransform.localPosition;
+        }
     }
 
     [CustomEditor(typeof(RotationAdapter))]
@@ -43,7 +49,7 @@ namespace VirtualSelf.BodyRotations
             var myScript = (RotationAdapter)target;
             if (GUILayout.Button("Save Inverse Rotation"))
             {
-                myScript.SaveInverseRotation();
+                myScript.SaveCurrentRotation();
             }
         }
     }
