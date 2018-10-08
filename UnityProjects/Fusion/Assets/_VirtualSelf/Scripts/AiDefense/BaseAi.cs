@@ -56,6 +56,7 @@ public class BaseAi : MonoBehaviour {
     public Action OnDamage;
     public Action OnArrive;
     public Action OnIdleExit;
+    public Action OnStateChange;
     
     protected NavMeshAgent _navMeshAgent;
     protected Rigidbody _rigidbody;
@@ -76,6 +77,7 @@ public class BaseAi : MonoBehaviour {
     private Vector3 _velocity;
     private Vector3 _preStaggerDestination;
     private Vector3 _staggerDestination;
+    private Vector3 _preRagdollDestination;
     private bool _postFirstTransition;
     private Vector3 _lastArrivePos;
 
@@ -299,6 +301,7 @@ public class BaseAi : MonoBehaviour {
             _collider.enabled = true;
             _navMeshObstacle.enabled = false;
             _navMeshAgent.enabled = true;
+            _navMeshAgent.SetDestination(_preRagdollDestination);
             if (_builtState == AiState.Idle) OnIdleExit?.Invoke();
         }
         else if (state == AiState.PreNavigating) {
@@ -313,6 +316,8 @@ public class BaseAi : MonoBehaviour {
         }
         else if (state == AiState.Ragdolled || state == AiState.DyingFall)
         {
+            _preRagdollDestination = _navMeshAgent.destination;
+            
             // enable physics
             _navMeshAgent.enabled = false;
             _navMeshObstacle.enabled = true;
@@ -378,6 +383,7 @@ public class BaseAi : MonoBehaviour {
         _builtState = state;
         State = state;
         _lastTransition = Time.time;
+        OnStateChange?.Invoke();
     }
 
     private Coroutine _rotateUpwards;

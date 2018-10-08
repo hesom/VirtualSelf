@@ -30,6 +30,7 @@ GameObject:
   - component: {fileID: 114878247050606044}
   - component: {fileID: 114944455744788970}
   - component: {fileID: 114973913562863986}
+  - component: {fileID: 114884254654913118}
   m_Layer: 15
   m_Name: TinyEnemy
   m_TagString: Enemy
@@ -169,6 +170,35 @@ MonoBehaviour:
     Effect: 1
     InvulnerableTime: 0.25
     DPS: 20
+--- !u!114 &114884254654913118
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1143353991858226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f10fa40360571247a7ca806d6859557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _manager: {fileID: 0}
+  _ignoreHoverMode: 0
+  _isIgnoringAllHoverState: 0
+  _ignorePrimaryHover: 1
+  _ignoreContact: 0
+  _ignoreGrasping: 1
+  _contactForceMode: 0
+  _allowMultiGrasp: 0
+  _moveObjectWhenGrasped: 1
+  graspedMovementType: 0
+  _overrideInteractionLayer: 1
+  _interactionLayer:
+    layerIndex: 15
+  _overrideNoContactLayer: 0
+  _noContactLayer:
+    layerIndex: 0
+  _eventTable:
+    _entries: []
 --- !u!114 &114944455744788970
 MonoBehaviour:
   m_ObjectHideFlags: 1

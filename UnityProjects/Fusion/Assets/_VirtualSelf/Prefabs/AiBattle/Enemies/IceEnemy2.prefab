@@ -31,6 +31,7 @@ GameObject:
   - component: {fileID: 114368833036889046}
   - component: {fileID: 114147605117983498}
   - component: {fileID: 114697663943585212}
+  - component: {fileID: 114587867561452000}
   m_Layer: 15
   m_Name: IceEnemy2
   m_TagString: Enemy
@@ -221,10 +222,10 @@ MonoBehaviour:
     InvulnerableTime: 0.25
     DPS: 14
   - Tag: Player
-    Amount: 2
+    Amount: 0.8
     Effect: 2
     InvulnerableTime: 0.25
-    DPS: 8
+    DPS: 3.2
   - Tag: Flame
     Amount: 1.5
     Effect: 2
@@ -263,6 +264,35 @@ MonoBehaviour:
   LogTransitions: 1
   Health: 10
   StaggerDuration: 0.3
+--- !u!114 &114587867561452000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1098936505448302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f10fa40360571247a7ca806d6859557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _manager: {fileID: 0}
+  _ignoreHoverMode: 0
+  _isIgnoringAllHoverState: 0
+  _ignorePrimaryHover: 1
+  _ignoreContact: 0
+  _ignoreGrasping: 1
+  _contactForceMode: 0
+  _allowMultiGrasp: 0
+  _moveObjectWhenGrasped: 1
+  graspedMovementType: 0
+  _overrideInteractionLayer: 1
+  _interactionLayer:
+    layerIndex: 15
+  _overrideNoContactLayer: 0
+  _noContactLayer:
+    layerIndex: 0
+  _eventTable:
+    _entries: []
 --- !u!114 &114672630727381072
 MonoBehaviour:
   m_ObjectHideFlags: 1
