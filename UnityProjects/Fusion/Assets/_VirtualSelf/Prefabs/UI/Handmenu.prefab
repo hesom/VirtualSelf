@@ -1405,10 +1405,10 @@ MonoBehaviour:
   graspedMovementType: 0
   _overrideInteractionLayer: 1
   _interactionLayer:
-    layerIndex: 5
-  _overrideNoContactLayer: 0
+    layerIndex: 26
+  _overrideNoContactLayer: 1
   _noContactLayer:
-    layerIndex: 0
+    layerIndex: 27
   _eventTable:
     _entries: []
   _controlEnabled: 1
@@ -1513,10 +1513,10 @@ MonoBehaviour:
   graspedMovementType: 0
   _overrideInteractionLayer: 1
   _interactionLayer:
-    layerIndex: 5
-  _overrideNoContactLayer: 0
+    layerIndex: 26
+  _overrideNoContactLayer: 1
   _noContactLayer:
-    layerIndex: 0
+    layerIndex: 27
   _eventTable:
     _entries: []
   _controlEnabled: 1
@@ -1557,10 +1557,10 @@ MonoBehaviour:
   graspedMovementType: 0
   _overrideInteractionLayer: 1
   _interactionLayer:
-    layerIndex: 5
-  _overrideNoContactLayer: 0
+    layerIndex: 26
+  _overrideNoContactLayer: 1
   _noContactLayer:
-    layerIndex: 0
+    layerIndex: 27
   _eventTable:
     _entries: []
   _controlEnabled: 1
@@ -1665,10 +1665,10 @@ MonoBehaviour:
   graspedMovementType: 0
   _overrideInteractionLayer: 1
   _interactionLayer:
-    layerIndex: 5
-  _overrideNoContactLayer: 0
+    layerIndex: 26
+  _overrideNoContactLayer: 1
   _noContactLayer:
-    layerIndex: 0
+    layerIndex: 27
   _eventTable:
     _entries: []
   _controlEnabled: 1
