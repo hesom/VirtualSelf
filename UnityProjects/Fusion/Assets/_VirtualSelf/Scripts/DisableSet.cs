@@ -25,6 +25,11 @@ public class DisableSet : MonoBehaviour
 			o.SetActive(false);
 		}
 	}
+
+	public void Toggle() 
+	{
+		enabled = !enabled;
+	}
 }
 	
 }
