@@ -46,7 +46,7 @@ TagManager:
   - BPortalVisibleBeforeMirror
   - BPortalMirror
   - BPortalNotMirror
-  - 
+  - BodyCollider
   - 
   - 
   - Interaction Layer
