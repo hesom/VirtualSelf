@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Name: MirrorPuzzle
   m_EditorClassIdentifier: 
   digitOne: 5
-  digitTwo: 7
+  digitTwo: 9
   digitThree: 5
   digitFour: 2
-  isDiscovered: 0
-  codeString: 5752
+  isDiscovered: 1
+  codeString: 5952
   OnDiscoveredStateChanged:
     m_PersistentCalls:
       m_Calls: []

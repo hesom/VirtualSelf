@@ -19,7 +19,7 @@ public class DespawnPortal : MonoBehaviour {
         {
             t += Time.deltaTime;
             float lerp = Mathf.Lerp(0.0f, 2.0f, t);
-            portalMesh.position = initialPosition - lerp * Vector3.down;
+            portalMesh.position = initialPosition + lerp * Vector3.down;
             yield return null;
         }
 

@@ -3379,10 +3379,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 1947348121249040, guid: 29921d5fe9f8cab438ef2d20cbf5f20f, type: 2}
-      propertyPath: m_Name
-      value: PortalSpawn
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29921d5fe9f8cab438ef2d20cbf5f20f, type: 2}
   m_IsPrefabAsset: 0

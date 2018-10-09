@@ -41,6 +41,9 @@ namespace VirtualSelf
         private string currentPortalScene;
         private GameObject currentPortal;
         private Room currentPortalRoom;
+        public Dictionary<GameObject, int> objectLayer { get; set; }
+        public Dictionary<Camera, LayerMask> cameraCullingLayermasks { get; set; }
+        public Dictionary<MirrorScript, LayerMask> mirrorMasks { get; set; }
 
         private string loadSceneName = null;
 
@@ -60,6 +63,9 @@ namespace VirtualSelf
             loadSceneName = null;
             leftCamera = null;
             rightCamera = null;
+            objectLayer = new Dictionary<GameObject, int>();
+            cameraCullingLayermasks = new Dictionary<Camera, LayerMask>();
+            mirrorMasks = new Dictionary<MirrorScript, LayerMask>();
         }
 
         void OnDisable()
@@ -120,9 +126,38 @@ namespace VirtualSelf
             }
             if (scene == SceneManager.GetSceneByName(loadSceneName))
             {         
+                objectLayer.Clear();
+                mirrorMasks.Clear();
+                cameraCullingLayermasks.Clear();
                 var rootObjects = scene.GetRootGameObjects();
                 foreach (var o in rootObjects)
                 {
+                    // build layer hash table
+                    //objectLayer.Add(o, o.layer);
+                    Camera cam = o.GetComponent<Camera>();
+                    /*if (cam != null)
+                    {
+                        cameraCullingLayermasks.Add(cam, cam.cullingMask);
+                        var behindPortalCullingMask = cam.GetComponent<BehindPortalCullingMask>();
+                        cam.cullingMask = behindPortalCullingMask?.cullingMaskBehindPortal ?? cam.cullingMask;
+                    }*/
+                    MirrorScript mirror = o.GetComponent<MirrorScript>();
+                    if(mirror != null)
+                    {
+                        mirrorMasks.Add(mirror, mirror.ReflectLayers);
+                        mirror.ReflectLayers = o.GetComponent<BehindPortalMirrorMask>()?.mirrorMaskBehindPortal ?? mirror.ReflectLayers;
+                    }
+
+                    foreach (var child in o.GetComponentsInChildren<Transform>())
+                    {
+                        objectLayer.Add(child.gameObject, child.gameObject.layer);
+                        Camera childCam = child.GetComponent<Camera>();
+                        if(childCam != null)
+                        {
+                            cameraCullingLayermasks.Add(childCam, childCam.cullingMask);
+                        }
+                    }
+
                     LayerUtils.SetEnabledRecursive<Leap.Unity.Interaction.InteractionBehaviour>(o, false);
                     LayerUtils.SetLayersRecursive(o, "Behind Portal");
                     LayerUtils.ProcessLightRecursive(o, "Behind Portal");

@@ -14,7 +14,7 @@ namespace VirtualSelf{
 		private Quaternion startRotation;
 		private Rigidbody rb;
 
-		void Start()
+		void Awake()
 		{
 			startPosition = transform.position;
 			startRotation = transform.rotation;

@@ -43,10 +43,10 @@ TagManager:
   - BackGround
   - 
   - PlayerCollider
-  - BodyTrackingCollider
-  - 
-  - 
-  - 
+  - BPortalVisibleBeforeMirror
+  - BPortalMirror
+  - BPortalNotMirror
+  - BodyCollider
   - 
   - 
   - Interaction Layer
