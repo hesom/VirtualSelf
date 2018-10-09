@@ -1899,9 +1899,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startScene:
-    Scene: {fileID: 102900000, guid: 99c9720ab356a0642a771bea13969a05, type: 3}
-    SceneName: MirrorScene
-    sceneIndex: 4
+    Scene: {fileID: 102900000, guid: 72a0857d35c52d945ac85bc38a351218, type: 3}
+    SceneName: Keycodes System Test Scene
+    sceneIndex: 9
     sceneEnabled: 1
   keycodes: {fileID: 11400000, guid: 0e367153ea9cfb04187473c1ee09202b, type: 2}
 --- !u!4 &1035628203

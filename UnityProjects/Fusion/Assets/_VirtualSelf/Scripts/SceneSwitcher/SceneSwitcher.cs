@@ -63,8 +63,9 @@ namespace VirtualSelf
             loadSceneName = null;
             leftCamera = null;
             rightCamera = null;
-            objectLayer = null;
-            cameraCullingLayermasks = null;
+            objectLayer = new Dictionary<GameObject, int>();
+            cameraCullingLayermasks = new Dictionary<Camera, LayerMask>();
+            mirrorMasks = new Dictionary<MirrorScript, LayerMask>();
         }
 
         void OnDisable()
@@ -125,18 +126,21 @@ namespace VirtualSelf
             }
             if (scene == SceneManager.GetSceneByName(loadSceneName))
             {         
+                objectLayer.Clear();
+                mirrorMasks.Clear();
+                cameraCullingLayermasks.Clear();
                 var rootObjects = scene.GetRootGameObjects();
                 foreach (var o in rootObjects)
                 {
                     // build layer hash table
-                    objectLayer.Add(o, o.layer);
+                    //objectLayer.Add(o, o.layer);
                     Camera cam = o.GetComponent<Camera>();
-                    if (cam != null)
+                    /*if (cam != null)
                     {
                         cameraCullingLayermasks.Add(cam, cam.cullingMask);
                         var behindPortalCullingMask = cam.GetComponent<BehindPortalCullingMask>();
                         cam.cullingMask = behindPortalCullingMask?.cullingMaskBehindPortal ?? cam.cullingMask;
-                    }
+                    }*/
                     MirrorScript mirror = o.GetComponent<MirrorScript>();
                     if(mirror != null)
                     {

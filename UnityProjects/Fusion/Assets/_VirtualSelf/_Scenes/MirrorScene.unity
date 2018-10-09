@@ -3161,7 +3161,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11435476, guid: 977d462d3da090443aa549827d636355, type: 2}
       propertyPath: ReflectLayers.m_Bits
-      value: 7735
+      value: 469769783
       objectReference: {fileID: 0}
     - target: {fileID: 126434, guid: 977d462d3da090443aa549827d636355, type: 2}
       propertyPath: m_IsActive
@@ -3189,7 +3189,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11435476, guid: 977d462d3da090443aa549827d636355, type: 2}
       propertyPath: TextureSize
-      value: 1024
+      value: 2024
       objectReference: {fileID: 0}
     - target: {fileID: 11435476, guid: 977d462d3da090443aa549827d636355, type: 2}
       propertyPath: AspectRatio
