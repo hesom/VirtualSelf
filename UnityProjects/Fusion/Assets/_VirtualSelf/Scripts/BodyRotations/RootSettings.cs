@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
 namespace VirtualSelf.BodyRotations
@@ -13,7 +12,8 @@ namespace VirtualSelf.BodyRotations
             foreach (var adapter in allAdapters)
             {
                 var meshRenderer = adapter.GetComponentInChildren<MeshRenderer>();
-                meshRenderer.enabled = !meshRenderer.enabled;
+                if (meshRenderer != null)
+                    meshRenderer.enabled = !meshRenderer.enabled;
             }
         }
     }
