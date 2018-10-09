@@ -22,6 +22,11 @@ public class GetRandomChildAttribute : MonoBehaviour
 		Vector3 objPos = t is GameObject ? (t as GameObject).transform.localPosition : Vector3.zero;
 		return Instantiate(t, f.position+objPos, f.rotation);
 	}
+
+	public int Length()
+	{
+		return transform.childCount;
+	}
 	
 	public Vector3 RandomPos()
 	{

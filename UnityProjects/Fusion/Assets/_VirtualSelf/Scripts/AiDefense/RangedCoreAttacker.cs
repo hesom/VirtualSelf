@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Leap.Unity;
 using Leap.Unity.Attributes;
 using UnityEngine;
@@ -11,9 +12,12 @@ namespace VirtualSelf
 [RequireComponent(typeof(BaseAi))]
 public class RangedCoreAttacker : MonoBehaviour
 {
+    private static readonly Vector3[] RecentSniperPositions = new Vector3[5];
+    private static int _recentSniperPositionsI;
+    
     public float Damage = 1;
     public float Velocity = 1;
-    [MinMax(0.1f, 10)]
+    [MinMax(0.1f, 20)]
     public Vector2 ShootInterval;
     public Transform BulletSpawn;
     public ParticleSystem[] FireEffects;
@@ -30,24 +34,48 @@ public class RangedCoreAttacker : MonoBehaviour
         _core = core;
         _navMeshAgent = GetComponent<NavMeshAgent>();
         BaseAi b = GetComponent<BaseAi>();
-        b.OnIdleExit += () => 
+        b.OnIdleExit += () =>
         {
-            _navMeshAgent.SetDestination(sniperLocations.RandomPos());
+            // move to a random sniper position, unless it is in the list of recent positions
+            // this history is not cleared up, unless it completely fills up
+            Vector3 p = Vector3.zero;
+            bool match = false;
+            for (int i = 0; i < RecentSniperPositions.Length; i++)
+            {
+                p = sniperLocations.RandomPos();
+                if (!RecentSniperPositions.Contains(p))
+                {
+                    RecentSniperPositions[_recentSniperPositionsI] = p;
+                    _recentSniperPositionsI = (_recentSniperPositionsI + 1) % RecentSniperPositions.Length;
+                    match = true;
+                    break;
+                }
+            }
+            
+            if (!match) RecentSniperPositions.ClearWithDefaults();
+
+            _navMeshAgent.SetDestination(p);
         };
-        b.OnArrive += StartFiring;
+        b.OnArrive += () => StartCoroutine(StartFiring());
+        b.OnDyingFall += StopAllCoroutines;
     }
 
-    private void StartFiring()
+    private IEnumerator StartFiring()
     {
-        //TODO fire continuously, for now: fire once
+        while (true)
+        {
+            // get random target
+            Vector3 target = _core.RandomRangedAttackSlot();
+            Vector3 lookDir = (target - BulletSpawn.position).normalized;
         
-        Vector3 target = _core.RandomRangedAttackSlot();
-        Vector3 lookDir = (target - BulletSpawn.position).normalized;
-        
-        // rotate ai towards shooting direction
-        _navMeshAgent.enabled = false;
-        TryStop(_rotateXZTowards);
-        _rotateXZTowards = StartCoroutine(RotateXZTowards(target, lookDir));
+            // rotate ai towards shooting direction
+            _navMeshAgent.enabled = false;
+            TryStop(_rotateXZTowards);
+            _rotateXZTowards = StartCoroutine(RotateXZTowards(target, lookDir));
+            
+            yield return new WaitForSeconds(Random.Range(ShootInterval.x, ShootInterval.y));
+        }
+        // ReSharper disable once IteratorNeverReturns
     }
 
     private void Fire(Vector3 target) 
@@ -103,10 +131,11 @@ public class RangedCoreAttacker : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         
+        // this is where the magic happens
         Fire(target);
     }
 
-    private void PlayEffects(ParticleSystem[] arr)
+    private void PlayEffects(IEnumerable<ParticleSystem> arr)
     {
         foreach (ParticleSystem effect in arr)
         {

@@ -69,6 +69,8 @@ public class CoreHealth : MonoBehaviour
 
 	private void CheckHealth()
 	{
+		if (!enabled) return;
+		
 		if (Health < 0) Health = 0;
 		int rings = Mathf.CeilToInt((Health / _max) * _rings.Length);
 		for (int i = 0; i < _rings.Length; i++)

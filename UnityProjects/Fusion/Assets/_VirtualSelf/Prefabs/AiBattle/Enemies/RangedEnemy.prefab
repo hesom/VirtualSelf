@@ -533,8 +533,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 1
-  Velocity: 1
-  ShootInterval: {x: 1.1525886, y: 3.4197018}
+  Velocity: 1.5
+  ShootInterval: {x: 8.291667, y: 13.445808}
   BulletSpawn: {fileID: 4513889919164678}
   FireEffects:
   - {fileID: 198235482776286472}
