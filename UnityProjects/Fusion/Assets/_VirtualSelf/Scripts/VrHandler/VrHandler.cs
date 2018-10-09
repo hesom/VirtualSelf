@@ -194,10 +194,10 @@ public sealed class VrHandler : MonoBehaviour {
                 );
             }
             
-            Debug.Log(
-                "HMD Head: Position: " + HardwareSystem.Get().Hmd.HeadPosition.ToString("F4") +
-                ", Rotation: " + HardwareSystem.Get().Hmd.HeadRotation.eulerAngles
-            );
+//            Debug.Log(
+//                "HMD Head: Position: " + HardwareSystem.Get().Hmd.HeadPosition.ToString("F4") +
+//                ", Rotation: " + HardwareSystem.Get().Hmd.HeadRotation.eulerAngles.ToString("F4")
+//            );
         }
     }
 
