@@ -152,7 +152,8 @@ Transform:
   m_LocalRotation: {x: -0.12599395, y: 0.4448715, z: 0.88297534, w: 0.081052005}
   m_LocalPosition: {x: -0.21282747, y: -2.2740107, z: 1.5711502}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1204840151}
   m_Father: {fileID: 2006366848}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1655,6 +1656,47 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1308979000}
   m_Script: {fileID: 11500000, guid: e55d3703de8ab5d418cb97104179cb49, type: 3}
+--- !u!1 &1204840150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1204840151}
+  - component: {fileID: 1204840152}
+  m_Layer: 0
+  m_Name: Fleeing Wrist Left
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1204840151
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1204840150}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 41113748}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1204840152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1204840150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f95fcd3cbbfbfe64b8d76db789d2b884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hand: {fileID: 1739023727}
 --- !u!1 &1247640457
 GameObject:
   m_ObjectHideFlags: 0
@@ -2035,6 +2077,47 @@ MonoBehaviour:
     MaxRadius: 0.2
     DisconnectRadius: 0.4
     LengthMultiplier: 1
+--- !u!1 &1303935907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1303935909}
+  - component: {fileID: 1303935908}
+  m_Layer: 0
+  m_Name: Fleeing Wrist Right
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1303935908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1303935907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f95fcd3cbbfbfe64b8d76db789d2b884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hand: {fileID: 763307465}
+--- !u!4 &1303935909
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1303935907}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1724021331}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1308979000
 Prefab:
   m_ObjectHideFlags: 0
@@ -2774,7 +2857,7 @@ Prefab:
         type: 2}
       propertyPath: Objects.Array.data[1]
       value: 
-      objectReference: {fileID: 41113746}
+      objectReference: {fileID: 1204840150}
     - target: {fileID: 114764725415983068, guid: 86d02d1721cade14d9c5dda84486af26,
         type: 2}
       propertyPath: Objects.Array.data[1]
@@ -2824,7 +2907,7 @@ Prefab:
         type: 2}
       propertyPath: Objects.Array.data[1]
       value: 
-      objectReference: {fileID: 1724021329}
+      objectReference: {fileID: 1303935907}
     - target: {fileID: 114374649221369264, guid: 86d02d1721cade14d9c5dda84486af26,
         type: 2}
       propertyPath: Objects.Array.data[1]
@@ -3743,7 +3826,8 @@ Transform:
   m_LocalRotation: {x: -0.12599403, y: -0.4448715, z: -0.88297534, w: 0.08105205}
   m_LocalPosition: {x: 0.2128275, y: -2.2740107, z: 1.5711501}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1303935909}
   m_Father: {fileID: 1066888865}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
