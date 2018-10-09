@@ -12,10 +12,16 @@ public class GraspIndicator : MonoBehaviour
 	public InteractionHand Hand;
 	public IndicatorColor IndicatorColor;
 //	public IndicatorMaterial IndicatorMaterial;
+	public Vector3 RiggedLocalPos;
+	public Vector3 RiggedLocalRot;
 
 	private bool _tracked = true;
 	private Renderer _ren;
 	private Light _light;
+	private bool _rigged;
+	private Quaternion _riggedLocalrot;
+	private Vector3 _capsuleLocalPos;
+	private Quaternion _capsuleLocalRot;
 	
 	// Use this for initialization
 	void Start ()
@@ -28,6 +34,24 @@ public class GraspIndicator : MonoBehaviour
 		// alternatively: in update check Hand.isGraspingObject
 		
 		GraspEnd();
+
+		_riggedLocalrot = Quaternion.Euler(RiggedLocalRot);
+	}
+
+	public void ToggleRigged()
+	{
+		if (_rigged)
+		{
+			transform.localRotation = _capsuleLocalRot;
+			transform.localPosition = _capsuleLocalPos;
+		}
+		else
+		{
+			transform.localRotation = _riggedLocalrot;
+			transform.localPosition = RiggedLocalPos;
+		}
+
+		_rigged = !_rigged;
 	}
 	
 	void LateUpdate() // update in the same method as the hand

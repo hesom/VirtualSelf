@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using VirtualSelf;
 
-[RequireComponent(typeof(ModelSwitcher))]
+[RequireComponent(typeof(DebounceEvents))]
 public class SwitchDelayed : MonoBehaviour {
 
 	// Use this for initialization
@@ -13,6 +13,7 @@ public class SwitchDelayed : MonoBehaviour {
 	}
 
 	private void Stuff() {
-		GetComponent<ModelSwitcher>().CycleGroup();
+//		GetComponent<ModelSwitcher>().CycleGroup();
+		GetComponent<DebounceEvents>().TryTigger();
 	}
 }
