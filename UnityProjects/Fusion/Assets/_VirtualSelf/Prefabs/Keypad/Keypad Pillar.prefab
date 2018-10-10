@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 65002857171372998}
   - component: {fileID: 114990927770276204}
   - component: {fileID: 114863285287233726}
+  - component: {fileID: 114369859601486490}
   - component: {fileID: 114655059719212138}
   m_Layer: 27
   m_Name: Keypad Pillar
@@ -7441,6 +7442,18 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114369859601486490
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1014203052549270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81ee057cf03f6574ca2b1cb8fa15c527, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SwitchDelayed: {fileID: 0}
 --- !u!114 &114378923100170030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8022,6 +8035,9 @@ MonoBehaviour:
   - Script: {fileID: 114863285287233726}
     FieldName: Debounce Events
     SourceObject: DebugGesture
+  - Script: {fileID: 114369859601486490}
+    FieldName: Switch Delayed
+    SourceObject: DebugGesture
 --- !u!114 &114668919947870302
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8318,7 +8334,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1014203052549270}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24fd18b4f7ddaea4a9a8dfb89d5f37cb, type: 3}
   m_Name: 
