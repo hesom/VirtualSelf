@@ -45,8 +45,12 @@ public class EnemySpawner : MonoBehaviour
 	{
 		_random = GetComponent<GetRandomChildAttribute>();
 		_activeEnemies = new List<BaseAi>();
-		
-		if (!DebugMode) StartAll();
+
+		if (!DebugMode)
+		{
+			// require the spawner to be started externally
+//			StartAll();
+		}
 		else Debug.Log($"{nameof(EnemySpawner)} debug mode is active, use keys U and to the right to spawn enemies manually");
 	}
 
@@ -85,6 +89,11 @@ public class EnemySpawner : MonoBehaviour
 		{
 			StartCoroutine(Spawner(c));
 		}
+	}
+
+	public void StartAll(float delay)
+	{
+		Invoke(nameof(StartAll), delay);
 	}
 
 	public void StopAll()

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10723,7 +10723,7 @@ MonoBehaviour:
   pinkyDistalJoint: {fileID: 0}
   pinkyTip: {fileID: 0}
   _chirality: 1
-  _isTracked: 1
+  _isTracked: 0
 --- !u!4 &87689115
 Transform:
   m_ObjectHideFlags: 0
@@ -27053,7 +27053,7 @@ MonoBehaviour:
   pinkyDistalJoint: {fileID: 0}
   pinkyTip: {fileID: 0}
   _chirality: 0
-  _isTracked: 1
+  _isTracked: 0
 --- !u!1 &640656998
 GameObject:
   m_ObjectHideFlags: 0
@@ -66277,6 +66277,7 @@ GameObject:
   - component: {fileID: 1596599760}
   - component: {fileID: 1596599762}
   - component: {fileID: 1596599761}
+  - component: {fileID: 1596599763}
   m_Layer: 0
   m_Name: Spawn Locations
   m_TagString: Untagged
@@ -66358,7 +66359,7 @@ MonoBehaviour:
   KillCount: 0
   Core: {fileID: 162398544}
   SniperLocations: {fileID: 824301982}
-  DebugMode: 1
+  DebugMode: 0
   Classes:
   - Prefab: {fileID: 1153414433071110, guid: 3f891da33b8087e489078d0d2682e4db, type: 2}
     SpawnInterval: {x: 8.566436, y: 14.210987}
@@ -66421,6 +66422,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac54981c507ee24c8e54e60b1b2988a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1596599763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1596599758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 859acf72207b79b44aca6f7b1464a0cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneSwitcher: {fileID: 11400000, guid: 5cb869533c87ab346a98a422b734b580, type: 2}
+  onPortalTraversed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1596599761}
+        m_MethodName: StartAll
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 10
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1596944648
 GameObject:
   m_ObjectHideFlags: 0
