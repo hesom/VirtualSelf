@@ -32,7 +32,7 @@ public sealed class ScrollRectTouchscreenControls : MonoBehaviour {
     private float currentFrameYPos;
 
     // Only one hand can interact with the screen at the same time.
-    public InteractionHand contactingHand;
+    private InteractionHand contactingHand;
     
     
 
