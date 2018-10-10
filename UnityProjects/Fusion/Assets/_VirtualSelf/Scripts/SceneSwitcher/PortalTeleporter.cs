@@ -34,12 +34,12 @@ namespace VirtualSelf
                     var cullingMasks = sceneSwitcher.cameraCullingLayermasks;
                     foreach (var o in rootObjects)
                     {
-                        o.layer = objectLayers[o];
+                        /*o.layer = objectLayers[o];
                         Camera cam = o.GetComponent<Camera>();
                         if(cam != null)
                         {
                             cam.cullingMask = cullingMasks[cam];
-                        }
+                        }*/
                         foreach(var child in o.GetComponentsInChildren<Transform>())
                         {
                             child.gameObject.layer = objectLayers[child.gameObject];
