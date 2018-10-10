@@ -10723,7 +10723,7 @@ MonoBehaviour:
   pinkyDistalJoint: {fileID: 0}
   pinkyTip: {fileID: 0}
   _chirality: 1
-  _isTracked: 0
+  _isTracked: 1
 --- !u!4 &87689115
 Transform:
   m_ObjectHideFlags: 0
@@ -27053,7 +27053,7 @@ MonoBehaviour:
   pinkyDistalJoint: {fileID: 0}
   pinkyTip: {fileID: 0}
   _chirality: 0
-  _isTracked: 0
+  _isTracked: 1
 --- !u!1 &640656998
 GameObject:
   m_ObjectHideFlags: 0
@@ -69853,7 +69853,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4692715494686174, guid: 29921d5fe9f8cab438ef2d20cbf5f20f, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0.924
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4692715494686174, guid: 29921d5fe9f8cab438ef2d20cbf5f20f, type: 2}
       propertyPath: m_LocalRotation.x
