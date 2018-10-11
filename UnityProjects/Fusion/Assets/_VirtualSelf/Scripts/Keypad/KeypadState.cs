@@ -18,7 +18,7 @@ namespace VirtualSelf
         // Use this for initialization
         void Start()
         {
-            globalState = GameObject.FindGameObjectWithTag("GlobalGameState").GetComponent<GlobalKeypadState>();
+            globalState = GameObject.FindGameObjectWithTag("GlobalGameState")?.GetComponent<GlobalKeypadState>();
             if (globalState == null)
             {
                 throw new System.Exception("Global keypad state could not be found. Is a GlobalGameState object in the MasterScene?");
