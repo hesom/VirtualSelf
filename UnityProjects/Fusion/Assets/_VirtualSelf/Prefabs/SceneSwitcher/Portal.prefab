@@ -618,6 +618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeMaterial: {fileID: 2100000, guid: 6456134e3ecd14d44984af34f57aa4f1, type: 2}
   fadeDuration: 2
+  moveDown: 0
 --- !u!114 &114463245722342490
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -42,15 +42,18 @@ namespace VirtualSelf
                         }*/
                         foreach(var child in o.GetComponentsInChildren<Transform>())
                         {
-                            child.gameObject.layer = objectLayers[child.gameObject];
+                            if (objectLayers.ContainsKey(child.gameObject)) {
+                                child.gameObject.layer = objectLayers[child.gameObject];
+                            }
+                            
                             Camera childCam = child.GetComponent<Camera>();
-                            if(childCam != null)
+                            if(childCam != null && cullingMasks.ContainsKey(childCam))
                             {
                                 childCam.cullingMask = cullingMasks[childCam];
                             }
                         }
                         MirrorScript mirror = o.GetComponent<MirrorScript>();
-                        if(mirror != null)
+                        if(mirror != null && sceneSwitcher.mirrorMasks.ContainsKey(mirror))
                         {
                             mirror.ReflectLayers = sceneSwitcher.mirrorMasks[mirror];
                         }
