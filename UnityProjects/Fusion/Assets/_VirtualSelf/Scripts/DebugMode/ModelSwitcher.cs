@@ -93,6 +93,19 @@ public class ModelSwitcher : MonoBehaviour
 	public void RegisterHandReference(ReferenceFinder.Reference reff)
 	{
 		_refFinders.Add(reff);
+		
+		// immediately swap the model to the currently active one
+		HandModelBase currentLeft, currentRight;
+		if (ActiveGroup == 0) {
+			currentLeft = CapsuleLeft;
+			currentRight = CapsuleRight;
+		}
+		else {
+			currentLeft = RiggedLeft;
+			currentRight = RiggedRight;
+		}
+
+		reff.SetValue(IsRight(reff.SourceObject) ? currentRight : currentLeft);
 	}
 }
 
