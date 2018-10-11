@@ -161,7 +161,20 @@ public sealed class InformationBoardController : MonoBehaviour {
 //            
 //            AddMessage(
 //                new Message(
-//                    "Message number " + $"{messagePanels.Count:D2}",
+//                    ($"Message number {messagePanels.Count:D2}\n\n") + 
+//                    "Lorem ipsum dolor sit amet, aeterno quaestio accusamus ne ius. Sea autem " + 
+//                    "summo neglegentur ei, ne elit graeci disputando nec, his fugit inciderint " + 
+//                    "ne. Ex summo periculis usu. Scripta facilisis no mel, vis cu eruditi " + 
+//                    "ceteros detracto. In nec assum appareat definitiones, eos ea nostrud " +
+//                    "tibique salutandi.\n" +
+//                    "Duo purto tamquam assueverit ea, an diam bonorum vim. Quis molestiae duo " + 
+//                    "ei, mea habeo persius no, id fugit altera feugait sea. Dicam prompta " + 
+//                    "ponderum ad sed. Facer postulant hendrerit in nec.\n" +
+//                    "Quo eruditi docendi definiebas te, eirmod prodesset ex eum. Sea eu ullum " + 
+//                    "soluta democritum, te nec aliquip numquam philosophia. An usu ignota " + 
+//                    "utroque, cu fugit assentior honestatis duo. Usu ne posse accommodare. " + 
+//                    "Postea albucius honestatis qui at, sed ornatus recusabo aliquando eu. Cu " + 
+//                    "sonet decore mediocritatem est.",
 //                    new Message.BoardControlOptions {
 //                        NotifyPlayer = false, SwitchToMessage = true
 //                    }
@@ -363,10 +376,26 @@ public sealed class InformationBoardController : MonoBehaviour {
     /// <param name="direction">The direction to move all the panels into.</param>
     private void MoveAllPanels(PanelMoveDirection direction) {
 
+        /* Move all other panels except the current one back to the starting position (the very
+         * top). Otherwise, they would have the same scrolling state on switch as the current
+         * one has. */
+        
+        for (int i = 0; i < messagePanels.Count; i++) {
+
+            if (i != currentPanelIndex) {
+                messagePanels[i].PanelSettings.TextScrollRect.verticalNormalizedPosition = 0.0f;
+            }
+        }
+        
         foreach (MessagePanel panel in messagePanels) {
 
             MovePanel(panel, direction);
         }
+        
+        /* Now that the current one isn't visible anymore, move that back, too. */
+
+        messagePanels[currentPanelIndex].PanelSettings
+                .TextScrollRect.verticalNormalizedPosition = 1.0f;
     }
 
     /// <summary>
