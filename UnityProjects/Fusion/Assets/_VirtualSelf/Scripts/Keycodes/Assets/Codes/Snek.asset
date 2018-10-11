@@ -14,7 +14,11 @@ MonoBehaviour:
   digitOne: 0
   digitTwo: 0
   digitThree: 0
-  digitFour: 0
-  isDiscovered: 0
-  renameAutomatically: 1
-  codeString: 0000
+  digitFour: 5
+  isDiscovered: 1
+  codeString: 0005
+  OnDiscoveredStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VirtualSelf.Utility.UnityEvents.ObjectUE, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null

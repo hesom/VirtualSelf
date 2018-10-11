@@ -51,13 +51,13 @@ public class GunGesturePinch : MonoBehaviour
 			// if neither load nor fire gesture is active for a while, unload again
 			if (_unloadTimer && Time.time > _unloadTimerStart + .4f)
 			{
-                Debug.LogError("unload timer completed");
+                //Debug.LogError("unload timer completed");
 				Unload();
 				_unloadTimer = false;
 			}
 			else if (!_unloadTimer)
 			{
-                Debug.LogWarning("Unload timer started");
+                //Debug.LogWarning("Unload timer started");
 				_unloadTimer = true;
 				_unloadTimerStart = Time.time;
 			}

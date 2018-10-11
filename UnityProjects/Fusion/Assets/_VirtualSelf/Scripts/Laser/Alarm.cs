@@ -47,5 +47,6 @@ public class Alarm : MonoBehaviour {
     public void AlarmOff()
     {
         alarmOn = false;
+        alarmLight.intensity = minIntensity;
     }
 }

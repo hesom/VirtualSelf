@@ -260,7 +260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitEffectParticles: {fileID: 198328471780781448}
   hitPlane: {fileID: 4376441706153686}
-  playerColliderTagName: PlayerCollider
+  playerColliderTagName: Player
   OnHit:
     m_PersistentCalls:
       m_Calls:

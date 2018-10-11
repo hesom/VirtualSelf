@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114695397481526892}
   - component: {fileID: 114057473618082508}
   - component: {fileID: 114238933578042426}
+  - component: {fileID: 114023216721245730}
   m_Layer: 0
   m_Name: PlayerGestures Flame
   m_TagString: Untagged
@@ -44,6 +45,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114023216721245730
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1123688301162730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e1037f97c8c2c4da273efe9f755cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  References:
+  - Script: {fileID: 114595536891493890}
+    FieldName: Hand Model
+    SourceObject: Capsule Hand Right
+  - Script: {fileID: 114307662875088366}
+    FieldName: Hand Model
+    SourceObject: Capsule Hand Right
+  - Script: {fileID: 114695397481526892}
+    FieldName: Hand Model
+    SourceObject: Capsule Hand Right
 --- !u!114 &114057473618082508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -59,8 +81,30 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114238933578042426}
-        m_MethodName: StartPreFlame
+        m_MethodName: StartIgnitionFlame
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: FadeOut
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -101,6 +145,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   PalmFacingAway: {fileID: 114595536891493890}
@@ -124,6 +179,7 @@ MonoBehaviour:
   flameRotate: {x: 90, y: 0, z: 0}
   preFlamePrefab: {fileID: 1981536163014812, guid: 1047d7c6d2baf4944980ec5596418651,
     type: 2}
+  DebugStart: 107
 --- !u!114 &114307662875088366
 MonoBehaviour:
   m_ObjectHideFlags: 1

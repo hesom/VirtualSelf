@@ -237,6 +237,22 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114524724217568626, guid: 9e91760b100789541bfb16a6e15a96e4,
+        type: 2}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 7e4a1e2e9d911254c9b66f1e3e1facad,
+        type: 2}
+    - target: {fileID: 114524724217568626, guid: 9e91760b100789541bfb16a6e15a96e4,
+        type: 2}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_IsDiscovered
+      objectReference: {fileID: 0}
+    - target: {fileID: 114524724217568626, guid: 9e91760b100789541bfb16a6e15a96e4,
+        type: 2}
+      propertyPath: _OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e91760b100789541bfb16a6e15a96e4, type: 2}
   m_IsPrefabAsset: 0
@@ -2112,7 +2128,7 @@ Prefab:
     - target: {fileID: 114388129428201290, guid: 2b0d4e3704c09af4489175bea9964021,
         type: 2}
       propertyPath: OnObjectsCounted.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114388129428201290, guid: 2b0d4e3704c09af4489175bea9964021,
         type: 2}
@@ -2123,7 +2139,8 @@ Prefab:
         type: 2}
       propertyPath: OnObjectsCounted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 7e4a1e2e9d911254c9b66f1e3e1facad,
+        type: 2}
     - target: {fileID: 114388129428201290, guid: 2b0d4e3704c09af4489175bea9964021,
         type: 2}
       propertyPath: OnObjectsCounted.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -2142,7 +2159,7 @@ Prefab:
     - target: {fileID: 114388129428201290, guid: 2b0d4e3704c09af4489175bea9964021,
         type: 2}
       propertyPath: OnObjectsCounted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DebugLog
+      value: set_IsDiscovered
       objectReference: {fileID: 0}
     - target: {fileID: 114388129428201290, guid: 2b0d4e3704c09af4489175bea9964021,
         type: 2}
@@ -2917,7 +2934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 4387911130412568, guid: b06f92767ebcf5242888e88713d5967c, type: 2}
-  ballsPerBatch: 50
+  ballsPerBatch: 30
 --- !u!114 &1552989587
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -77,7 +77,8 @@ namespace VirtualSelf.CubeScripts
 
         private void FindInteractionHands() {
             GameObject[] objects = UnityEngine.SceneManagement.SceneManager
-                .GetActiveScene()
+                .GetSceneByBuildIndex(0)
+//                .GetActiveScene()
                 .GetRootGameObjects();
             GameObject interactionManager = objects.First(
                 o => o.GetComponent<InteractionManager>() != null);
