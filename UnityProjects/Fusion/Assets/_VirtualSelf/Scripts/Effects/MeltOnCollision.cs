@@ -2,9 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using Leap.Unity;
+using Leap.Unity.Interaction;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
+
+namespace VirtualSelf 
+{
 
 public class MeltOnCollision : MonoBehaviour
 {
@@ -41,13 +45,13 @@ public class MeltOnCollision : MonoBehaviour
             Transform c = transform.GetChild(i);
             childScales[i] = c.localScale;
             childRotations[i] = c.rotation;
-        }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            // disable physics for frozen objects
+            Rigidbody r = c.GetComponent<Rigidbody>();
+            if (r != null) r.isKinematic = true;
+            InteractionBehaviour ib = c.GetComponent<InteractionBehaviour>();
+            if (ib != null) ib.ignoreGrasping = true;
+        }
     }
 
     IEnumerator ScaleDownSequence()
@@ -111,6 +115,12 @@ public class MeltOnCollision : MonoBehaviour
                 Transform c = transform.GetChild(i);
                 if (c.GetComponent<ParticleSystem>() != null) continue;
                 c.parent = transform.parent;
+                
+                // enable physics again
+                Rigidbody r = c.GetComponent<Rigidbody>();
+                if (r != null) r.isKinematic = false;
+                InteractionBehaviour ib = c.GetComponent<InteractionBehaviour>();
+                if (ib != null) ib.ignoreGrasping = false;
             }
 
             transform.DetachChildren();
@@ -160,5 +170,8 @@ public class MeltOnCollision : MonoBehaviour
         }
         
     }
+
+}
+
 
 }

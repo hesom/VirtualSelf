@@ -6,20 +6,16 @@ namespace VirtualSelf.Ballmaze
     public class EventOnCollision : MonoBehaviour
     {
         public UnityEvent _OnTriggerEnter;
-	
-        // Use this for initialization
-        void Start () {
-		
-        }
-	
-        // Update is called once per frame
-        void Update () {
-		
-        }
+        public string RequiredTag;
 
         void OnTriggerEnter(Collider other)
         {
-            _OnTriggerEnter.Invoke();
+            if (RequiredTag != "") {
+                if (other.CompareTag(RequiredTag)) _OnTriggerEnter.Invoke();
+            }
+            else {
+                _OnTriggerEnter.Invoke();
+            }
         }
     }
 }
