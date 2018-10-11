@@ -1,27 +1,77 @@
 fileFormatVersion: 2
-guid: 1dce569c17886be4dbf2cb85c4379799
+guid: 9406216a294f0ee419f3c67fc8717f56
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: MainBody
-    100004: Stando
-    400000: //RootNode
-    400002: MainBody
-    400004: Stando
+    100000: ButtonCenter
+    100002: ButtonCenterGroup
+    100004: ButtonLeft
+    100006: ButtonLeftGroup
+    100008: ButtonRight
+    100010: ButtonRightGroup
+    100012: ButtonsGroup
+    100014: ButtonsPanel
+    100016: ButtonsPanelGroup
+    100018: //RootNode
+    100020: MainBody
+    100022: MainBodyGroup
+    100024: MountLeft
+    100026: MountRight
+    100028: MountsGroup
+    100030: Stando
+    100032: StandoGroup
+    400000: ButtonCenter
+    400002: ButtonCenterGroup
+    400004: ButtonLeft
+    400006: ButtonLeftGroup
+    400008: ButtonRight
+    400010: ButtonRightGroup
+    400012: ButtonsGroup
+    400014: ButtonsPanel
+    400016: ButtonsPanelGroup
+    400018: //RootNode
+    400020: MainBody
+    400022: MainBodyGroup
+    400024: MountLeft
+    400026: MountRight
+    400028: MountsGroup
+    400030: Stando
+    400032: StandoGroup
     2100000: board_body
-    2100002: panel_front
-    2100004: panel_body
-    2100006: lamps_front
-    2100008: lamps_body
-    2100010: screen
-    2100012: stand
-    2300000: MainBody
-    2300002: Stando
-    3300000: MainBody
-    3300002: Stando
+    2100002: lamps_front
+    2100004: lamps_body
+    2100006: screen
+    2100008: panel_body
+    2100010: panel_front
+    2100012: button_left
+    2100014: button_center
+    2100016: button_right
+    2100018: stando
+    2100020: mounts
+    2300000: ButtonCenter
+    2300002: ButtonLeft
+    2300004: ButtonRight
+    2300006: ButtonsPanel
+    2300008: MainBody
+    2300010: MountLeft
+    2300012: MountRight
+    2300014: Stando
+    3300000: ButtonCenter
+    3300002: ButtonLeft
+    3300004: ButtonRight
+    3300006: ButtonsPanel
+    3300008: MainBody
+    3300010: MountLeft
+    3300012: MountRight
+    3300014: Stando
     4300000: MainBody
-    4300002: Stando
+    4300002: ButtonsPanel
+    4300004: ButtonLeft
+    4300006: ButtonCenter
+    4300008: ButtonRight
+    4300010: Stando
+    4300012: MountLeft
+    4300014: MountRight
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -31,32 +81,52 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: button_center
+    second: {fileID: 2100000, guid: 854034503fffa464c8a6d08ca95ffd70, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: button_left
+    second: {fileID: 2100000, guid: 854034503fffa464c8a6d08ca95ffd70, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: button_right
+    second: {fileID: 2100000, guid: 854034503fffa464c8a6d08ca95ffd70, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: lamps_body
-    second: {fileID: 2100000, guid: f193ba69d59add4499ed490f0fc660db, type: 2}
+    second: {fileID: 2100000, guid: 806bfe201dec5d441bba8de86e6ce772, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: lamps_front
-    second: {fileID: 2100000, guid: f193ba69d59add4499ed490f0fc660db, type: 2}
+    second: {fileID: 2100000, guid: 806bfe201dec5d441bba8de86e6ce772, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: panel_body
-    second: {fileID: 2100000, guid: a99559934faa6124a85f8d351c7e51c5, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: panel_front
-    second: {fileID: 2100000, guid: a99559934faa6124a85f8d351c7e51c5, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: screen
+      name: mounts
     second: {fileID: 2100000, guid: 1e254f20d06a05344a6b024ab9366086, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: stand
+      name: panel_body
+    second: {fileID: 2100000, guid: f6fda92cb710471498e5639b843be89a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: panel_front
+    second: {fileID: 2100000, guid: f6fda92cb710471498e5639b843be89a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: screen
+    second: {fileID: 2100000, guid: d008648c8a4b64a47906b14c4250683f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stando
     second: {fileID: 2100000, guid: 1e254f20d06a05344a6b024ab9366086, type: 2}
   materials:
     importMaterials: 1
