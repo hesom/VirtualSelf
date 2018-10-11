@@ -1,19 +1,100 @@
 using System;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.Serialization;
+
 
 namespace VirtualSelf.Utility {
 
 
 /// <summary>
-/// TODO: Fill out this class description: AnimationUtils
+/// A collection of static utility methods, and classes, for doing simple things related to
+/// animation (e.g. animating <see cref="GameObject"/>s or values, in code, in ways that do not have
+/// a simple, built-in solution.
 /// </summary>
-public sealed class AnimationUtils {
+public static class AnimationUtils {
 
     /* ---------- Public Methods ---------- */
+    
+    /// <summary>
+    /// Moves the given object from the point (in 3D space) <paramref name="source"/> to the point
+    /// <paramref name="destination"/>, smoothly at the given (constant) speed.
+    /// </summary>
+    /// <remarks>
+    /// This method must be run as a Unity coroutine, e.g. via
+    /// <see cref="MonoBehaviour.StartCoroutine(string)"/>.<br/>
+    /// The code for this method is taken from here:<br/>
+    /// https://gamedev.stackexchange.com/a/100549/111766
+    /// </remarks>
+    /// <param name="objectToMove">
+    /// The object to move. This method is intended for objects living in 3D space. The rotation of
+    /// the object is not touched by this method.
+    /// </param>
+    /// <param name="source">The point in 3D space the object starts off at.</param>
+    /// <param name="destination">
+    /// The point in 3D space the object is supposed to be at after this method has finished
+    /// running.
+    /// </param>
+    /// <param name="speed">
+    /// The (constant) speed to move the object at. This is in (Unity) units per second.
+    /// </param>
+    /// <returns>Nothing. (This method is run as a Unity coroutine.</returns>
+    public static IEnumerator MoveObjectFromToAtSpeed(
+        Transform objectToMove,
+        Vector3 source, Vector3 destination,
+        float speed) {
+        
+        /* We use "fixedDeltaTime" and "WaitForFixedUpdate" here, to make sure that the object moves
+         * at a constant speed. "Update()" and "deltaTime" run at a variable speed, and also Unity's
+         * "time scale" settings could be changed in the meantime, to produce e.g. slow motion
+         * effects, which would break this movement. */
+        
+        float step = (speed / (source - destination).magnitude) * Time.fixedDeltaTime;
+        
+        float t = 0;
+        while (t <= 1.0f) {
+            
+            t += step;
+            objectToMove.position = Vector3.Lerp(source, destination, t);
+            
+            yield return (new WaitForFixedUpdate());
+        }
+        
+        /* Makes sure that the object arrives at the exact destination location, since adding "step"
+         * to "t" might jump higher than 1.0 at the end, so the last step would be left out. */
+        
+        objectToMove.position = destination;
+    }
 
-
-
+    /// <summary>
+    /// This method is the same as <see cref="MoveObjectFromToAtSpeed"/>, but is intended to be
+    /// used for Unity UI elements living in 2D space, within e.g. a <see cref="Canvas"/>.<br/>
+    /// For 3D elements living in 3D space, and for more details, refer to the other method.
+    /// </summary>
+    /// <remarks>
+    /// This method moves the element via <see cref="RectTransform.anchoredPosition"/>.
+    /// </remarks>
+    /// <seealso cref="MoveObjectFromToAtSpeed"/>
+    public static IEnumerator MoveUiElementFromToAtSpeed(
+        RectTransform elementToMove,
+        Vector2 source, Vector2 destination,
+        float speed) {
+               
+        float step = (speed / (source - destination).magnitude) * Time.fixedDeltaTime;
+        
+        float t = 0;
+        while (t <= 1.0f) {
+            
+            t += step;
+            elementToMove.anchoredPosition = Vector2.Lerp(source, destination, t);
+            
+            yield return (new WaitForFixedUpdate());
+        }
+        
+        /* Makes sure that the object arrives at the exact destination location, since adding "step"
+         * to "t" might jump higher than 1.0 at the end, so the last step would be left out. */
+        
+        elementToMove.anchoredPosition = destination;       
+    }
 
 
     /* ---------- Inner Classes ---------- */
