@@ -37,6 +37,7 @@ public class MaterialSwapper : MonoBehaviour
 		foreach (CollisionConnector c in CollisionConnectors)
 		{
 			c.Advanced.Material = Material;
+			c.ValidateFields();
 		}
 
 		foreach (Renderer ren in OtherMaterials)

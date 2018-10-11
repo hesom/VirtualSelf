@@ -4,6 +4,7 @@ using Leap.Unity.Interaction;
 //using UnityEditor;
 using UnityEngine;
 using UnityEngine.Experimental.PlayerLoop;
+using UnityEngine.SceneManagement;
 
 namespace VirtualSelf
 {
@@ -156,8 +157,7 @@ public class CollisionConnector : MonoBehaviour
 //		Endpoints.Clear();
 //	}
 
-#if UNITY_EDITOR
-	void OnValidate()
+	public void ValidateFields() 
 	{
 		_invalidated = true;
 		if (Size.DisconnectRadius < Size.MaxRadius) Size.DisconnectRadius = Size.MaxRadius;
@@ -215,7 +215,13 @@ public class CollisionConnector : MonoBehaviour
 
 			_builtBbPref = PreferBoundingBox();
 		}
+	}
+
+	void OnValidate()
+	{
+		ValidateFields();
 		
+#if UNITY_EDITOR
 		if (Advanced.CreateEndpoints != Endpoint.None && 
 		    !(UnityEditor.PrefabUtility.GetCorrespondingObjectFromSource(gameObject) == null && 
 		      UnityEditor.PrefabUtility.GetPrefabObject(gameObject.transform) != null)) // isPrefabOriginal
@@ -249,8 +255,8 @@ public class CollisionConnector : MonoBehaviour
 				};
 			}
 		}
-	}
 #endif
+	}
 	
 	void OnDisable()
 	{
@@ -281,6 +287,8 @@ public class CollisionConnector : MonoBehaviour
 			GameObject o2 = CheckPlaceholder(i+1);
 			
 			GameObject connector = GameObject.CreatePrimitive(Advanced.Primitive);
+			// move object to master scene
+			SceneManager.MoveGameObjectToScene(connector, SceneManager.GetSceneByBuildIndex(0));
 			_builtPrimitve = Advanced.Primitive;
 			string num = i == 0 ? "" : " " + i;
 			connector.name = string.Concat(Name, " ", _builtPrimitve, num);
