@@ -511,7 +511,7 @@ GameObject:
   - component: {fileID: 363749109}
   m_Layer: 0
   m_Name: elbow pos
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -547,7 +547,7 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 363749107}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1527,9 +1527,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startScene:
-    Scene: {fileID: 102900000, guid: c3486f1fd992d43408e77ccd48b71fd0, type: 3}
-    SceneName: LaserScene
-    sceneIndex: 10
+    Scene: {fileID: 102900000, guid: 54960d75e8f2b954d90379f6ae832058, type: 3}
+    SceneName: TutorialScene
+    sceneIndex: 8
     sceneEnabled: 1
   keycodes: {fileID: 11400000, guid: 0e367153ea9cfb04187473c1ee09202b, type: 2}
 --- !u!4 &1035628203
@@ -1812,8 +1812,6 @@ MonoBehaviour:
   - {fileID: 753226477}
   - {fileID: 1247640460}
   - {fileID: 1079999129}
-  - {fileID: 1745585400}
-  - {fileID: 363749110}
 --- !u!114 &1199823744 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114056511293186408, guid: 33edf201cbc6fe645ad9078697cd2aea,
@@ -4154,7 +4152,7 @@ GameObject:
   - component: {fileID: 1745585399}
   m_Layer: 0
   m_Name: elbow pos
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4190,7 +4188,7 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1745585397}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

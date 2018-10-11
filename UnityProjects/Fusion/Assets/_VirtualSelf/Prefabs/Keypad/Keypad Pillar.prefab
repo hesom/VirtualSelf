@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 33146000923147534}
   - component: {fileID: 23375642332325004}
   - component: {fileID: 65296296695041466}
-  m_Layer: 27
+  m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -561,13 +561,14 @@ GameObject:
   - component: {fileID: 33799539360109734}
   - component: {fileID: 23606764873268968}
   - component: {fileID: 65652290186318050}
-  m_Layer: 27
+  - component: {fileID: 114460877330765104}
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1279871208210852
 GameObject:
   m_ObjectHideFlags: 1
@@ -1028,7 +1029,7 @@ GameObject:
   - component: {fileID: 33270623448667290}
   - component: {fileID: 23317968124932190}
   - component: {fileID: 65509044086967718}
-  m_Layer: 27
+  m_Layer: 0
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1046,7 +1047,7 @@ GameObject:
   - component: {fileID: 33356528169017896}
   - component: {fileID: 23984281875283646}
   - component: {fileID: 65450990619383954}
-  m_Layer: 27
+  m_Layer: 0
   m_Name: Cube (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1292,7 +1293,7 @@ GameObject:
   - component: {fileID: 33180326877093956}
   - component: {fileID: 23216190515796010}
   - component: {fileID: 65094688192772556}
-  m_Layer: 27
+  m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1346,7 +1347,7 @@ GameObject:
   - component: {fileID: 33534902062711982}
   - component: {fileID: 23395857640519440}
   - component: {fileID: 65946627347029252}
-  m_Layer: 27
+  m_Layer: 0
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1522,7 +1523,7 @@ GameObject:
   - component: {fileID: 33090170228714818}
   - component: {fileID: 23199765362891532}
   - component: {fileID: 65453669370619086}
-  m_Layer: 27
+  m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7537,6 +7538,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f706a66d7747347b05af75d89b00e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114460877330765104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1268317699164076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b322488cae535b4db47e53d9196ca52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Layer: Default
 --- !u!114 &114476876198511194
 MonoBehaviour:
   m_ObjectHideFlags: 1
