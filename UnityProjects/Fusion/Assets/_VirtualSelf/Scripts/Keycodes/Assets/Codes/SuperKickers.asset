@@ -9,14 +9,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ecf62c2e39cc41d7ad357baa569680a5, type: 3}
-  m_Name: MirrorPuzzle
+  m_Name: SuperKickers
   m_EditorClassIdentifier: 
-  digitOne: 5
-  digitTwo: 9
-  digitThree: 5
-  digitFour: 2
+  digitOne: 9
+  digitTwo: 8
+  digitThree: 7
+  digitFour: 3
   isDiscovered: 0
-  codeString: 5952
+  codeString: 9873
   OnDiscoveredStateChanged:
     m_PersistentCalls:
       m_Calls: []

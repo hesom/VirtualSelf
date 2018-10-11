@@ -31,9 +31,12 @@ public class Checkpoint : MonoBehaviour
 		if (DebugDot != null) Instantiate(DebugDot, pos, Quaternion.identity).transform.localScale = Vector3.one * .005f;
 
 		// Vector3 rotAxis = Quaternion.AngleAxis(-90, Vector3.right) * (pos - transform.TransformPoint(vert[0]));
-		Vector3 rotAxis = Quaternion.Euler(-90, 0, 0) * (pos - transform.TransformPoint(vert[0]));
+		
+//		Vector3 rotAxis = Quaternion.Euler(-90, 0, 0) * (pos - transform.TransformPoint(vert[0]));
+		Vector3 rotAxis = (pos - transform.TransformPoint(vert[0]));
+		
 		// Vector3 rotAxis = Quaternion.Euler(-90, -90, 0) * (Vector3.up);
-		Quaternion rot = Quaternion.LookRotation(rotAxis);
+		Quaternion rot = Quaternion.FromToRotation(Vector3.right, Vector3.down) * Quaternion.LookRotation(rotAxis);
 //		Quaternion rot = rb.rotation = Quaternion.Euler(Rotation);
 		
 		Rigidbody rb = o.GetComponent<Rigidbody>();

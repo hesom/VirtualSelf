@@ -42,6 +42,9 @@ MonoBehaviour:
   - keycodeReference: {fileID: 11400000, guid: fc99028d5231d9b428efaa51b6bf7353, type: 2}
     roomReference: {fileID: 11400000, guid: 05b74f5b63b22ee4fa393be0a146769a, type: 2}
     propDrawingHeight: 51
+  - keycodeReference: {fileID: 11400000, guid: f9b821da93594db41bb6fbeb6e1fc8f2, type: 2}
+    roomReference: {fileID: 11400000, guid: 25da22857d0449b4094e0a1dce0ce50a, type: 2}
+    propDrawingHeight: 51
   OnAnyListElementStateChanged:
     m_PersistentCalls:
       m_Calls: []

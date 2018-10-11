@@ -15,6 +15,9 @@ public class HandTrackingEvents : MonoBehaviour
 	public UnityEvent OnFinish;
 	public UnityEvent OnReset;
 
+	private int _handId;
+	private bool _addedNewHand;
+
 	void Start()
 	{
 		if (HandModel == null) HandModel = GetComponent<HandModelBase>();
@@ -22,10 +25,19 @@ public class HandTrackingEvents : MonoBehaviour
 		{
 			HandModel.OnBegin += HandReset;
 			HandModel.OnFinish += HandFinish;
+			_handId = HandModel.GetHashCode();
 		}
 		else
 		{
 			throw new InvalidOperationException("hand not found");
+		}
+	}
+
+	void Update() {
+		if (!_addedNewHand && HandModel.GetHashCode() != _handId) {
+			HandModel.OnBegin += HandReset;
+			HandModel.OnFinish += HandFinish;
+			_addedNewHand = true;
 		}
 	}
 

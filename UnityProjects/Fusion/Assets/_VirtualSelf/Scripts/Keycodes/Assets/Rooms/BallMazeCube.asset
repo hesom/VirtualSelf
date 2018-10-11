@@ -19,7 +19,7 @@ MonoBehaviour:
     Fun.'
   scene:
     Scene: {fileID: 102900000, guid: ba68d802d21e7e54f8a64ed4c20ede2e, type: 3}
-    SceneName: Ballmaze
+    SceneName: BallmazeCube
     sceneIndex: 12
     sceneEnabled: 1
   hasBeenVisited: 0

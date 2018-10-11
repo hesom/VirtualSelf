@@ -35,6 +35,8 @@ public class GraspIndicator : MonoBehaviour
 		
 		GraspEnd();
 
+		_capsuleLocalPos = transform.localPosition;
+		_capsuleLocalRot = transform.localRotation;
 		_riggedLocalrot = Quaternion.Euler(RiggedLocalRot);
 	}
 

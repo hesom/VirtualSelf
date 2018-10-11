@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using VirtualSelf;
@@ -28,8 +29,11 @@ public class GestureSelector : MonoBehaviour {
     [Tooltip("Activate the gesture with the selected index, -1 to disable all")]
     public int SelectedIndex;
 
-    public void ActivateGesture(int index)
-    {
+    private int _lastActiveAboveZero;
+
+    public void ActivateGesture(int index) {
+        if (index > 0) _lastActiveAboveZero = index;
+        
         for (int i=0;i<GestureObjectsArr.Length;i++)
         {
             bool active = i == index;
@@ -48,7 +52,7 @@ public class GestureSelector : MonoBehaviour {
 
     public void ReactivateGesture()
     {
-        ActivateGesture(SelectedIndex);
+        ActivateGesture(_lastActiveAboveZero);
     }
 
     public void UnloadUnscopeAll()
@@ -71,11 +75,15 @@ public class GestureSelector : MonoBehaviour {
 	    _postStart = true;
 	}
 
+    #if UNITY_EDITOR
     void OnValidate()
     {
-        UnityEditor.EditorApplication.delayCall += () =>
-        {
-            ActivateGesture(SelectedIndex);
-        };
+        if (_postStart) {
+            UnityEditor.EditorApplication.delayCall += () =>
+            {
+                ActivateGesture(SelectedIndex);
+            };
+        }
     }
+    #endif
 }

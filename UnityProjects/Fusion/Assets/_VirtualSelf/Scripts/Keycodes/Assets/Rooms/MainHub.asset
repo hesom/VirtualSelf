@@ -15,7 +15,7 @@ MonoBehaviour:
   description: 
   scene:
     Scene: {fileID: 102900000, guid: 72a0857d35c52d945ac85bc38a351218, type: 3}
-    SceneName: Keycodes System Test Scene
+    SceneName: Info Board Test Scene
     sceneIndex: 9
     sceneEnabled: 1
   hasBeenVisited: 0

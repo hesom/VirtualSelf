@@ -8,16 +8,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecf62c2e39cc41d7ad357baa569680a5, type: 3}
-  m_Name: MirrorPuzzle
+  m_Script: {fileID: 11500000, guid: aec14f45991dec54b88cab32bf259dd6, type: 3}
+  m_Name: SuperKickers
   m_EditorClassIdentifier: 
-  digitOne: 5
-  digitTwo: 9
-  digitThree: 5
-  digitFour: 2
-  isDiscovered: 0
-  codeString: 5952
-  OnDiscoveredStateChanged:
+  roomName: Super Kickers
+  description: 
+  scene:
+    Scene: {fileID: 102900000, guid: d4c728f8689ec95428995cc10199d5e9, type: 3}
+    SceneName: BallKickTest
+    sceneIndex: 14
+    sceneEnabled: 1
+  hasBeenVisited: 0
+  OnVisitedStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: VirtualSelf.Utility.UnityEvents.ObjectUE, Assembly-CSharp, Version=0.0.0.0,
