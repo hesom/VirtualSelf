@@ -20,8 +20,19 @@ public sealed class ScrollRectTouchscreenControls : MonoBehaviour {
     public InteractionHand LeftHand;
     public InteractionHand RightHand;
 
-    private InteractionBehaviour interBehavior;
+    public bool IsActivated {
+        
+        get { return (isActivated); }
+        set {
+            isActivated = value;
+            if (isActivated == false) { OnContactEnd(); }
+        }
+    }
 
+    private bool isActivated;
+    
+    private InteractionBehaviour interBehavior;
+    
     private bool isCurrentlyContact;
 
     private Vector3 screenCenter;
@@ -46,19 +57,14 @@ public sealed class ScrollRectTouchscreenControls : MonoBehaviour {
         screenWidth = Math.Max(gameObject.transform.lossyScale.x, gameObject.transform.lossyScale.z);
         screenHeight = gameObject.transform.lossyScale.y;
         
-        
-        
-        Debug.Log("screenCenter: " + screenCenter);
-        Debug.Log("screenWidth: " + screenWidth);
-        Debug.Log("screenHeight: " + screenHeight);
-    }
-
-    private void OnCollisionEnter(Collision other) {
-        
-        // other.
+//        Debug.Log("screenCenter: " + screenCenter);
+//        Debug.Log("screenWidth: " + screenWidth);
+//        Debug.Log("screenHeight: " + screenHeight);
     }
 
     private void Update() {
+        
+        if (IsActivated == false) { return; }
 
         if (contactingHand == null) {
             
@@ -112,8 +118,8 @@ public sealed class ScrollRectTouchscreenControls : MonoBehaviour {
 
     private void OnContactBegin() {
         
-        Debug.Log("Contact begins.");
-        Debug.Log("Contacting hand is: " + (contactingHand.isLeft ? "left" : "right"));
+//        Debug.Log("Contact begins.");
+//        Debug.Log("Contacting hand is: " + (contactingHand.isLeft ? "left" : "right"));
 
         isCurrentlyContact = true;
 
@@ -148,7 +154,7 @@ public sealed class ScrollRectTouchscreenControls : MonoBehaviour {
 
     private void OnContactEnd() {
         
-        Debug.Log("Contact ends.");
+//        Debug.Log("Contact ends.");
 
         isCurrentlyContact = false;
         contactingHand = null;
@@ -156,21 +162,6 @@ public sealed class ScrollRectTouchscreenControls : MonoBehaviour {
         lastFrameYPos = 0.0f;
         currentFrameYPos = 0.0f;
     }
-    
-
-    /* ---------- Overrides ---------- */
-
-
-
-
-
-
-    /* ---------- Inner Classes ---------- */
-
-
-
-
-
 
 }
 
