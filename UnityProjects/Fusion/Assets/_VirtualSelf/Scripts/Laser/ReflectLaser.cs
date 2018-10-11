@@ -10,6 +10,7 @@ public class ReflectLaser : MonoBehaviour
     public Transform hitPlane;
     public ParticleSystem reflectParticles;
     public Transform reflectPlane;
+    public string reflectableTag;
     public UnityEvent OnTargetHit;
 
     private LineRenderer lr;
@@ -37,7 +38,7 @@ public class ReflectLaser : MonoBehaviour
                 hitPlane.position = hit.point;
                 hitPlane.up = hit.normal;
 
-                if(hit.collider.tag == "LaserReflector")
+                if(hit.collider.tag == reflectableTag)
                 {
                     lr.positionCount = 3;
                     Vector3 prevHitPos = hit.point;
