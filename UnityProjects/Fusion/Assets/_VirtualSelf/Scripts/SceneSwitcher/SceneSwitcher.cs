@@ -75,12 +75,15 @@ namespace VirtualSelf
 
         public void NextLevel(string sequence)
         {
-            if(sequence == resetCode.CodeString)
+            /*if(sequence == resetCode.CodeString)
             {
                 // reload current scene
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                Scene activeScene = SceneManager.GetActiveScene();
+                SceneManager.UnloadSceneAsync(activeScene);
+                SceneManager.LoadScene(activeScene.name, LoadSceneMode.Additive);
+                SceneManager.SetActiveScene(activeScene);
                 return;
-            }
+            }*/
 
             var allMappings = keycodes.GetKeycodeFromCodeString(sequence);
 

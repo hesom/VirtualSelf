@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 112000004, guid: a8aa12f3b0cd10d4aba1bf948e837b10,
+  m_LightingDataAsset: {fileID: 112000002, guid: 7db954ef44995024b8b9aa5d7372b935,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4

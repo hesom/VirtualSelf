@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 112000004, guid: acd0c93995885a14982b9b93241689dd,
+  m_LightingDataAsset: {fileID: 112000016, guid: acd0c93995885a14982b9b93241689dd,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -618,6 +618,16 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.53252
       objectReference: {fileID: 0}
+    - target: {fileID: 114164290609856706, guid: d6c0a0bf18ca3e2498b0c96671cef238,
+        type: 2}
+      propertyPath: onAnchorAnimationFinished.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 114164290609856706, guid: d6c0a0bf18ca3e2498b0c96671cef238,
+        type: 2}
+      propertyPath: anchor
+      value: 
+      objectReference: {fileID: 1601933106}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6c0a0bf18ca3e2498b0c96671cef238, type: 2}
   m_IsPrefabAsset: 0
@@ -2597,7 +2607,7 @@ MonoBehaviour:
   pinkyDistalJoint: {fileID: 0}
   pinkyTip: {fileID: 0}
   _chirality: 1
-  _isTracked: 0
+  _isTracked: 1
 --- !u!1 &1534771610
 GameObject:
   m_ObjectHideFlags: 0
@@ -3325,6 +3335,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Layer: Default
+--- !u!114 &1601933106 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114610999876369892, guid: 9e91760b100789541bfb16a6e15a96e4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1601933090}
+  m_Script: {fileID: 11500000, guid: 4a517469c92f76f4ebdf8193e696d038, type: 3}
 --- !u!1 &1637690314
 GameObject:
   m_ObjectHideFlags: 0
@@ -3780,7 +3796,7 @@ MonoBehaviour:
   pinkyDistalJoint: {fileID: 0}
   pinkyTip: {fileID: 0}
   _chirality: 0
-  _isTracked: 0
+  _isTracked: 1
 --- !u!1 &2033197273
 GameObject:
   m_ObjectHideFlags: 0

@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 112000006, guid: 8e895d9aab380f64a8b0ec36c7338f7f,
+  m_LightingDataAsset: {fileID: 112000002, guid: 8e895d9aab380f64a8b0ec36c7338f7f,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -5364,7 +5364,7 @@ MonoBehaviour:
   pinkyDistalJoint: {fileID: 0}
   pinkyTip: {fileID: 0}
   _chirality: 1
-  _isTracked: 1
+  _isTracked: 0
 --- !u!4 &87689115
 Transform:
   m_ObjectHideFlags: 0
@@ -11658,7 +11658,7 @@ MonoBehaviour:
   pinkyDistalJoint: {fileID: 0}
   pinkyTip: {fileID: 0}
   _chirality: 0
-  _isTracked: 1
+  _isTracked: 0
 --- !u!1 &659143044
 GameObject:
   m_ObjectHideFlags: 0

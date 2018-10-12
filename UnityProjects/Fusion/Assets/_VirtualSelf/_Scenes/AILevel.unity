@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -66700,15 +66700,15 @@ MonoBehaviour:
   DebugMode: 0
   Classes:
   - Prefab: {fileID: 1153414433071110, guid: 3f891da33b8087e489078d0d2682e4db, type: 2}
-    SpawnInterval: {x: 8.566436, y: 14.210987}
+    SpawnInterval: {x: 26.192059, y: 33.87034}
   - Prefab: {fileID: 1098936505448302, guid: 248acbaec493f934187bd9e646e10c3f, type: 2}
-    SpawnInterval: {x: 9.508112, y: 12.798475}
+    SpawnInterval: {x: 27.811642, y: 35.508415}
   - Prefab: {fileID: 1800403784821256, guid: 8ff4f2b3a5d88b342b4ed4a90c4a0b9c, type: 2}
-    SpawnInterval: {x: 1.4276214, y: 4.717982}
+    SpawnInterval: {x: 6.85089, y: 10.141251}
   - Prefab: {fileID: 1518964160417360, guid: 332c4a397d1365b4c9d9af01469f3f0d, type: 2}
-    SpawnInterval: {x: 12.409385, y: 15.699744}
+    SpawnInterval: {x: 24.272785, y: 32.98642}
   - Prefab: {fileID: 1143353991858226, guid: a62ffc67978619946a110bc000eda18e, type: 2}
-    SpawnInterval: {x: 3.2728496, y: 6.56321}
+    SpawnInterval: {x: 11.407753, y: 14.6981125}
   KillEvents:
   - KillCount: 20
     OnEquals:

@@ -15,7 +15,7 @@ MonoBehaviour:
   digitTwo: 4
   digitThree: 0
   digitFour: 8
-  isDiscovered: 1
+  isDiscovered: 0
   codeString: 1408
   OnDiscoveredStateChanged:
     m_PersistentCalls:
