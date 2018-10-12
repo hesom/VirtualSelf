@@ -116,11 +116,12 @@ namespace VirtualSelf.CubeScripts.Interaction
         /// <summary>Signal that a grasp has stopped.</summary>
         public IEnumerator GraspStop()
         {
-            yield return new WaitForSeconds(0.25f);
+            //yield return new WaitForSeconds(0.25f);
             leftHandIsGrasped = false;
             rightHandIsGrasped = false;
             leftInteraction.graspingEnabled = true;
             rightInteraction.graspingEnabled = true;
+            yield return null;
         }
     }
 }

@@ -15,7 +15,7 @@ namespace VirtualSelf.CubeScripts.Interaction {
         private FingerMoveDetector moveDetector;
 
         private bool handLocked;
-        private const float LockDistance = Cube2X2.HalfCubeWidth * 0.4f; // TODO vielleicht noch etwas sp‰ter die h‰nde festlegen?
+        private const float LockDistance = Cube2X2.HalfCubeWidth * 0.4f; // TODO vielleicht noch etwas sp√§ter die h√§nde festlegen?
 
         public HandManager(
             HandPositionInfo handPositionInfo,
