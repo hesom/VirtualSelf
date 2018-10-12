@@ -1412,6 +1412,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfdca0017db48074a802945cee32a18d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &811661723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 811661720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2e3c54bbf2b51647bcf0744bb1021ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modifiers:
+    CameraSensitivity: 90
+    NormalClimbSpeed: 1.5
+    NormalMoveSpeed: 5
+    SlowMoveFactor: 0.2
+    FastMoveFactor: 5
+    UseLocalClimbTransform: 0
+  controls:
+    LockMouseLook: 27
+    Ascend: 113
+    Descend: 101
+    MoveFaster: 304
+    MoveSlower: 32
 --- !u!1 &846031917
 GameObject:
   m_ObjectHideFlags: 0
@@ -1527,9 +1551,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startScene:
-    Scene: {fileID: 102900000, guid: 54960d75e8f2b954d90379f6ae832058, type: 3}
-    SceneName: TutorialScene
-    sceneIndex: 8
+    Scene: {fileID: 102900000, guid: d94f6b45d478c9742bbd7cc86d7680a7, type: 3}
+    SceneName: User UI Test Scene
+    sceneIndex: 15
     sceneEnabled: 1
   keycodes: {fileID: 11400000, guid: 0e367153ea9cfb04187473c1ee09202b, type: 2}
 --- !u!4 &1035628203
