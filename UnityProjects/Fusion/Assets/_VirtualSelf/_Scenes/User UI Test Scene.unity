@@ -1216,6 +1216,10 @@ MonoBehaviour:
   PaddingPanelsVertical: 15
   PaddingPanelsHorizontal: 15
   UnknownRoomName: ????
+  NoKeycodeColor: {r: 0, g: 0, b: 0, a: 0}
+  RoomNotVisitedColor: {r: 0, g: 0, b: 0, a: 0}
+  RoomVisitedColor: {r: 0, g: 0, b: 0, a: 0}
+  StateChangedColor: {r: 1, g: 0.6795065, b: 0, a: 0.3921569}
 --- !u!1 &349073425
 GameObject:
   m_ObjectHideFlags: 0
@@ -3000,7 +3004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.8974695, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4445,7 +4449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.35380197, a: 0.392}
+  m_Color: {r: 0, g: 1, b: 0.35294127, a: 0.392}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5205,7 +5209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.35380197, a: 0.392}
+  m_Color: {r: 1, g: 0.6795065, b: 0, a: 0.39215687}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5681,6 +5685,10 @@ MonoBehaviour:
   PaddingPanelsVertical: 15
   PaddingPanelsHorizontal: 15
   UnknownRoomName: ????
+  NoKeycodeColor: {r: 0, g: 0, b: 0, a: 0.392}
+  RoomNotVisitedColor: {r: 0, g: 0.9082427, b: 1, a: 0.392}
+  RoomVisitedColor: {r: 0, g: 1, b: 0.35294127, a: 0.392}
+  StateChangedColor: {r: 1, g: 0.6795065, b: 0, a: 0.3921569}
 --- !u!1 &1769866832
 GameObject:
   m_ObjectHideFlags: 0

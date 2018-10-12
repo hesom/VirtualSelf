@@ -34,7 +34,17 @@ public sealed class CodesRoomsUi : MonoBehaviour {
 
     public string UnknownRoomName = "????";
 
+    public Color NoKeycodeColor = new Color(0.0f, 0.0f, 0.0f, 0.3921569f);
+
+    public Color RoomNotVisitedColor = new Color(0.0f, 0.9082427f, 1.0f, 0.3921569f);
+
+    public Color RoomVisitedColor = new Color(0.0f, 1.0f, 0.3529413f, 0.3921569f);
+
+    public Color StateChangedColor = new Color(1.0f, 0.6795065f, 0.0f, 0.3921569f);
+
     private readonly List<CodeRoomPanel> panels = new List<CodeRoomPanel>();
+
+    private readonly List<CodeRoomPanel> changedPanels = new List<CodeRoomPanel>();
     
     private float uiWidth;
     private float uiHeight;
@@ -46,6 +56,20 @@ public sealed class CodesRoomsUi : MonoBehaviour {
 
     /* ---------- Methods ---------- */
 
+    public void OpenScreen() {
+        
+        UpdateAllPanels();
+        
+        // TODO
+    }
+
+    public void CloseScreen() {
+        
+        // TODO
+        
+        changedPanels.Clear();
+    }
+    
     private void Start() {
        
         uiWidth = UiCanvas.gameObject.GetComponent<RectTransform>().rect.width;
@@ -111,6 +135,14 @@ public sealed class CodesRoomsUi : MonoBehaviour {
         }
     }
 
+    private void UpdateAllPanels() {
+
+        for (int i = 0; i < panels.Count; i++) {
+            
+            SetPanelAttributes(i);
+        }
+    }
+
     private void SetPanelAttributes(int panelIndex) {
 
         if (panelIndex > (panels.Count - 1)) {
@@ -125,6 +157,10 @@ public sealed class CodesRoomsUi : MonoBehaviour {
         
         Keycode keycodeRef = mapping.KeycodeReference;
         Room roomRef = mapping.RoomReference;
+
+        Color panelColor;
+        
+        bool isChanged = changedPanels.Contains(panel);
         
         if (keycodeRef.IsDiscovered) {
 
@@ -133,23 +169,32 @@ public sealed class CodesRoomsUi : MonoBehaviour {
             if (roomRef.HasBeenVisited) {
 
                 panel.RoomText.text = roomRef.RoomName;
+                panelColor = RoomVisitedColor;
             }
             else {
 
                 panel.RoomText.text = UnknownRoomName;
+                panelColor = RoomNotVisitedColor;
             }
         }
         else {
 
             panel.CodeText.text = "    ";
             panel.RoomText.text = "";
+            panelColor = NoKeycodeColor;
         }
+
+        if (isChanged) { panelColor = StateChangedColor; }
+
+        panel.BackgroundImage.color = panelColor;
     }
 
 
     /* ---------- Event Methods ---------- */
 
     public void OnKeycodesListElementChanged(int elementIndex) {
+        
+        changedPanels.Add(panels[elementIndex]);
         
         SetPanelAttributes(elementIndex);
     }
