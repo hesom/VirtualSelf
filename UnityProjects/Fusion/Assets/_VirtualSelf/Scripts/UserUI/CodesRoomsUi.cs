@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Leap;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -42,6 +43,10 @@ public sealed class CodesRoomsUi : MonoBehaviour {
 
     public Color StateChangedColor = new Color(1.0f, 0.6795065f, 0.0f, 0.3921569f);
 
+    public bool SizePanelsFromPrefab = true;
+
+    public Vector2 PanelsSize = new Vector2(350.0f, 180.0f);
+
     private readonly List<CodeRoomPanel> panels = new List<CodeRoomPanel>();
 
     private readonly List<CodeRoomPanel> changedPanels = new List<CodeRoomPanel>();
@@ -70,13 +75,30 @@ public sealed class CodesRoomsUi : MonoBehaviour {
         changedPanels.Clear();
     }
     
+    
+    public void UpdateAllPanels() {
+
+        for (int i = 0; i < panels.Count; i++) {
+            
+            SetPanelAttributes(i);
+        }
+    }
+    
     private void Start() {
        
         uiWidth = UiCanvas.gameObject.GetComponent<RectTransform>().rect.width;
         uiHeight = UiCanvas.gameObject.GetComponent<RectTransform>().rect.height;
 
-        singlePanelWidth = PanelPrefab.ParentTransform.rect.width;
-        singlePanelHeight = PanelPrefab.ParentTransform.rect.height;
+        if (SizePanelsFromPrefab) {
+            
+            singlePanelWidth = PanelPrefab.ParentTransform.rect.width;
+            singlePanelHeight = PanelPrefab.ParentTransform.rect.height;    
+        }
+        else {
+
+            singlePanelWidth = PanelsSize.x;
+            singlePanelHeight = PanelsSize.y;
+        }
         
         CanvasLayoutGroup.padding.top = PaddingUiSides;
         CanvasLayoutGroup.padding.left = PaddingUiSides;
@@ -128,14 +150,6 @@ public sealed class CodesRoomsUi : MonoBehaviour {
           
             panels.Add(panel);
         }
-
-        for (int i = 0; i < panels.Count; i++) {
-            
-            SetPanelAttributes(i);
-        }
-    }
-
-    private void UpdateAllPanels() {
 
         for (int i = 0; i < panels.Count; i++) {
             
