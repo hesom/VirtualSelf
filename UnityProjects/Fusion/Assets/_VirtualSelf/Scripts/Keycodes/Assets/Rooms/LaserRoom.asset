@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Name: LaserRoom
   m_EditorClassIdentifier: 
   roomName: The Lasers
-  description: 
+  description: 'In this room, you are required to use your whole body.
+
+    Walk across the room and press the button, without letting any of the lasers touch
+    you! If you get hit, you will have to restart.'
   scene:
     Scene: {fileID: 102900000, guid: c3486f1fd992d43408e77ccd48b71fd0, type: 3}
     SceneName: LaserScene

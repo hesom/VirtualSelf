@@ -12,13 +12,11 @@ MonoBehaviour:
   m_Name: MirrorPuzzle
   m_EditorClassIdentifier: 
   roomName: The Puzzling Mirror
-  description: 'Mirror, mirror, on the wall
+  description: 'It is time for a little puzzle.
 
-    Help me sort each single ball
+    The objective is quite simple: Sort the balls into the containers.
 
-    Mirror, mirror, speak it true
-
-    Which one is the correct hue?
+    If you want a little hint, go to the next message on this board.
 
 '
   scene:
