@@ -134,7 +134,7 @@ namespace VirtualSelf
                 {
                     // build layer hash table
                     //objectLayer.Add(o, o.layer);
-                    Camera cam = o.GetComponent<Camera>();
+//                    Camera cam = o.GetComponent<Camera>();
                     /*if (cam != null)
                     {
                         cameraCullingLayermasks.Add(cam, cam.cullingMask);

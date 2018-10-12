@@ -15,11 +15,11 @@ namespace VirtualSelf.Ballmaze
         public InteractionHand Right;
         public InteractionBehaviour Swap;
 
-        private InteractionBehaviour _ib;
+//        private InteractionBehaviour _ib;
         private bool _leftGrasp;
         private bool _rightGrasp;
         private bool _isMoving;
-        private bool _triggeringRelease;
+//        private bool _triggeringRelease;
         private bool _newGraspIsLeft;
         private Vector3 _leftGraspOffset;
         private Vector3 _rightGraspOffset;
@@ -37,7 +37,7 @@ namespace VirtualSelf.Ballmaze
         // Use this for initialization
         void Start ()
         {
-            _ib = GetComponent<InteractionBehaviour>();
+//            _ib = GetComponent<InteractionBehaviour>();
 //		_ib.moveObjectWhenGrasped = false;
             _rb = GetComponent<Rigidbody>();
 		
@@ -216,7 +216,7 @@ namespace VirtualSelf.Ballmaze
 
         private void CheckMulti()
         {	
-            if (_triggeringRelease) return;
+//            if (_triggeringRelease) return;
 		
             bool movingNow = _leftGrasp && _rightGrasp;
             Debug.Log("both hands on: "+movingNow);

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace VirtualSelf
+{
+
 public class LayerOnEnable : MonoBehaviour {
 
 	public string Layer;
@@ -13,5 +16,7 @@ public class LayerOnEnable : MonoBehaviour {
 			t.gameObject.layer = layer;
 		}
 	}
+
+}
 
 }

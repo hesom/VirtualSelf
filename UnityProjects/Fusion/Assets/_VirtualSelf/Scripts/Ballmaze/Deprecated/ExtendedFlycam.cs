@@ -51,7 +51,7 @@ namespace VirtualSelf.Ballmaze
         /* Denotes whether the camera is currently locked or not. While it is locked, it will not move
      * at all, until the locking is released again. */
         private bool isLocked = false;
-        private bool isMouseLocked;
+//        private bool isMouseLocked;
 
         void Start() {
 
@@ -112,11 +112,11 @@ namespace VirtualSelf.Ballmaze
             rotationY += Input.GetAxis("Mouse Y") * cameraSensitivity * Time.deltaTime;
             rotationY = Mathf.Clamp(rotationY, -90, 90);
 
-            if (!isMouseLocked)
-            {
-                transform.localRotation = Quaternion.AngleAxis(rotationX, Vector3.up);
-                transform.localRotation *= Quaternion.AngleAxis(rotationY, Vector3.left);
-            }
+//            if (!isMouseLocked)
+//            {
+//                transform.localRotation = Quaternion.AngleAxis(rotationX, Vector3.up);
+//                transform.localRotation *= Quaternion.AngleAxis(rotationY, Vector3.left);
+//            }
 
             if (Input.GetKey(fast)) {
 

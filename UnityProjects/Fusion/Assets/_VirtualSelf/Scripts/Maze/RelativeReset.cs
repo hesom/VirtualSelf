@@ -36,7 +36,7 @@ namespace VirtualSelf.Ballmaze
                 GameObject go = resetObjects[i];
                 Rigidbody rb = go.GetComponent<Rigidbody>();
 
-                Vector3 pos = rb == null ? go.transform.position : rb.position;
+//                Vector3 pos = rb == null ? go.transform.position : rb.position;
                 Vector3 newPos = baseObject.transform.position - (baseObject.transform.rotation * posDiffs[i]);
 
                 if (rb == null)
