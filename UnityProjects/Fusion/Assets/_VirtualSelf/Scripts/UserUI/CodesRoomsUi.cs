@@ -98,33 +98,51 @@ public sealed class CodesRoomsUi : MonoBehaviour {
 
         Transform panelsGroup = PanelsGroup.transform;
         
-        foreach (KeycodeRoomMapping mapping in codeRooms) {
-
-            Keycode keycodeRef = mapping.KeycodeReference;
-            Room roomRef = mapping.RoomReference;
-            
+        for (int i = 0; i < codeRooms.Count; i++) {
+           
             CodeRoomPanel panel = Instantiate(PanelPrefab, panelsGroup);
+          
+            panels.Add(panel);
+        }
 
-            if (keycodeRef.IsDiscovered) {
+        for (int i = 0; i < panels.Count; i++) {
+            
+            SetPanelAttributes(i);
+        }
+    }
 
-                panel.CodeText.text = keycodeRef.CodeString;
+    private void SetPanelAttributes(int panelIndex) {
+
+        if (panelIndex > (panels.Count - 1)) {
+            
+            throw new ArgumentException(
+                ($"There is no panel in the panels list with an index of {panelIndex}.")   
+            );
+        }
+
+        KeycodeRoomMapping mapping = KeycodesRoomsList.ValidMappings[panelIndex];
+        CodeRoomPanel panel = panels[panelIndex];
+        
+        Keycode keycodeRef = mapping.KeycodeReference;
+        Room roomRef = mapping.RoomReference;
+        
+        if (keycodeRef.IsDiscovered) {
+
+            panel.CodeText.text = keycodeRef.CodeString;
                 
-                if (roomRef.HasBeenVisited) {
+            if (roomRef.HasBeenVisited) {
 
-                    panel.RoomText.text = roomRef.RoomName;
-                }
-                else {
-
-                    panel.RoomText.text = UnknownRoomName;
-                }
+                panel.RoomText.text = roomRef.RoomName;
             }
             else {
 
-                panel.CodeText.text = "    ";
-                panel.RoomText.text = "";
+                panel.RoomText.text = UnknownRoomName;
             }
-            
-            panels.Add(panel);
+        }
+        else {
+
+            panel.CodeText.text = "    ";
+            panel.RoomText.text = "";
         }
     }
 
@@ -133,7 +151,7 @@ public sealed class CodesRoomsUi : MonoBehaviour {
 
     public void OnKeycodesListElementChanged(int elementIndex) {
         
-        
+        SetPanelAttributes(elementIndex);
     }
     
 
