@@ -153,23 +153,6 @@ public sealed class CodesRoomsUi : MonoBehaviour {
         
         SetPanelAttributes(elementIndex);
     }
-    
-
-
-    /* ---------- Overrides ---------- */
-
-
-
-
-
-
-    /* ---------- Inner Classes ---------- */
-
-
-
-
-
-
 }
 
 }

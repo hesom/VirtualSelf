@@ -11,12 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf62c2e39cc41d7ad357baa569680a5, type: 3}
   m_Name: BallmazeCube
   m_EditorClassIdentifier: 
-  digitOne: 0
-  digitTwo: 0
-  digitThree: 0
-  digitFour: 8
-  isDiscovered: 1
-  codeString: 0008
+  digitOne: 5
+  digitTwo: 2
+  digitThree: 1
+  digitFour: 4
+  isDiscovered: 0
+  codeString: 5214
   OnDiscoveredStateChanged:
     m_PersistentCalls:
       m_Calls: []
