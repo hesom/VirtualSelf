@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec14f45991dec54b88cab32bf259dd6, type: 3}
   m_Name: EasterEggRoomWithSnek
   m_EditorClassIdentifier: 
-  roomName: The Snake Escape
+  roomName: Snake
   description: You thought it was the end of the game, but it was me, DIO!!
   scene:
     Scene: {fileID: 102900000, guid: 1000c8cdae29ac444b439967ae64cf04, type: 3}

@@ -12,13 +12,21 @@ MonoBehaviour:
   m_Name: MainHub
   m_EditorClassIdentifier: 
   roomName: The Main Hub
-  description: 
+  description: 'Welcome to the Main Hub.
+
+    This is the central room, and you can always return here. On the wall, you will
+    find a panel that will keep you updated about all the keycodes you discover during
+    this training run, and the rooms associated with them. So don''t worry about forgetting
+    anything!
+
+
+    Check the panel now. The keycode for the next room is already on it.'
   scene:
     Scene: {fileID: 102900000, guid: 72a0857d35c52d945ac85bc38a351218, type: 3}
-    SceneName: Info Board Test Scene
-    sceneIndex: 9
+    SceneName: MainHub
+    sceneIndex: 12
     sceneEnabled: 1
-  hasBeenVisited: 0
+  hasBeenVisited: 1
   OnVisitedStateChanged:
     m_PersistentCalls:
       m_Calls: []

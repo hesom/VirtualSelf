@@ -238,13 +238,40 @@ public sealed class Keycode : ScriptableObject, ISerializationCallbackReceiver {
         
     
     /* ---------- Overrides ---------- */
-
+    
     public void OnAfterDeserialize() {
         
         isDiscoveredRuntimeValue = isDiscovered;
     }
 
     public void OnBeforeSerialize() {  }
+
+    private bool Equals(Keycode other) {
+        
+        return (base.Equals(other) && string.Equals(codeString, other.codeString));
+    }
+
+    public override bool Equals(object obj) {
+        
+        if (ReferenceEquals(null, obj)) { return (false); }
+        if (ReferenceEquals(this, obj)) { return (true); }
+
+        return (obj is Keycode && Equals((Keycode) obj));
+    }
+
+    public override int GetHashCode() {
+        unchecked {
+            return (base.GetHashCode() * 397) ^ (codeString != null ? codeString.GetHashCode() : 0);
+        }
+    }
+
+    public static bool operator ==(Keycode left, Keycode right) {
+        return (Equals(left, right));
+    }
+
+    public static bool operator !=(Keycode left, Keycode right) {
+        return (!Equals(left, right));
+    }
 }
 
 }

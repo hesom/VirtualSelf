@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec14f45991dec54b88cab32bf259dd6, type: 3}
   m_Name: BallMazeCube
   m_EditorClassIdentifier: 
-  roomName: BallMazeCube
+  roomName: Mini Games
   description: 'Rubiks Stuff.
 
     And Maze Stuff.
@@ -20,7 +20,7 @@ MonoBehaviour:
   scene:
     Scene: {fileID: 102900000, guid: ba68d802d21e7e54f8a64ed4c20ede2e, type: 3}
     SceneName: BallmazeCube
-    sceneIndex: 12
+    sceneIndex: 11
     sceneEnabled: 1
   hasBeenVisited: 0
   OnVisitedStateChanged:

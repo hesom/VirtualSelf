@@ -8,16 +8,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecf62c2e39cc41d7ad357baa569680a5, type: 3}
-  m_Name: LaserCode
+  m_Script: {fileID: 11500000, guid: aec14f45991dec54b88cab32bf259dd6, type: 3}
+  m_Name: HotWire
   m_EditorClassIdentifier: 
-  digitOne: 8
-  digitTwo: 1
-  digitThree: 2
-  digitFour: 1
-  isDiscovered: 0
-  codeString: 8121
-  OnDiscoveredStateChanged:
+  roomName: Hot Wire
+  description: 
+  scene:
+    Scene: {fileID: 102900000, guid: af64181fb78074647936d77952b0d70b, type: 3}
+    SceneName: Hot Wire
+    sceneIndex: 9
+    sceneEnabled: 1
+  hasBeenVisited: 0
+  OnVisitedStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: VirtualSelf.Utility.UnityEvents.ObjectUE, Assembly-CSharp, Version=0.0.0.0,

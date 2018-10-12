@@ -50,4 +50,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_VirtualSelf/_Scenes/BallKickTest.unity
     guid: d4c728f8689ec95428995cc10199d5e9
+  - enabled: 1
+    path: Assets/_VirtualSelf/_Scenes/User UI Test Scene.unity
+    guid: d94f6b45d478c9742bbd7cc86d7680a7
+  - enabled: 1
+    path: Assets/_VirtualSelf/_Scenes/FailureRoom.unity
+    guid: ca7ce15568ef7884780b53832ccb10ea
   m_configObjects: {}

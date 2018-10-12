@@ -15,14 +15,26 @@ MonoBehaviour:
   - keycodeReference: {fileID: 11400000, guid: 3d07fd7afa1b5374e9307904c5d02534, type: 2}
     roomReference: {fileID: 11400000, guid: 48d78a76f03672d4fa9778536dadef71, type: 2}
     propDrawingHeight: 51
-  - keycodeReference: {fileID: 11400000, guid: ce744b71da5d7b049b28e54d41c53fc6, type: 2}
-    roomReference: {fileID: 11400000, guid: ab6f68471f7ad224092593d522989aee, type: 2}
+  - keycodeReference: {fileID: 11400000, guid: b05d4716148bad445b1849bda67dcb56, type: 2}
+    roomReference: {fileID: 11400000, guid: bab4141199fbfb24cbde440c90e846d2, type: 2}
     propDrawingHeight: 51
   - keycodeReference: {fileID: 11400000, guid: 87b36390df1612548b1149d8568727d0, type: 2}
     roomReference: {fileID: 11400000, guid: 5efeaf223b1437a47b9d2858934437bd, type: 2}
     propDrawingHeight: 51
   - keycodeReference: {fileID: 11400000, guid: b769e50d796ab574b904a21e4870912a, type: 2}
     roomReference: {fileID: 11400000, guid: 97814a4524d562c40a38d6b72efbadf5, type: 2}
+    propDrawingHeight: 51
+  - keycodeReference: {fileID: 11400000, guid: 7e4a1e2e9d911254c9b66f1e3e1facad, type: 2}
+    roomReference: {fileID: 11400000, guid: 42c5da5b372c7d147bc742cef4a612b8, type: 2}
+    propDrawingHeight: 51
+  - keycodeReference: {fileID: 11400000, guid: f9b821da93594db41bb6fbeb6e1fc8f2, type: 2}
+    roomReference: {fileID: 11400000, guid: 25da22857d0449b4094e0a1dce0ce50a, type: 2}
+    propDrawingHeight: 51
+  - keycodeReference: {fileID: 11400000, guid: fc99028d5231d9b428efaa51b6bf7353, type: 2}
+    roomReference: {fileID: 11400000, guid: 05b74f5b63b22ee4fa393be0a146769a, type: 2}
+    propDrawingHeight: 51
+  - keycodeReference: {fileID: 11400000, guid: ce744b71da5d7b049b28e54d41c53fc6, type: 2}
+    roomReference: {fileID: 11400000, guid: ab6f68471f7ad224092593d522989aee, type: 2}
     propDrawingHeight: 51
   - keycodeReference: {fileID: 11400000, guid: f94689e598dd43d49a3b0755139360c4, type: 2}
     roomReference: {fileID: 11400000, guid: f16a7000d0d826949aa18b8cf8d6cdc5, type: 2}
@@ -33,22 +45,10 @@ MonoBehaviour:
   - keycodeReference: {fileID: 11400000, guid: 772b52d4de9f1674199838ce87f02644, type: 2}
     roomReference: {fileID: 11400000, guid: 12dbf91755f359248911f2e330a9b502, type: 2}
     propDrawingHeight: 51
-  - keycodeReference: {fileID: 11400000, guid: b05d4716148bad445b1849bda67dcb56, type: 2}
-    roomReference: {fileID: 11400000, guid: bab4141199fbfb24cbde440c90e846d2, type: 2}
-    propDrawingHeight: 51
-  - keycodeReference: {fileID: 11400000, guid: 7e4a1e2e9d911254c9b66f1e3e1facad, type: 2}
-    roomReference: {fileID: 11400000, guid: 99c81d9bfce84f143a126bd461f3f6fa, type: 2}
-    propDrawingHeight: 51
-  - keycodeReference: {fileID: 11400000, guid: fc99028d5231d9b428efaa51b6bf7353, type: 2}
-    roomReference: {fileID: 11400000, guid: 05b74f5b63b22ee4fa393be0a146769a, type: 2}
-    propDrawingHeight: 51
-  - keycodeReference: {fileID: 11400000, guid: f9b821da93594db41bb6fbeb6e1fc8f2, type: 2}
-    roomReference: {fileID: 11400000, guid: 25da22857d0449b4094e0a1dce0ce50a, type: 2}
-    propDrawingHeight: 51
   OnAnyListElementStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+    m_TypeName: VirtualSelf.Utility.UnityEvents.IntUE, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnKeycodeStateChanged:
     m_PersistentCalls:

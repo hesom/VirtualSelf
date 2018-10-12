@@ -9,14 +9,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ecf62c2e39cc41d7ad357baa569680a5, type: 3}
-  m_Name: Snek
+  m_Name: TheHub
   m_EditorClassIdentifier: 
   digitOne: 0
   digitTwo: 0
   digitThree: 0
-  digitFour: 5
-  isDiscovered: 0
-  codeString: 0005
+  digitFour: 0
+  isDiscovered: 1
+  codeString: 0000
   OnDiscoveredStateChanged:
     m_PersistentCalls:
       m_Calls: []

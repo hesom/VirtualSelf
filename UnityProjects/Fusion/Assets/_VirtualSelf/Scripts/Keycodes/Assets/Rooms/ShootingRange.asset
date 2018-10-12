@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec14f45991dec54b88cab32bf259dd6, type: 3}
   m_Name: ShootingRange
   m_EditorClassIdentifier: 
-  roomName: The Shooting Range
-  description: 
+  roomName: Shooting Range
+  description: In this room, patience is required.
   scene:
     Scene: {fileID: 102900000, guid: 145a9e6ca117faf4c944d9dc59930e24, type: 3}
     SceneName: Shooting Range
