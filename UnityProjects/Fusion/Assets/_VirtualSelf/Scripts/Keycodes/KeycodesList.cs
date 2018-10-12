@@ -105,10 +105,12 @@ public sealed class KeycodesList : ScriptableObject {
     /// in the mappings list (<see cref="ValidMappings"/>) changes. This event is concerned about
     /// general changes to the list, not specific changes. Classes that just want to know when
     /// there is a change to the list in general, can subscribe to this.<br/>
+    /// The index of the list element that changed (in <see cref="ValidMappings"/> is returned by
+    /// the event.<br/>
     /// For events specific to the Keycode or Room that changed, there are
     /// <see cref="OnKeycodeStateChanged"/> and <see cref="OnRoomStateChanged"/>.
     /// </summary>
-    public UnityEvent OnAnyListElementStateChanged;
+    public Utility.UnityEvents.IntUE OnAnyListElementStateChanged;
 
     /// <summary>
     /// Invoked whenever the state of any specific <see cref="Keycode"/> in the mappings list
@@ -239,14 +241,62 @@ public sealed class KeycodesList : ScriptableObject {
     /* ---------- Event Methods ---------- */
 
     private void OnKeycodeStateChangedInvocation(UnityEngine.Object keycode) {
+
+        if (isInitialized) {
+
+            Keycode eventCode = keycode as Keycode;
+            bool hasBeenFound = false;
+            
+            for (int i = 0; i < ValidMappings.Count; i++) {
+                
+                if (ValidMappings[i].KeycodeReference.Equals(eventCode)) {
+                    
+                    OnAnyListElementStateChanged.Invoke(i);
+                    
+                    hasBeenFound = true;
+                    break;
+                }
+            }
+
+            if (hasBeenFound == false) {
+                
+                throw new SystemException(
+                    "Could not find the keycode that has its event invoked within the keycodes " +
+                    "list. This should not be possible to happen..."
+                );
+            }
+        }
         
-        OnAnyListElementStateChanged.Invoke();
         OnKeycodeStateChanged.Invoke(keycode);
     }
 
     private void OnRoomStateChangedInvocation(UnityEngine.Object room) {
 
-        OnAnyListElementStateChanged.Invoke();
+        if (isInitialized) {
+
+            Room eventRoom = room as Room;
+            bool hasBeenFound = false;
+            
+            for (int i = 0; i < ValidMappings.Count; i++) {
+                
+                if (ValidMappings[i].RoomReference.Equals(eventRoom)) {
+                    
+                    OnAnyListElementStateChanged.Invoke(i);
+                    
+                    hasBeenFound = true;
+                    break;
+                }
+            }
+
+            if (hasBeenFound == false) {
+                
+                throw new SystemException(
+                    "Could not find the room that has its event invoked within the keycodes " +
+                    "list. This should not be possible to happen..."
+                );
+            }
+        }
+        
         OnRoomStateChanged.Invoke(room);
     }
 }
