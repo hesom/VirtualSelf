@@ -47,6 +47,9 @@ public sealed class CodesRoomsUi : MonoBehaviour {
 
     public Vector2 PanelsSize = new Vector2(350.0f, 180.0f);
 
+    public int CodeFontSize = 50;
+    public int RoomNameFontSize = 40;
+
     private readonly List<CodeRoomPanel> panels = new List<CodeRoomPanel>();
 
     private readonly List<CodeRoomPanel> changedPanels = new List<CodeRoomPanel>();
@@ -173,6 +176,14 @@ public sealed class CodesRoomsUi : MonoBehaviour {
         Room roomRef = mapping.RoomReference;
 
         Color panelColor;
+
+        if (SizePanelsFromPrefab == false) {
+
+            panel.CodeText.rectTransform.sizeDelta = PanelsSize;
+            panel.RoomText.rectTransform.sizeDelta = PanelsSize;
+            panel.CodeText.fontSize = CodeFontSize;
+            panel.RoomText.fontSize = RoomNameFontSize;
+        }
         
         bool isChanged = changedPanels.Contains(panel);
         
