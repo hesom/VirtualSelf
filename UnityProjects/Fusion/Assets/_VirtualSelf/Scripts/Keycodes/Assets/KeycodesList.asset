@@ -25,7 +25,7 @@ MonoBehaviour:
     roomReference: {fileID: 11400000, guid: 97814a4524d562c40a38d6b72efbadf5, type: 2}
     propDrawingHeight: 51
   - keycodeReference: {fileID: 11400000, guid: 7e4a1e2e9d911254c9b66f1e3e1facad, type: 2}
-    roomReference: {fileID: 11400000, guid: 99c81d9bfce84f143a126bd461f3f6fa, type: 2}
+    roomReference: {fileID: 11400000, guid: 42c5da5b372c7d147bc742cef4a612b8, type: 2}
     propDrawingHeight: 51
   - keycodeReference: {fileID: 11400000, guid: f9b821da93594db41bb6fbeb6e1fc8f2, type: 2}
     roomReference: {fileID: 11400000, guid: 25da22857d0449b4094e0a1dce0ce50a, type: 2}

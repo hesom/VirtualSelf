@@ -11,12 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec14f45991dec54b88cab32bf259dd6, type: 3}
   m_Name: LaserRoom
   m_EditorClassIdentifier: 
-  roomName: LaserScene
+  roomName: The Lasers
   description: 
   scene:
     Scene: {fileID: 102900000, guid: c3486f1fd992d43408e77ccd48b71fd0, type: 3}
     SceneName: LaserScene
-    sceneIndex: 11
+    sceneIndex: 10
     sceneEnabled: 1
   hasBeenVisited: 0
   OnVisitedStateChanged:
