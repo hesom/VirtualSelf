@@ -191,6 +191,34 @@ public sealed class Room : ScriptableObject, ISerializationCallbackReceiver {
     }
 
     public void OnBeforeSerialize() {  }
+
+    private bool Equals(Room other) {
+        
+        return (base.Equals(other) && string.Equals(roomName, other.roomName));
+    }
+
+    public override bool Equals(object obj) {
+        
+        if (ReferenceEquals(null, obj)) { return (false); }
+        if (ReferenceEquals(this, obj)) { return (true); }
+
+        return (obj is Room && Equals((Room) obj));
+    }
+
+    public override int GetHashCode() {
+        
+        unchecked {
+            return (base.GetHashCode() * 397) ^ (roomName != null ? roomName.GetHashCode() : 0);
+        }
+    }
+
+    public static bool operator ==(Room left, Room right) {
+        return (Equals(left, right));
+    }
+
+    public static bool operator !=(Room left, Room right) {
+        return (!Equals(left, right));
+    }
 }
 
 }
